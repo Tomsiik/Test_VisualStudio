@@ -66,7 +66,7 @@ namespace Test_VisualStudio
         {
             decimal CurrSensTR_value = numericUpDown3.Value;
             
-            double CurrSensTR_mV = (Convert.ToDouble(CurrSensTR_value)) * 12.5;
+            double CurrSensTR_mV = (Convert.ToDouble(CurrSensTR_value) + 1) * 12.5;
 
             label7.Text = Convert.ToString(CurrSensTR_mV);
         }
@@ -83,11 +83,7 @@ namespace Test_VisualStudio
 
         }
 
-        class C0
-        {
-
-        }
-
+  
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
             decimal Kcp_value = numericUpDown5.Value;
@@ -166,6 +162,52 @@ namespace Test_VisualStudio
             Fst_value = (Fst_value + 1) * 2;
 
             label18.Text = Convert.ToString(Fst_value);
+
+        }
+
+        private void numericUpDown14_ValueChanged(object sender, EventArgs e)
+        {
+            decimal Ksi_value = numericUpDown14.Value;
+
+            double Ksi = Math.Pow(2, Convert.ToDouble(Ksi_value - 7));
+
+            label29.Text = Convert.ToString(Ksi);
+        }
+
+        private void numericUpDown15_ValueChanged(object sender, EventArgs e)
+        {
+            decimal Fmx_value = numericUpDown15.Value;
+
+            double Fmx_hz = Convert.ToDouble((Math.Pow(2, 8 + Convert.ToDouble(Fmx_value)) - 1)) * 0.1;
+
+            label28.Text = Convert.ToString(Fmx_hz);
+        }
+
+        private void numericUpDown13_ValueChanged(object sender, EventArgs e)
+        {
+            decimal Oadv_value = numericUpDown13.Value;
+
+            double Oadv_hz = Convert.ToDouble(Oadv_value) * 1.875;
+
+            label26.Text = Convert.ToString(Oadv_hz);
+        }
+
+        private void numericUpDown16_ValueChanged(object sender, EventArgs e)
+        {
+            decimal Dc_value = numericUpDown16.Value;
+
+            Dc_value = (Dc_value * 3) + 7;
+
+            label1.Text = Convert.ToString(Dc_value);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
 
         }
     }
