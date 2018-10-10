@@ -35,7 +35,7 @@ namespace Test_VisualStudio
 
         }
 
-        /*************************************************************************Pull Data from Controls to Register*********************************************************************/
+        /*************************************************************************Pull Control's Data to Register*********************************************************************/
 
         public ushort Read_Config0()
         {
@@ -87,7 +87,7 @@ namespace Test_VisualStudio
             textBox1.Text = Convert.ToString(Read_Config0());
         }
 
-      
+
 
         private void numUpDown_DeadTime_ValueChanged(object sender, EventArgs e)
         {
@@ -105,71 +105,78 @@ namespace Test_VisualStudio
 
         /***********************************************************************Config 1********************************************************************************************/
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        private void chBox_PFD_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
 
-      
+        private void chBox_IPI_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
 
+
+
+
+        private void numUpDown_CurrSenseThr_ValueChanged(object sender, EventArgs e)
+        {
+            decimal CurrSensTR_value = numUpDown_CurrSenseThr.Value;
+
+            double CurrSensTR_mV = (Convert.ToDouble(CurrSensTR_value) + 1) * 12.5;
+
+            label7.Text = Convert.ToString(CurrSensTR_mV);
+        }
+
+        private void numUpDown_VdsThr_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
 
         /***********************************************************************Config 2********************************************************************************************/
 
-        private void numericUpDown5_ValueChanged(object sender, EventArgs e)
+        private void numUpDown_PropGainPosCon_ValueChanged(object sender, EventArgs e)
         {
-            decimal Kcp_value = numericUpDown5.Value;
+            decimal Kcp_value = numUpDown_PropGainPosCon.Value;
 
             double Kcp = Math.Pow(2, Convert.ToDouble(Kcp_value - 7));
 
             label9.Text = Convert.ToString(Kcp);
         }
 
-        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+
+
+        private void rBtn_OvrSpeed100_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        private void rBtn_OvrSpeed125_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        private void rBtn_OvrSpeed150_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        private void radioButton200_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void chBox_DegComp_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+
+        private void numUpDown_OffTime_ValueChanged(object sender, EventArgs e)
         {
-            decimal tpw_value = numericUpDown6.Value;
+            decimal tpw_value = numUpDown_OffTime.Value;
 
             double tpw_us = 20 + (Convert.ToDouble(tpw_value) * 1.6);
 
@@ -180,10 +187,10 @@ namespace Test_VisualStudio
 
         /***********************************************************************Config 3********************************************************************************************/
 
-
-        private void numericUpDown7_ValueChanged(object sender, EventArgs e)
+       
+        private void numUpDown_InGainPosCon_ValueChanged(object sender, EventArgs e)
         {
-            decimal Kci_value = numericUpDown7.Value;
+            decimal Kci_value = numUpDown_InGainPosCon.Value;
 
             double Kci = Math.Pow(2, Convert.ToDouble(Kci_value - 7));
 
@@ -191,21 +198,21 @@ namespace Test_VisualStudio
         }
 
 
-
-        private void numericUpDown8_ValueChanged(object sender, EventArgs e)
+      
+        private void numUpDown_PWMDutyHold_ValueChanged(object sender, EventArgs e)
         {
-            decimal Dh_value = numericUpDown8.Value;
+            decimal Dh_value = numUpDown_PWMDutyHold.Value;
 
             double Dh_percent = (Convert.ToDouble(Dh_value) + 1) * 6.25;
 
             label15.Text = Convert.ToString(Dh_percent);
         }
 
+       
 
-
-        private void numericUpDown9_ValueChanged(object sender, EventArgs e)
+        private void numUpDown_HoldTime_ValueChanged(object sender, EventArgs e)
         {
-            decimal thold_value = numericUpDown9.Value * 8;
+            decimal thold_value = numUpDown_HoldTime.Value * 8;
 
             label16.Text = Convert.ToString(thold_value);
         }
@@ -213,30 +220,31 @@ namespace Test_VisualStudio
 
         /***********************************************************************Config 4********************************************************************************************/
 
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        
+        private void numUpDown_PropGainSpeed_ValueChanged(object sender, EventArgs e)
         {
-            decimal CurrSensTR_value = numericUpDown3.Value;
+            decimal Ksp_value = numUpDown_PropGainSpeed.Value;
 
-            double CurrSensTR_mV = (Convert.ToDouble(CurrSensTR_value) + 1) * 12.5;
+            double Ksp = Math.Pow(2, Convert.ToDouble(Ksp_value - 7));
 
-            label7.Text = Convert.ToString(CurrSensTR_mV);
+            label21.Text = Convert.ToString(Ksp);
         }
 
-
-        private void numericUpDown12_ValueChanged(object sender, EventArgs e)
+        
+        private void numUpDown_PWMDutyCycleStartup_ValueChanged(object sender, EventArgs e)
         {
-            decimal Ds_value = numericUpDown12.Value;
+            decimal Ds_value = numUpDown_PWMDutyCycleStartup.Value;
 
             double Ds_percent = (Convert.ToDouble(Ds_value) + 1) * 6.25;
 
             label20.Text = Convert.ToString(Ds_percent);
         }
 
+        
 
-        private void numericUpDown10_ValueChanged(object sender, EventArgs e)
+        private void numUpDown_StartSpeed_ValueChanged(object sender, EventArgs e)
         {
-            decimal Fst_value = numericUpDown10.Value;
+            decimal Fst_value = numUpDown_StartSpeed.Value;
 
             Fst_value = (Fst_value + 1) * 2;
 
@@ -244,14 +252,7 @@ namespace Test_VisualStudio
 
         }
 
-        private void numericUpDown11_ValueChanged(object sender, EventArgs e)
-        {
-            decimal Ksp_value = numericUpDown11.Value;
-
-            double Ksp = Math.Pow(2, Convert.ToDouble(Ksp_value - 7));
-
-            label21.Text = Convert.ToString(Ksp);
-        }
+        
 
 
         /***********************************************************************Config 5********************************************************************************************/
@@ -356,7 +357,7 @@ namespace Test_VisualStudio
         private void checkBox8_CheckedChanged(object sender, EventArgs e)
         {
 
-        }
+        } /********************************************************************************************************/
 
        
     }

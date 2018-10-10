@@ -38,51 +38,51 @@
             this.numUpDown_DeadTime = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.chBox_PFD = new System.Windows.Forms.CheckBox();
+            this.chBox_IPI = new System.Windows.Forms.CheckBox();
+            this.numUpDown_CurrSenseThr = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rBtn_WinTim = new System.Windows.Forms.RadioButton();
+            this.rBtn_DebTim = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_VdsThr = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.numUpDown_OffTime = new System.Windows.Forms.NumericUpDown();
+            this.chBox_DegComp = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton200 = new System.Windows.Forms.RadioButton();
+            this.rBtn_OvrSpeed100 = new System.Windows.Forms.RadioButton();
+            this.rBtn_OvrSpeed150 = new System.Windows.Forms.RadioButton();
+            this.rBtn_OvrSpeed125 = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_PropGainPosCon = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_HoldTime = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_InGainPosCon = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_PWMDutyHold = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_StartSpeed = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_PropGainSpeed = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_PWMDutyCycleStartup = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -123,22 +123,22 @@
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_CurrSenseThr)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_VdsThr)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_OffTime)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PropGainPosCon)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_HoldTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_InGainPosCon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PWMDutyHold)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_StartSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PropGainSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PWMDutyCycleStartup)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
@@ -289,40 +289,40 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Recirculation Mode";
             // 
-            // checkBox1
+            // chBox_PFD
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 28);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(247, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "PFD -  Percent Fast Decay (0 - 12.5%, 1 - 25%)";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chBox_PFD.AutoSize = true;
+            this.chBox_PFD.Location = new System.Drawing.Point(6, 28);
+            this.chBox_PFD.Name = "chBox_PFD";
+            this.chBox_PFD.Size = new System.Drawing.Size(247, 17);
+            this.chBox_PFD.TabIndex = 17;
+            this.chBox_PFD.Text = "PFD -  Percent Fast Decay (0 - 12.5%, 1 - 25%)";
+            this.chBox_PFD.UseVisualStyleBackColor = true;
+            this.chBox_PFD.CheckedChanged += new System.EventHandler(this.chBox_PFD_CheckedChanged);
             // 
-            // checkBox2
+            // chBox_IPI
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 51);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(132, 17);
-            this.checkBox2.TabIndex = 18;
-            this.checkBox2.Text = "IPI - Invert PWM Input";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.chBox_IPI.AutoSize = true;
+            this.chBox_IPI.Location = new System.Drawing.Point(6, 51);
+            this.chBox_IPI.Name = "chBox_IPI";
+            this.chBox_IPI.Size = new System.Drawing.Size(132, 17);
+            this.chBox_IPI.TabIndex = 18;
+            this.chBox_IPI.Text = "IPI - Invert PWM Input";
+            this.chBox_IPI.UseVisualStyleBackColor = true;
+            this.chBox_IPI.CheckedChanged += new System.EventHandler(this.chBox_IPI_CheckedChanged);
             // 
-            // numericUpDown3
+            // numUpDown_CurrSenseThr
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(193, 71);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.numUpDown_CurrSenseThr.Location = new System.Drawing.Point(193, 71);
+            this.numUpDown_CurrSenseThr.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown3.TabIndex = 19;
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.numUpDown_CurrSenseThr.Name = "numUpDown_CurrSenseThr";
+            this.numUpDown_CurrSenseThr.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_CurrSenseThr.TabIndex = 19;
+            this.numUpDown_CurrSenseThr.ValueChanged += new System.EventHandler(this.numUpDown_CurrSenseThr_ValueChanged);
             // 
             // label5
             // 
@@ -335,8 +335,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.radioButton5);
+            this.groupBox2.Controls.Add(this.rBtn_WinTim);
+            this.groupBox2.Controls.Add(this.rBtn_DebTim);
             this.groupBox2.Location = new System.Drawing.Point(6, 83);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(150, 68);
@@ -344,29 +344,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "bemf Time Qualifier";
             // 
-            // radioButton6
+            // rBtn_WinTim
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(6, 45);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(93, 17);
-            this.radioButton6.TabIndex = 24;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Window Timer";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.rBtn_WinTim.AutoSize = true;
+            this.rBtn_WinTim.Location = new System.Drawing.Point(6, 45);
+            this.rBtn_WinTim.Name = "rBtn_WinTim";
+            this.rBtn_WinTim.Size = new System.Drawing.Size(93, 17);
+            this.rBtn_WinTim.TabIndex = 24;
+            this.rBtn_WinTim.TabStop = true;
+            this.rBtn_WinTim.Text = "Window Timer";
+            this.rBtn_WinTim.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rBtn_DebTim
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(104, 17);
-            this.radioButton5.TabIndex = 23;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Debounce Timer";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            this.rBtn_DebTim.AutoSize = true;
+            this.rBtn_DebTim.Location = new System.Drawing.Point(6, 19);
+            this.rBtn_DebTim.Name = "rBtn_DebTim";
+            this.rBtn_DebTim.Size = new System.Drawing.Size(104, 17);
+            this.rBtn_DebTim.TabIndex = 23;
+            this.rBtn_DebTim.TabStop = true;
+            this.rBtn_DebTim.Text = "Debounce Timer";
+            this.rBtn_DebTim.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -377,22 +375,23 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "VDS Treshold [mV]";
             // 
-            // numericUpDown4
+            // numUpDown_VdsThr
             // 
-            this.numericUpDown4.Increment = new decimal(new int[] {
+            this.numUpDown_VdsThr.Increment = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown4.Location = new System.Drawing.Point(193, 118);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.numUpDown_VdsThr.Location = new System.Drawing.Point(193, 118);
+            this.numUpDown_VdsThr.Maximum = new decimal(new int[] {
             1550,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown4.TabIndex = 23;
+            this.numUpDown_VdsThr.Name = "numUpDown_VdsThr";
+            this.numUpDown_VdsThr.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_VdsThr.TabIndex = 23;
+            this.numUpDown_VdsThr.ValueChanged += new System.EventHandler(this.numUpDown_VdsThr_ValueChanged);
             // 
             // label7
             // 
@@ -408,14 +407,14 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.chBox_PFD);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.checkBox2);
+            this.groupBox3.Controls.Add(this.chBox_IPI);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.numericUpDown4);
+            this.groupBox3.Controls.Add(this.numUpDown_VdsThr);
             this.groupBox3.Controls.Add(this.groupBox2);
-            this.groupBox3.Controls.Add(this.numericUpDown3);
+            this.groupBox3.Controls.Add(this.numUpDown_CurrSenseThr);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox3.Location = new System.Drawing.Point(30, 231);
             this.groupBox3.Name = "groupBox3";
@@ -429,12 +428,12 @@
             // 
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.numericUpDown6);
-            this.groupBox4.Controls.Add(this.checkBox3);
+            this.groupBox4.Controls.Add(this.numUpDown_OffTime);
+            this.groupBox4.Controls.Add(this.chBox_DegComp);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.numericUpDown5);
+            this.groupBox4.Controls.Add(this.numUpDown_PropGainPosCon);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox4.Location = new System.Drawing.Point(30, 407);
@@ -463,36 +462,35 @@
             this.label10.TabIndex = 31;
             this.label10.Text = "Fixed Off-Time/Fixed Period [us]";
             // 
-            // numericUpDown6
+            // numUpDown_OffTime
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(193, 138);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+            this.numUpDown_OffTime.Location = new System.Drawing.Point(193, 138);
+            this.numUpDown_OffTime.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown6.TabIndex = 30;
-            this.numericUpDown6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
+            this.numUpDown_OffTime.Name = "numUpDown_OffTime";
+            this.numUpDown_OffTime.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_OffTime.TabIndex = 30;
             // 
-            // checkBox3
+            // chBox_DegComp
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(193, 53);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(138, 17);
-            this.checkBox3.TabIndex = 29;
-            this.checkBox3.Text = "Degauss Compensation";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.chBox_DegComp.AutoSize = true;
+            this.chBox_DegComp.Location = new System.Drawing.Point(193, 53);
+            this.chBox_DegComp.Name = "chBox_DegComp";
+            this.chBox_DegComp.Size = new System.Drawing.Size(138, 17);
+            this.chBox_DegComp.TabIndex = 29;
+            this.chBox_DegComp.Text = "Degauss Compensation";
+            this.chBox_DegComp.UseVisualStyleBackColor = true;
+            this.chBox_DegComp.CheckedChanged += new System.EventHandler(this.chBox_DegComp_CheckedChanged);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton10);
-            this.groupBox5.Controls.Add(this.radioButton7);
-            this.groupBox5.Controls.Add(this.radioButton9);
-            this.groupBox5.Controls.Add(this.radioButton8);
+            this.groupBox5.Controls.Add(this.radioButton200);
+            this.groupBox5.Controls.Add(this.rBtn_OvrSpeed100);
+            this.groupBox5.Controls.Add(this.rBtn_OvrSpeed150);
+            this.groupBox5.Controls.Add(this.rBtn_OvrSpeed125);
             this.groupBox5.Location = new System.Drawing.Point(6, 73);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(161, 107);
@@ -500,53 +498,53 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Overspeed Limit Ratio";
             // 
-            // radioButton10
+            // radioButton200
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(6, 88);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(51, 17);
-            this.radioButton10.TabIndex = 31;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "200%";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
+            this.radioButton200.AutoSize = true;
+            this.radioButton200.Location = new System.Drawing.Point(6, 88);
+            this.radioButton200.Name = "radioButton200";
+            this.radioButton200.Size = new System.Drawing.Size(51, 17);
+            this.radioButton200.TabIndex = 31;
+            this.radioButton200.TabStop = true;
+            this.radioButton200.Text = "200%";
+            this.radioButton200.UseVisualStyleBackColor = true;
+            this.radioButton200.CheckedChanged += new System.EventHandler(this.radioButton200_CheckedChanged);
             // 
-            // radioButton7
+            // rBtn_OvrSpeed100
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(6, 19);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(144, 17);
-            this.radioButton7.TabIndex = 28;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "100% Max Control Speed";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
+            this.rBtn_OvrSpeed100.AutoSize = true;
+            this.rBtn_OvrSpeed100.Location = new System.Drawing.Point(6, 19);
+            this.rBtn_OvrSpeed100.Name = "rBtn_OvrSpeed100";
+            this.rBtn_OvrSpeed100.Size = new System.Drawing.Size(144, 17);
+            this.rBtn_OvrSpeed100.TabIndex = 28;
+            this.rBtn_OvrSpeed100.TabStop = true;
+            this.rBtn_OvrSpeed100.Text = "100% Max Control Speed";
+            this.rBtn_OvrSpeed100.UseVisualStyleBackColor = true;
+            this.rBtn_OvrSpeed100.CheckedChanged += new System.EventHandler(this.rBtn_OvrSpeed100_CheckedChanged);
             // 
-            // radioButton9
+            // rBtn_OvrSpeed150
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(6, 65);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(51, 17);
-            this.radioButton9.TabIndex = 30;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "150%";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
+            this.rBtn_OvrSpeed150.AutoSize = true;
+            this.rBtn_OvrSpeed150.Location = new System.Drawing.Point(6, 65);
+            this.rBtn_OvrSpeed150.Name = "rBtn_OvrSpeed150";
+            this.rBtn_OvrSpeed150.Size = new System.Drawing.Size(51, 17);
+            this.rBtn_OvrSpeed150.TabIndex = 30;
+            this.rBtn_OvrSpeed150.TabStop = true;
+            this.rBtn_OvrSpeed150.Text = "150%";
+            this.rBtn_OvrSpeed150.UseVisualStyleBackColor = true;
+            this.rBtn_OvrSpeed150.CheckedChanged += new System.EventHandler(this.rBtn_OvrSpeed150_CheckedChanged);
             // 
-            // radioButton8
+            // rBtn_OvrSpeed125
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(6, 42);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(51, 17);
-            this.radioButton8.TabIndex = 29;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "125%";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
+            this.rBtn_OvrSpeed125.AutoSize = true;
+            this.rBtn_OvrSpeed125.Location = new System.Drawing.Point(6, 42);
+            this.rBtn_OvrSpeed125.Name = "rBtn_OvrSpeed125";
+            this.rBtn_OvrSpeed125.Size = new System.Drawing.Size(51, 17);
+            this.rBtn_OvrSpeed125.TabIndex = 29;
+            this.rBtn_OvrSpeed125.TabStop = true;
+            this.rBtn_OvrSpeed125.Text = "125%";
+            this.rBtn_OvrSpeed125.UseVisualStyleBackColor = true;
+            this.rBtn_OvrSpeed125.CheckedChanged += new System.EventHandler(this.rBtn_OvrSpeed125_CheckedChanged);
             // 
             // label9
             // 
@@ -566,18 +564,18 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "Proportional Gain of the Position Controller";
             // 
-            // numericUpDown5
+            // numUpDown_PropGainPosCon
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(9, 42);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.numUpDown_PropGainPosCon.Location = new System.Drawing.Point(9, 42);
+            this.numUpDown_PropGainPosCon.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown5.TabIndex = 26;
-            this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
+            this.numUpDown_PropGainPosCon.Name = "numUpDown_PropGainPosCon";
+            this.numUpDown_PropGainPosCon.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_PropGainPosCon.TabIndex = 26;
+            this.numUpDown_PropGainPosCon.ValueChanged += new System.EventHandler(this.numUpDown_PropGainPosCon_ValueChanged);
             // 
             // label4
             // 
@@ -593,13 +591,13 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label16);
-            this.groupBox6.Controls.Add(this.numericUpDown9);
+            this.groupBox6.Controls.Add(this.numUpDown_HoldTime);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.numericUpDown7);
-            this.groupBox6.Controls.Add(this.numericUpDown8);
+            this.groupBox6.Controls.Add(this.numUpDown_InGainPosCon);
+            this.groupBox6.Controls.Add(this.numUpDown_PWMDutyHold);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox6.Location = new System.Drawing.Point(409, 37);
@@ -619,18 +617,18 @@
             this.label16.TabIndex = 32;
             this.label16.Text = "0";
             // 
-            // numericUpDown9
+            // numUpDown_HoldTime
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(23, 146);
-            this.numericUpDown9.Maximum = new decimal(new int[] {
+            this.numUpDown_HoldTime.Location = new System.Drawing.Point(23, 146);
+            this.numUpDown_HoldTime.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown9.TabIndex = 30;
-            this.numericUpDown9.ValueChanged += new System.EventHandler(this.numericUpDown9_ValueChanged);
+            this.numUpDown_HoldTime.Name = "numUpDown_HoldTime";
+            this.numUpDown_HoldTime.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_HoldTime.TabIndex = 30;
+            this.numUpDown_HoldTime.ValueChanged += new System.EventHandler(this.numUpDown_HoldTime_ValueChanged);
             // 
             // label17
             // 
@@ -668,31 +666,31 @@
             this.label13.TabIndex = 14;
             this.label13.Text = "Integral Gain of the Position Controller";
             // 
-            // numericUpDown7
+            // numUpDown_InGainPosCon
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(21, 43);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
+            this.numUpDown_InGainPosCon.Location = new System.Drawing.Point(21, 43);
+            this.numUpDown_InGainPosCon.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown7.TabIndex = 12;
-            this.numericUpDown7.ValueChanged += new System.EventHandler(this.numericUpDown7_ValueChanged);
+            this.numUpDown_InGainPosCon.Name = "numUpDown_InGainPosCon";
+            this.numUpDown_InGainPosCon.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_InGainPosCon.TabIndex = 12;
+            this.numUpDown_InGainPosCon.ValueChanged += new System.EventHandler(this.numUpDown_InGainPosCon_ValueChanged);
             // 
-            // numericUpDown8
+            // numUpDown_PWMDutyHold
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(22, 96);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
+            this.numUpDown_PWMDutyHold.Location = new System.Drawing.Point(22, 96);
+            this.numUpDown_PWMDutyHold.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown8.TabIndex = 13;
-            this.numericUpDown8.ValueChanged += new System.EventHandler(this.numericUpDown8_ValueChanged);
+            this.numUpDown_PWMDutyHold.Name = "numUpDown_PWMDutyHold";
+            this.numUpDown_PWMDutyHold.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_PWMDutyHold.TabIndex = 13;
+            this.numUpDown_PWMDutyHold.ValueChanged += new System.EventHandler(this.numUpDown_PWMDutyHold_ValueChanged);
             // 
             // label14
             // 
@@ -707,13 +705,13 @@
             // 
             this.groupBox7.Controls.Add(this.label24);
             this.groupBox7.Controls.Add(this.label18);
-            this.groupBox7.Controls.Add(this.numericUpDown10);
+            this.groupBox7.Controls.Add(this.numUpDown_StartSpeed);
             this.groupBox7.Controls.Add(this.label19);
             this.groupBox7.Controls.Add(this.label20);
             this.groupBox7.Controls.Add(this.label21);
             this.groupBox7.Controls.Add(this.label22);
-            this.groupBox7.Controls.Add(this.numericUpDown11);
-            this.groupBox7.Controls.Add(this.numericUpDown12);
+            this.groupBox7.Controls.Add(this.numUpDown_PropGainSpeed);
+            this.groupBox7.Controls.Add(this.numUpDown_PWMDutyCycleStartup);
             this.groupBox7.Controls.Add(this.label23);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox7.Location = new System.Drawing.Point(409, 233);
@@ -742,18 +740,18 @@
             this.label18.TabIndex = 32;
             this.label18.Text = "2";
             // 
-            // numericUpDown10
+            // numUpDown_StartSpeed
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(23, 146);
-            this.numericUpDown10.Maximum = new decimal(new int[] {
+            this.numUpDown_StartSpeed.Location = new System.Drawing.Point(23, 146);
+            this.numUpDown_StartSpeed.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown10.TabIndex = 30;
-            this.numericUpDown10.ValueChanged += new System.EventHandler(this.numericUpDown10_ValueChanged);
+            this.numUpDown_StartSpeed.Name = "numUpDown_StartSpeed";
+            this.numUpDown_StartSpeed.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_StartSpeed.TabIndex = 30;
+            this.numUpDown_StartSpeed.ValueChanged += new System.EventHandler(this.numUpDown_StartSpeed_ValueChanged);
             // 
             // label19
             // 
@@ -791,31 +789,31 @@
             this.label22.TabIndex = 14;
             this.label22.Text = "Proportional Gain of the Speed PI Controller";
             // 
-            // numericUpDown11
+            // numUpDown_PropGainSpeed
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(21, 43);
-            this.numericUpDown11.Maximum = new decimal(new int[] {
+            this.numUpDown_PropGainSpeed.Location = new System.Drawing.Point(21, 43);
+            this.numUpDown_PropGainSpeed.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown11.TabIndex = 12;
-            this.numericUpDown11.ValueChanged += new System.EventHandler(this.numericUpDown11_ValueChanged);
+            this.numUpDown_PropGainSpeed.Name = "numUpDown_PropGainSpeed";
+            this.numUpDown_PropGainSpeed.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_PropGainSpeed.TabIndex = 12;
+            this.numUpDown_PropGainSpeed.ValueChanged += new System.EventHandler(this.numUpDown_PropGainSpeed_ValueChanged);
             // 
-            // numericUpDown12
+            // numUpDown_PWMDutyCycleStartup
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(22, 96);
-            this.numericUpDown12.Maximum = new decimal(new int[] {
+            this.numUpDown_PWMDutyCycleStartup.Location = new System.Drawing.Point(22, 96);
+            this.numUpDown_PWMDutyCycleStartup.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown12.TabIndex = 13;
-            this.numericUpDown12.ValueChanged += new System.EventHandler(this.numericUpDown12_ValueChanged);
+            this.numUpDown_PWMDutyCycleStartup.Name = "numUpDown_PWMDutyCycleStartup";
+            this.numUpDown_PWMDutyCycleStartup.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_PWMDutyCycleStartup.TabIndex = 13;
+            this.numUpDown_PWMDutyCycleStartup.ValueChanged += new System.EventHandler(this.numUpDown_PWMDutyCycleStartup_ValueChanged);
             // 
             // label23
             // 
@@ -869,7 +867,6 @@
             this.radioButton12.TabStop = true;
             this.radioButton12.Text = "TACHO - commutation frequency";
             this.radioButton12.UseVisualStyleBackColor = true;
-            this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
             // radioButton11
             // 
@@ -881,7 +878,6 @@
             this.radioButton11.TabStop = true;
             this.radioButton11.Text = "FG - electrical frequency";
             this.radioButton11.UseVisualStyleBackColor = true;
-            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
             // 
             // label25
             // 
@@ -912,7 +908,6 @@
             this.numericUpDown13.Name = "numericUpDown13";
             this.numericUpDown13.Size = new System.Drawing.Size(51, 20);
             this.numericUpDown13.TabIndex = 30;
-            this.numericUpDown13.ValueChanged += new System.EventHandler(this.numericUpDown13_ValueChanged);
             // 
             // label27
             // 
@@ -961,7 +956,6 @@
             this.numericUpDown14.Name = "numericUpDown14";
             this.numericUpDown14.Size = new System.Drawing.Size(51, 20);
             this.numericUpDown14.TabIndex = 12;
-            this.numericUpDown14.ValueChanged += new System.EventHandler(this.numericUpDown14_ValueChanged);
             // 
             // numericUpDown15
             // 
@@ -974,7 +968,6 @@
             this.numericUpDown15.Name = "numericUpDown15";
             this.numericUpDown15.Size = new System.Drawing.Size(51, 20);
             this.numericUpDown15.TabIndex = 13;
-            this.numericUpDown15.ValueChanged += new System.EventHandler(this.numericUpDown15_ValueChanged);
             // 
             // label31
             // 
@@ -1024,7 +1017,6 @@
             this.numericUpDown16.Name = "numericUpDown16";
             this.numericUpDown16.Size = new System.Drawing.Size(51, 20);
             this.numericUpDown16.TabIndex = 38;
-            this.numericUpDown16.ValueChanged += new System.EventHandler(this.numericUpDown16_ValueChanged);
             // 
             // label32
             // 
@@ -1044,7 +1036,6 @@
             this.checkBox8.TabIndex = 37;
             this.checkBox8.Text = "Run Enable";
             this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
             // 
             // checkBox7
             // 
@@ -1055,7 +1046,6 @@
             this.checkBox7.TabIndex = 36;
             this.checkBox7.Text = "Direction of Rotation";
             this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -1066,7 +1056,6 @@
             this.checkBox6.TabIndex = 35;
             this.checkBox6.Text = "Brake";
             this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // checkBox5
             // 
@@ -1077,7 +1066,6 @@
             this.checkBox5.TabIndex = 34;
             this.checkBox5.Text = "Restart Control";
             this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -1088,7 +1076,6 @@
             this.checkBox4.TabIndex = 33;
             this.checkBox4.Text = "Enable Stop On Fail";
             this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // groupBox12
             // 
@@ -1113,7 +1100,6 @@
             this.radioButton16.TabStop = true;
             this.radioButton16.Text = "Closed-Loop Speed";
             this.radioButton16.UseVisualStyleBackColor = true;
-            this.radioButton16.CheckedChanged += new System.EventHandler(this.radioButton16_CheckedChanged);
             // 
             // radioButton15
             // 
@@ -1125,7 +1111,6 @@
             this.radioButton15.TabStop = true;
             this.radioButton15.Text = "Closed-Loop Current";
             this.radioButton15.UseVisualStyleBackColor = true;
-            this.radioButton15.CheckedChanged += new System.EventHandler(this.radioButton15_CheckedChanged);
             // 
             // radioButton14
             // 
@@ -1137,7 +1122,6 @@
             this.radioButton14.TabStop = true;
             this.radioButton14.Text = "Direct Speed (Duty Cycle)";
             this.radioButton14.UseVisualStyleBackColor = true;
-            this.radioButton14.CheckedChanged += new System.EventHandler(this.radioButton14_CheckedChanged);
             // 
             // radioButton13
             // 
@@ -1149,7 +1133,6 @@
             this.radioButton13.TabStop = true;
             this.radioButton13.Text = "Indirect Speed (Duty Cycle)";
             this.radioButton13.UseVisualStyleBackColor = true;
-            this.radioButton13.CheckedChanged += new System.EventHandler(this.radioButton13_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -1240,28 +1223,28 @@
             this.groupBoxC0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_CurrSenseThr)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_VdsThr)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_OffTime)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PropGainPosCon)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_HoldTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_InGainPosCon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PWMDutyHold)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_StartSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PropGainSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PWMDutyCycleStartup)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -1293,50 +1276,50 @@
         private System.Windows.Forms.NumericUpDown numUpDown_DeadTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.CheckBox chBox_PFD;
+        private System.Windows.Forms.CheckBox chBox_IPI;
+        private System.Windows.Forms.NumericUpDown numUpDown_CurrSenseThr;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rBtn_WinTim;
+        private System.Windows.Forms.RadioButton rBtn_DebTim;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numUpDown_VdsThr;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numUpDown_PropGainPosCon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.RadioButton radioButton200;
+        private System.Windows.Forms.RadioButton rBtn_OvrSpeed100;
+        private System.Windows.Forms.RadioButton rBtn_OvrSpeed150;
+        private System.Windows.Forms.RadioButton rBtn_OvrSpeed125;
+        private System.Windows.Forms.CheckBox chBox_DegComp;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown numUpDown_OffTime;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown numUpDown_InGainPosCon;
+        private System.Windows.Forms.NumericUpDown numUpDown_PWMDutyHold;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.NumericUpDown numUpDown_HoldTime;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown numUpDown_StartSpeed;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
+        private System.Windows.Forms.NumericUpDown numUpDown_PropGainSpeed;
+        private System.Windows.Forms.NumericUpDown numUpDown_PWMDutyCycleStartup;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox groupBox8;
