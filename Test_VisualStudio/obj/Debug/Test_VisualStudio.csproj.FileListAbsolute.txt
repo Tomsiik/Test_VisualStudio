@@ -8,3 +8,43 @@ C:\Users\Tomsik\Documents\Visual Studio 2017\Projects\Test_VisualStudio\Test_Vis
 C:\Users\Tomsik\Documents\Visual Studio 2017\Projects\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
 C:\Users\Tomsik\Documents\Visual Studio 2017\Projects\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
 C:\Users\Tomsik\Documents\Visual Studio 2017\Projects\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\OneDrive - ZAT\Dokumenty\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+C:\Users\t-matejka\Documents\Test_VisualStudio-master\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+C:\Users\t-matejka\Documents\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
