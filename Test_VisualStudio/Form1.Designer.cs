@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rBtn_RcModeAuto = new System.Windows.Forms.RadioButton();
             this.rBtn_RcModeHigh = new System.Windows.Forms.RadioButton();
             this.rBtn_RcModeLow = new System.Windows.Forms.RadioButton();
@@ -120,6 +121,19 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
+            this.btn_SetPreset = new System.Windows.Forms.Button();
+            this.btn_ReadConfiguration = new System.Windows.Forms.Button();
+            this.btn_ResetConfiguration = new System.Windows.Forms.Button();
+            this.chBox_LockControls = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -149,6 +163,9 @@
             this.groupBox12.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.gpBox_ConInteraction.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // rBtn_RcModeAuto
@@ -998,7 +1015,7 @@
             this.groupBox11.Controls.Add(this.chBox_EnableStopFail);
             this.groupBox11.Controls.Add(this.groupBox12);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox11.Location = new System.Drawing.Point(845, 37);
+            this.groupBox11.Location = new System.Drawing.Point(817, 37);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(213, 374);
             this.groupBox11.TabIndex = 31;
@@ -1008,7 +1025,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 189);
+            this.label1.Location = new System.Drawing.Point(76, 220);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 40;
@@ -1016,7 +1033,7 @@
             // 
             // numUpDown_DutyCycleControl
             // 
-            this.numUpDown_DutyCycleControl.Location = new System.Drawing.Point(19, 187);
+            this.numUpDown_DutyCycleControl.Location = new System.Drawing.Point(19, 218);
             this.numUpDown_DutyCycleControl.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1030,7 +1047,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(16, 165);
+            this.label32.Location = new System.Drawing.Point(16, 196);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(111, 13);
             this.label32.TabIndex = 39;
@@ -1039,7 +1056,7 @@
             // chBox_RunEnable
             // 
             this.chBox_RunEnable.AutoSize = true;
-            this.chBox_RunEnable.Location = new System.Drawing.Point(19, 329);
+            this.chBox_RunEnable.Location = new System.Drawing.Point(19, 332);
             this.chBox_RunEnable.Name = "chBox_RunEnable";
             this.chBox_RunEnable.Size = new System.Drawing.Size(82, 17);
             this.chBox_RunEnable.TabIndex = 37;
@@ -1050,7 +1067,7 @@
             // chBox_DirectionRotation
             // 
             this.chBox_DirectionRotation.AutoSize = true;
-            this.chBox_DirectionRotation.Location = new System.Drawing.Point(19, 306);
+            this.chBox_DirectionRotation.Location = new System.Drawing.Point(19, 309);
             this.chBox_DirectionRotation.Name = "chBox_DirectionRotation";
             this.chBox_DirectionRotation.Size = new System.Drawing.Size(123, 17);
             this.chBox_DirectionRotation.TabIndex = 36;
@@ -1061,7 +1078,7 @@
             // chBox_Brake
             // 
             this.chBox_Brake.AutoSize = true;
-            this.chBox_Brake.Location = new System.Drawing.Point(19, 283);
+            this.chBox_Brake.Location = new System.Drawing.Point(19, 286);
             this.chBox_Brake.Name = "chBox_Brake";
             this.chBox_Brake.Size = new System.Drawing.Size(54, 17);
             this.chBox_Brake.TabIndex = 35;
@@ -1072,7 +1089,7 @@
             // chBox_RestartControl
             // 
             this.chBox_RestartControl.AutoSize = true;
-            this.chBox_RestartControl.Location = new System.Drawing.Point(19, 260);
+            this.chBox_RestartControl.Location = new System.Drawing.Point(19, 263);
             this.chBox_RestartControl.Name = "chBox_RestartControl";
             this.chBox_RestartControl.Size = new System.Drawing.Size(96, 17);
             this.chBox_RestartControl.TabIndex = 34;
@@ -1083,7 +1100,7 @@
             // chBox_EnableStopFail
             // 
             this.chBox_EnableStopFail.AutoSize = true;
-            this.chBox_EnableStopFail.Location = new System.Drawing.Point(19, 237);
+            this.chBox_EnableStopFail.Location = new System.Drawing.Point(19, 161);
             this.chBox_EnableStopFail.Name = "chBox_EnableStopFail";
             this.chBox_EnableStopFail.Size = new System.Drawing.Size(120, 17);
             this.chBox_EnableStopFail.TabIndex = 33;
@@ -1201,29 +1218,158 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1095, 53);
+            this.textBox1.Location = new System.Drawing.Point(9, 50);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(264, 246);
+            this.textBox1.Size = new System.Drawing.Size(264, 193);
             this.textBox1.TabIndex = 35;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1092, 37);
+            this.label33.Location = new System.Drawing.Point(6, 34);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(86, 13);
             this.label33.TabIndex = 36;
             this.label33.Text = "Serial Input Data";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // gpBox_ConInteraction
+            // 
+            this.gpBox_ConInteraction.Controls.Add(this.chBox_LockControls);
+            this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
+            this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
+            this.gpBox_ConInteraction.Controls.Add(this.btn_SetPreset);
+            this.gpBox_ConInteraction.Location = new System.Drawing.Point(845, 425);
+            this.gpBox_ConInteraction.Name = "gpBox_ConInteraction";
+            this.gpBox_ConInteraction.Size = new System.Drawing.Size(220, 176);
+            this.gpBox_ConInteraction.TabIndex = 37;
+            this.gpBox_ConInteraction.TabStop = false;
+            this.gpBox_ConInteraction.Text = "Control Interaction";
+            // 
+            // btn_SetPreset
+            // 
+            this.btn_SetPreset.Location = new System.Drawing.Point(8, 22);
+            this.btn_SetPreset.Name = "btn_SetPreset";
+            this.btn_SetPreset.Size = new System.Drawing.Size(200, 25);
+            this.btn_SetPreset.TabIndex = 38;
+            this.btn_SetPreset.Text = "Set Preset";
+            this.btn_SetPreset.UseVisualStyleBackColor = true;
+            // 
+            // btn_ReadConfiguration
+            // 
+            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 54);
+            this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
+            this.btn_ReadConfiguration.Size = new System.Drawing.Size(200, 25);
+            this.btn_ReadConfiguration.TabIndex = 39;
+            this.btn_ReadConfiguration.Text = "Read Configuration to Preset";
+            this.btn_ReadConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // btn_ResetConfiguration
+            // 
+            this.btn_ResetConfiguration.Location = new System.Drawing.Point(8, 88);
+            this.btn_ResetConfiguration.Name = "btn_ResetConfiguration";
+            this.btn_ResetConfiguration.Size = new System.Drawing.Size(200, 25);
+            this.btn_ResetConfiguration.TabIndex = 40;
+            this.btn_ResetConfiguration.Text = "Reset ";
+            this.btn_ResetConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // chBox_LockControls
+            // 
+            this.chBox_LockControls.AutoSize = true;
+            this.chBox_LockControls.Location = new System.Drawing.Point(88, 129);
+            this.chBox_LockControls.Name = "chBox_LockControls";
+            this.chBox_LockControls.Size = new System.Drawing.Size(50, 17);
+            this.chBox_LockControls.TabIndex = 41;
+            this.chBox_LockControls.Text = "Lock";
+            this.chBox_LockControls.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label33);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Location = new System.Drawing.Point(1082, 30);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(300, 381);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Diagnostic";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.button2);
+            this.groupBox13.Controls.Add(this.radioButton2);
+            this.groupBox13.Controls.Add(this.radioButton1);
+            this.groupBox13.Controls.Add(this.button4);
+            this.groupBox13.Controls.Add(this.button1);
+            this.groupBox13.Location = new System.Drawing.Point(1082, 425);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(299, 175);
+            this.groupBox13.TabIndex = 39;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Commands";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 60);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Write Configuration";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(149, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(134, 57);
+            this.button4.TabIndex = 42;
+            this.button4.Text = "Read Configuration";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(21, 99);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(84, 17);
+            this.radioButton1.TabIndex = 43;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Single Mode";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(21, 124);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(105, 17);
+            this.radioButton2.TabIndex = 44;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Auto Write Mode";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(149, 96);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 60);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Read Diagnostic";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1394, 642);
-            this.Controls.Add(this.label33);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.groupBox13);
+            this.Controls.Add(this.gpBox_ConInteraction);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox8);
@@ -1233,6 +1379,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBoxC0);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "AS4963 Configurator";
@@ -1279,6 +1426,12 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.gpBox_ConInteraction.ResumeLayout(false);
+            this.gpBox_ConInteraction.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1377,6 +1530,19 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox gpBox_ConInteraction;
+        private System.Windows.Forms.CheckBox chBox_LockControls;
+        private System.Windows.Forms.Button btn_ResetConfiguration;
+        private System.Windows.Forms.Button btn_ReadConfiguration;
+        private System.Windows.Forms.Button btn_SetPreset;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

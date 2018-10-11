@@ -340,6 +340,19 @@ namespace AS4963_Interface
                 return Reg5;
             }
 
+            public static ushort RunReg(ushort cm, ushort esf, ushort di, ushort rsc, ushort brk, ushort dir, ushort run)
+            {
+                ushort Run = 0;
+                Run |= Convert.ToUInt16((Run & (~RUN.CM.Mask)) | Convert.ToUInt16(cm << RUN.CM.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.ESF.Mask)) | Convert.ToUInt16(esf << RUN.ESF.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.DI.Mask)) | Convert.ToUInt16(di << RUN.DI.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.RSC.Mask)) | Convert.ToUInt16(rsc << RUN.RSC.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.BRK.Mask)) | Convert.ToUInt16(brk << RUN.BRK.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.DIR.Mask)) | Convert.ToUInt16(dir << RUN.DIR.Pos));
+                Run |= Convert.ToUInt16((Run & (~RUN.RRUN.Mask)) | Convert.ToUInt16(run << RUN.RRUN.Pos));
+                return Run;
+            }
+
             /*public static ushort MaskReg4(ushort tw, ushort ot, ushort los, ushort vs)
             {
                 ushort Reg5 = 0;

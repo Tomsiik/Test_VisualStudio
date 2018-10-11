@@ -32,7 +32,7 @@ namespace Test_VisualStudio
 
         }
 
-        /*************************************************************************Pull Control's Data to Register*********************************************************************/
+        /*************************************************************************Pull Control Data to Register*********************************************************************/
 
         public ushort Config0_Read()
         {
@@ -156,42 +156,75 @@ namespace Test_VisualStudio
             return AS4963.ModifyReg.ConfigReg5(regSI, regSPO, regSMX, regPA);
         }
 
+        public ushort Run_Read()
+        {
+            ushort regCM = 0;
+            ushort regESF = 0;
+            ushort regDI = 0;  
+            ushort regRSC = 0;
+            ushort regBRK = 0;
+            ushort regDIR = 0;
+            ushort regRUN = 0;
+
+
+            if (rBtn_MotConIndirect.Checked)
+                regCM = 0;
+            if (rBtn_MotConDirect.Checked)
+                regCM = 1;
+            if (rBtn_MotConClosedCurr.Checked)
+                regCM = 2;
+            if (rBtn_MotConClosedSpeed.Checked)
+                regCM = 3;
+
+
+            regDI = Convert.ToUInt16(numUpDown_DutyCycleControl.Value);
+
+            regESF = Convert.ToUInt16(chBox_EnableStopFail.Checked);
+            regRSC = Convert.ToUInt16(chBox_RestartControl.Checked);
+            regBRK = Convert.ToUInt16(chBox_Brake.Checked);
+            regDIR = Convert.ToUInt16(chBox_DirectionRotation.Checked);
+            regRUN = Convert.ToUInt16(chBox_RunEnable.Checked);
+
+            return AS4963.ModifyReg.RunReg(regCM, regESF, regDI, regRSC, regBRK, regDIR, regRUN);
+
+        }
+
 
         /***********************************************************************Config 0********************************************************************************************/
 
 
         private void rBtn_RcModeAuto_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config0_Read());
+            
 
         }
 
         private void rBtn_RcModeHigh_CheckedChanged(object sender, EventArgs e)
         {
 
-            textBox1.Text = Convert.ToString(Config0_Read());
+           
         }
 
         private void rBtn_RcModeLow_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config0_Read());
+            
         }
 
         private void rBtn_RcModeOff_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config0_Read());
+            
         }
 
 
 
         private void numUpDown_DeadTime_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config0_Read());
+            
         }
 
         private void numUpDown_BlankTime_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config0_Read());
+          
         }
 
 
@@ -202,24 +235,24 @@ namespace Test_VisualStudio
 
         private void chBox_PFD_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config1_Read());
+           
         }
 
 
         private void chBox_IPI_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config1_Read());
+            
         }
 
 
         private void rBtn_DebTim_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config1_Read());
+           
         }
 
         private void rBtn_WinTim_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config1_Read());
+            
         }
 
 
@@ -231,12 +264,12 @@ namespace Test_VisualStudio
 
             label7.Text = Convert.ToString(CurrSensTR_mV);
 
-            textBox1.Text = Convert.ToString(Config1_Read());
+           
         }
 
         private void numUpDown_VdsThr_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config1_Read());
+            
         }
 
         /***********************************************************************Config 2********************************************************************************************/
@@ -248,35 +281,35 @@ namespace Test_VisualStudio
             double Kcp = Math.Pow(2, Convert.ToDouble(Kcp_value - 7));
 
             label9.Text = Convert.ToString(Kcp);
-            textBox1.Text = Convert.ToString(Config2_Read());
+           
         }
 
 
 
         private void rBtn_OvrSpeed100_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config2_Read());
+            
         }
 
         private void rBtn_OvrSpeed125_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config2_Read());
+            
         }
 
         private void rBtn_OvrSpeed150_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config2_Read());
+            
         }
 
         private void rBtn_OvrSpeed200_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config2_Read());
+            
         }
 
 
         private void chBox_DegComp_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config2_Read());
+          
         }
 
         
@@ -289,7 +322,7 @@ namespace Test_VisualStudio
 
             label11.Text = Convert.ToString(tpw_us);
 
-            textBox1.Text = Convert.ToString(Config2_Read());
+           
         }
 
 
@@ -305,7 +338,7 @@ namespace Test_VisualStudio
 
             label12.Text = Convert.ToString(Kci);
 
-            textBox1.Text = Convert.ToString(Config3_Read());
+            
         }
 
 
@@ -318,7 +351,7 @@ namespace Test_VisualStudio
 
             label15.Text = Convert.ToString(Dh_percent);
 
-            textBox1.Text = Convert.ToString(Config3_Read());
+            
         }
 
 
@@ -329,7 +362,7 @@ namespace Test_VisualStudio
 
             label16.Text = Convert.ToString(thold_value);
 
-            textBox1.Text = Convert.ToString(Config3_Read());
+           
         }
 
 
@@ -344,7 +377,7 @@ namespace Test_VisualStudio
 
             label21.Text = Convert.ToString(Ksp);
 
-            textBox1.Text = Convert.ToString(Config4_Read());
+            
         }
 
 
@@ -356,7 +389,7 @@ namespace Test_VisualStudio
 
             label20.Text = Convert.ToString(Ds_percent);
 
-            textBox1.Text = Convert.ToString(Config4_Read());
+           
         }
 
 
@@ -369,7 +402,7 @@ namespace Test_VisualStudio
 
             label18.Text = Convert.ToString(Fst_value);
 
-            textBox1.Text = Convert.ToString(Config4_Read());
+           
 
         }
 
@@ -389,7 +422,7 @@ namespace Test_VisualStudio
 
             label29.Text = Convert.ToString(Ksi);
 
-            textBox1.Text = Convert.ToString(Config5_Read());
+           
         }
 
         
@@ -401,18 +434,18 @@ namespace Test_VisualStudio
 
             label28.Text = Convert.ToString(Fmx_hz);
 
-            textBox1.Text = Convert.ToString(Config5_Read());
+            
         }
 
 
         private void rBtn_SpeedOutSelElectricFreeq_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config5_Read());
+           
         }
 
         private void rBtn_SpeedOutSelCommuFreq_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(Config5_Read());
+           
         }
 
 
@@ -425,7 +458,7 @@ namespace Test_VisualStudio
 
             label26.Text = Convert.ToString(Oadv_hz);
 
-            textBox1.Text = Convert.ToString(Config5_Read());
+           
         }
 
 
@@ -435,22 +468,22 @@ namespace Test_VisualStudio
 
         private void rBtn_MotConIndirect_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void rBtn_MotConDirect_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void rBtn_MotConClosedCurr_CheckedChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void rBtn_MotConClosedSpeed_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void numUpDown_DutyCycleControl_ValueChanged(object sender, EventArgs e)
@@ -460,33 +493,62 @@ namespace Test_VisualStudio
             Dc_value = (Dc_value * 3) + 7;
 
             label1.Text = Convert.ToString(Dc_value);
+
+           
         }
 
         private void chBox_EnableStopFail_CheckedChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void chBox_RestartControl_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void chBox_Brake_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void chBox_DirectionRotation_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void chBox_RunEnable_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-       
+        
+
+        /*************************************************************************Timer********************************************************************************************/
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            textBox1.Text = "Config 0 =  " + Convert.ToString(Config0_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Config 1 =  " + Convert.ToString(Config1_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Config 2 =  " + Convert.ToString(Config2_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Config 3 =  " + Convert.ToString(Config3_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Config 4 =  " + Convert.ToString(Config4_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Config 5 =  " + Convert.ToString(Config5_Read()) + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Run =  " + Convert.ToString(Run_Read()) + Environment.NewLine;
+        }
+
+        /*********************************************************************Control Interaction**********************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
     }
 }
