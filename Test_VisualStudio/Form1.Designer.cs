@@ -55,7 +55,7 @@
             this.numUpDown_OffTime = new System.Windows.Forms.NumericUpDown();
             this.chBox_DegComp = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton200 = new System.Windows.Forms.RadioButton();
+            this.rBtn_OvrSpeed200 = new System.Windows.Forms.RadioButton();
             this.rBtn_OvrSpeed100 = new System.Windows.Forms.RadioButton();
             this.rBtn_OvrSpeed150 = new System.Windows.Forms.RadioButton();
             this.rBtn_OvrSpeed125 = new System.Windows.Forms.RadioButton();
@@ -86,32 +86,32 @@
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.rBtn_SpeedOutSelCommuFreq = new System.Windows.Forms.RadioButton();
+            this.rBtn_SpeedOutSelElectricFreeq = new System.Windows.Forms.RadioButton();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_PhaseAdvance = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_InGainSpeedCon = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_MaxSpeedHz = new System.Windows.Forms.NumericUpDown();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown_DutyCycleControl = new System.Windows.Forms.NumericUpDown();
             this.label32 = new System.Windows.Forms.Label();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.chBox_RunEnable = new System.Windows.Forms.CheckBox();
+            this.chBox_DirectionRotation = new System.Windows.Forms.CheckBox();
+            this.chBox_Brake = new System.Windows.Forms.CheckBox();
+            this.chBox_RestartControl = new System.Windows.Forms.CheckBox();
+            this.chBox_EnableStopFail = new System.Windows.Forms.CheckBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.rBtn_MotConClosedSpeed = new System.Windows.Forms.RadioButton();
+            this.rBtn_MotConClosedCurr = new System.Windows.Forms.RadioButton();
+            this.rBtn_MotConDirect = new System.Windows.Forms.RadioButton();
+            this.rBtn_MotConIndirect = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,11 +141,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PWMDutyCycleStartup)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PhaseAdvance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_InGainSpeedCon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_MaxSpeedHz)).BeginInit();
             this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DutyCycleControl)).BeginInit();
             this.groupBox12.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -354,6 +354,7 @@
             this.rBtn_WinTim.TabStop = true;
             this.rBtn_WinTim.Text = "Window Timer";
             this.rBtn_WinTim.UseVisualStyleBackColor = true;
+            this.rBtn_WinTim.CheckedChanged += new System.EventHandler(this.rBtn_WinTim_CheckedChanged);
             // 
             // rBtn_DebTim
             // 
@@ -365,6 +366,7 @@
             this.rBtn_DebTim.TabStop = true;
             this.rBtn_DebTim.Text = "Debounce Timer";
             this.rBtn_DebTim.UseVisualStyleBackColor = true;
+            this.rBtn_DebTim.CheckedChanged += new System.EventHandler(this.rBtn_DebTim_CheckedChanged);
             // 
             // label6
             // 
@@ -473,6 +475,7 @@
             this.numUpDown_OffTime.Name = "numUpDown_OffTime";
             this.numUpDown_OffTime.Size = new System.Drawing.Size(51, 20);
             this.numUpDown_OffTime.TabIndex = 30;
+            this.numUpDown_OffTime.ValueChanged += new System.EventHandler(this.numUpDown_OffTime_ValueChanged);
             // 
             // chBox_DegComp
             // 
@@ -487,7 +490,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton200);
+            this.groupBox5.Controls.Add(this.rBtn_OvrSpeed200);
             this.groupBox5.Controls.Add(this.rBtn_OvrSpeed100);
             this.groupBox5.Controls.Add(this.rBtn_OvrSpeed150);
             this.groupBox5.Controls.Add(this.rBtn_OvrSpeed125);
@@ -498,17 +501,17 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Overspeed Limit Ratio";
             // 
-            // radioButton200
+            // rBtn_OvrSpeed200
             // 
-            this.radioButton200.AutoSize = true;
-            this.radioButton200.Location = new System.Drawing.Point(6, 88);
-            this.radioButton200.Name = "radioButton200";
-            this.radioButton200.Size = new System.Drawing.Size(51, 17);
-            this.radioButton200.TabIndex = 31;
-            this.radioButton200.TabStop = true;
-            this.radioButton200.Text = "200%";
-            this.radioButton200.UseVisualStyleBackColor = true;
-            this.radioButton200.CheckedChanged += new System.EventHandler(this.radioButton200_CheckedChanged);
+            this.rBtn_OvrSpeed200.AutoSize = true;
+            this.rBtn_OvrSpeed200.Location = new System.Drawing.Point(6, 88);
+            this.rBtn_OvrSpeed200.Name = "rBtn_OvrSpeed200";
+            this.rBtn_OvrSpeed200.Size = new System.Drawing.Size(51, 17);
+            this.rBtn_OvrSpeed200.TabIndex = 31;
+            this.rBtn_OvrSpeed200.TabStop = true;
+            this.rBtn_OvrSpeed200.Text = "200%";
+            this.rBtn_OvrSpeed200.UseVisualStyleBackColor = true;
+            this.rBtn_OvrSpeed200.CheckedChanged += new System.EventHandler(this.rBtn_OvrSpeed200_CheckedChanged);
             // 
             // rBtn_OvrSpeed100
             // 
@@ -829,13 +832,13 @@
             this.groupBox8.Controls.Add(this.groupBox9);
             this.groupBox8.Controls.Add(this.label25);
             this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Controls.Add(this.numericUpDown13);
+            this.groupBox8.Controls.Add(this.numUpDown_PhaseAdvance);
             this.groupBox8.Controls.Add(this.label27);
             this.groupBox8.Controls.Add(this.label28);
             this.groupBox8.Controls.Add(this.label29);
             this.groupBox8.Controls.Add(this.label30);
-            this.groupBox8.Controls.Add(this.numericUpDown14);
-            this.groupBox8.Controls.Add(this.numericUpDown15);
+            this.groupBox8.Controls.Add(this.numUpDown_InGainSpeedCon);
+            this.groupBox8.Controls.Add(this.numUpDown_MaxSpeedHz);
             this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox8.Location = new System.Drawing.Point(409, 425);
@@ -848,8 +851,8 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.radioButton12);
-            this.groupBox9.Controls.Add(this.radioButton11);
+            this.groupBox9.Controls.Add(this.rBtn_SpeedOutSelCommuFreq);
+            this.groupBox9.Controls.Add(this.rBtn_SpeedOutSelElectricFreeq);
             this.groupBox9.Location = new System.Drawing.Point(215, 27);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(193, 63);
@@ -857,27 +860,29 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Speed Output Selection";
             // 
-            // radioButton12
+            // rBtn_SpeedOutSelCommuFreq
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(6, 40);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(181, 17);
-            this.radioButton12.TabIndex = 1;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "TACHO - commutation frequency";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.rBtn_SpeedOutSelCommuFreq.AutoSize = true;
+            this.rBtn_SpeedOutSelCommuFreq.Location = new System.Drawing.Point(6, 40);
+            this.rBtn_SpeedOutSelCommuFreq.Name = "rBtn_SpeedOutSelCommuFreq";
+            this.rBtn_SpeedOutSelCommuFreq.Size = new System.Drawing.Size(181, 17);
+            this.rBtn_SpeedOutSelCommuFreq.TabIndex = 1;
+            this.rBtn_SpeedOutSelCommuFreq.TabStop = true;
+            this.rBtn_SpeedOutSelCommuFreq.Text = "TACHO - commutation frequency";
+            this.rBtn_SpeedOutSelCommuFreq.UseVisualStyleBackColor = true;
+            this.rBtn_SpeedOutSelCommuFreq.CheckedChanged += new System.EventHandler(this.rBtn_SpeedOutSelCommuFreq_CheckedChanged);
             // 
-            // radioButton11
+            // rBtn_SpeedOutSelElectricFreeq
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(6, 19);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(140, 17);
-            this.radioButton11.TabIndex = 0;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "FG - electrical frequency";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.rBtn_SpeedOutSelElectricFreeq.AutoSize = true;
+            this.rBtn_SpeedOutSelElectricFreeq.Location = new System.Drawing.Point(6, 19);
+            this.rBtn_SpeedOutSelElectricFreeq.Name = "rBtn_SpeedOutSelElectricFreeq";
+            this.rBtn_SpeedOutSelElectricFreeq.Size = new System.Drawing.Size(140, 17);
+            this.rBtn_SpeedOutSelElectricFreeq.TabIndex = 0;
+            this.rBtn_SpeedOutSelElectricFreeq.TabStop = true;
+            this.rBtn_SpeedOutSelElectricFreeq.Text = "FG - electrical frequency";
+            this.rBtn_SpeedOutSelElectricFreeq.UseVisualStyleBackColor = true;
+            this.rBtn_SpeedOutSelElectricFreeq.CheckedChanged += new System.EventHandler(this.rBtn_SpeedOutSelElectricFreeq_CheckedChanged);
             // 
             // label25
             // 
@@ -897,17 +902,18 @@
             this.label26.TabIndex = 32;
             this.label26.Text = "0";
             // 
-            // numericUpDown13
+            // numUpDown_PhaseAdvance
             // 
-            this.numericUpDown13.Location = new System.Drawing.Point(248, 136);
-            this.numericUpDown13.Maximum = new decimal(new int[] {
+            this.numUpDown_PhaseAdvance.Location = new System.Drawing.Point(248, 136);
+            this.numUpDown_PhaseAdvance.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown13.TabIndex = 30;
+            this.numUpDown_PhaseAdvance.Name = "numUpDown_PhaseAdvance";
+            this.numUpDown_PhaseAdvance.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_PhaseAdvance.TabIndex = 30;
+            this.numUpDown_PhaseAdvance.ValueChanged += new System.EventHandler(this.numUpDown_PhaseAdvance_ValueChanged);
             // 
             // label27
             // 
@@ -945,29 +951,31 @@
             this.label30.TabIndex = 14;
             this.label30.Text = "Integral Gain of the Speed PI Controller";
             // 
-            // numericUpDown14
+            // numUpDown_InGainSpeedCon
             // 
-            this.numericUpDown14.Location = new System.Drawing.Point(21, 43);
-            this.numericUpDown14.Maximum = new decimal(new int[] {
+            this.numUpDown_InGainSpeedCon.Location = new System.Drawing.Point(21, 43);
+            this.numUpDown_InGainSpeedCon.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown14.TabIndex = 12;
+            this.numUpDown_InGainSpeedCon.Name = "numUpDown_InGainSpeedCon";
+            this.numUpDown_InGainSpeedCon.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_InGainSpeedCon.TabIndex = 12;
+            this.numUpDown_InGainSpeedCon.ValueChanged += new System.EventHandler(this.numUpDown_InGainSpeedCon_ValueChanged);
             // 
-            // numericUpDown15
+            // numUpDown_MaxSpeedHz
             // 
-            this.numericUpDown15.Location = new System.Drawing.Point(21, 134);
-            this.numericUpDown15.Maximum = new decimal(new int[] {
+            this.numUpDown_MaxSpeedHz.Location = new System.Drawing.Point(21, 134);
+            this.numUpDown_MaxSpeedHz.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown15.TabIndex = 13;
+            this.numUpDown_MaxSpeedHz.Name = "numUpDown_MaxSpeedHz";
+            this.numUpDown_MaxSpeedHz.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_MaxSpeedHz.TabIndex = 13;
+            this.numUpDown_MaxSpeedHz.ValueChanged += new System.EventHandler(this.numUpDown_MaxSpeedHz_ValueChanged);
             // 
             // label31
             // 
@@ -981,13 +989,13 @@
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.label1);
-            this.groupBox11.Controls.Add(this.numericUpDown16);
+            this.groupBox11.Controls.Add(this.numUpDown_DutyCycleControl);
             this.groupBox11.Controls.Add(this.label32);
-            this.groupBox11.Controls.Add(this.checkBox8);
-            this.groupBox11.Controls.Add(this.checkBox7);
-            this.groupBox11.Controls.Add(this.checkBox6);
-            this.groupBox11.Controls.Add(this.checkBox5);
-            this.groupBox11.Controls.Add(this.checkBox4);
+            this.groupBox11.Controls.Add(this.chBox_RunEnable);
+            this.groupBox11.Controls.Add(this.chBox_DirectionRotation);
+            this.groupBox11.Controls.Add(this.chBox_Brake);
+            this.groupBox11.Controls.Add(this.chBox_RestartControl);
+            this.groupBox11.Controls.Add(this.chBox_EnableStopFail);
             this.groupBox11.Controls.Add(this.groupBox12);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox11.Location = new System.Drawing.Point(845, 37);
@@ -1006,17 +1014,18 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "10";
             // 
-            // numericUpDown16
+            // numUpDown_DutyCycleControl
             // 
-            this.numericUpDown16.Location = new System.Drawing.Point(19, 187);
-            this.numericUpDown16.Maximum = new decimal(new int[] {
+            this.numUpDown_DutyCycleControl.Location = new System.Drawing.Point(19, 187);
+            this.numUpDown_DutyCycleControl.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(51, 20);
-            this.numericUpDown16.TabIndex = 38;
+            this.numUpDown_DutyCycleControl.Name = "numUpDown_DutyCycleControl";
+            this.numUpDown_DutyCycleControl.Size = new System.Drawing.Size(51, 20);
+            this.numUpDown_DutyCycleControl.TabIndex = 38;
+            this.numUpDown_DutyCycleControl.ValueChanged += new System.EventHandler(this.numUpDown_DutyCycleControl_ValueChanged);
             // 
             // label32
             // 
@@ -1027,62 +1036,67 @@
             this.label32.TabIndex = 39;
             this.label32.Text = "Duty Cycle Control [%]";
             // 
-            // checkBox8
+            // chBox_RunEnable
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(19, 329);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(82, 17);
-            this.checkBox8.TabIndex = 37;
-            this.checkBox8.Text = "Run Enable";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.chBox_RunEnable.AutoSize = true;
+            this.chBox_RunEnable.Location = new System.Drawing.Point(19, 329);
+            this.chBox_RunEnable.Name = "chBox_RunEnable";
+            this.chBox_RunEnable.Size = new System.Drawing.Size(82, 17);
+            this.chBox_RunEnable.TabIndex = 37;
+            this.chBox_RunEnable.Text = "Run Enable";
+            this.chBox_RunEnable.UseVisualStyleBackColor = true;
+            this.chBox_RunEnable.CheckedChanged += new System.EventHandler(this.chBox_RunEnable_CheckedChanged);
             // 
-            // checkBox7
+            // chBox_DirectionRotation
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(19, 306);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(123, 17);
-            this.checkBox7.TabIndex = 36;
-            this.checkBox7.Text = "Direction of Rotation";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chBox_DirectionRotation.AutoSize = true;
+            this.chBox_DirectionRotation.Location = new System.Drawing.Point(19, 306);
+            this.chBox_DirectionRotation.Name = "chBox_DirectionRotation";
+            this.chBox_DirectionRotation.Size = new System.Drawing.Size(123, 17);
+            this.chBox_DirectionRotation.TabIndex = 36;
+            this.chBox_DirectionRotation.Text = "Direction of Rotation";
+            this.chBox_DirectionRotation.UseVisualStyleBackColor = true;
+            this.chBox_DirectionRotation.CheckedChanged += new System.EventHandler(this.chBox_DirectionRotation_CheckedChanged);
             // 
-            // checkBox6
+            // chBox_Brake
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(19, 283);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(54, 17);
-            this.checkBox6.TabIndex = 35;
-            this.checkBox6.Text = "Brake";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chBox_Brake.AutoSize = true;
+            this.chBox_Brake.Location = new System.Drawing.Point(19, 283);
+            this.chBox_Brake.Name = "chBox_Brake";
+            this.chBox_Brake.Size = new System.Drawing.Size(54, 17);
+            this.chBox_Brake.TabIndex = 35;
+            this.chBox_Brake.Text = "Brake";
+            this.chBox_Brake.UseVisualStyleBackColor = true;
+            this.chBox_Brake.CheckedChanged += new System.EventHandler(this.chBox_Brake_CheckedChanged);
             // 
-            // checkBox5
+            // chBox_RestartControl
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(19, 260);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(96, 17);
-            this.checkBox5.TabIndex = 34;
-            this.checkBox5.Text = "Restart Control";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chBox_RestartControl.AutoSize = true;
+            this.chBox_RestartControl.Location = new System.Drawing.Point(19, 260);
+            this.chBox_RestartControl.Name = "chBox_RestartControl";
+            this.chBox_RestartControl.Size = new System.Drawing.Size(96, 17);
+            this.chBox_RestartControl.TabIndex = 34;
+            this.chBox_RestartControl.Text = "Restart Control";
+            this.chBox_RestartControl.UseVisualStyleBackColor = true;
+            this.chBox_RestartControl.CheckedChanged += new System.EventHandler(this.chBox_RestartControl_CheckedChanged);
             // 
-            // checkBox4
+            // chBox_EnableStopFail
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(19, 237);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(120, 17);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "Enable Stop On Fail";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chBox_EnableStopFail.AutoSize = true;
+            this.chBox_EnableStopFail.Location = new System.Drawing.Point(19, 237);
+            this.chBox_EnableStopFail.Name = "chBox_EnableStopFail";
+            this.chBox_EnableStopFail.Size = new System.Drawing.Size(120, 17);
+            this.chBox_EnableStopFail.TabIndex = 33;
+            this.chBox_EnableStopFail.Text = "Enable Stop On Fail";
+            this.chBox_EnableStopFail.UseVisualStyleBackColor = true;
+            this.chBox_EnableStopFail.CheckedChanged += new System.EventHandler(this.chBox_EnableStopFail_CheckedChanged);
             // 
             // groupBox12
             // 
-            this.groupBox12.Controls.Add(this.radioButton16);
-            this.groupBox12.Controls.Add(this.radioButton15);
-            this.groupBox12.Controls.Add(this.radioButton14);
-            this.groupBox12.Controls.Add(this.radioButton13);
+            this.groupBox12.Controls.Add(this.rBtn_MotConClosedSpeed);
+            this.groupBox12.Controls.Add(this.rBtn_MotConClosedCurr);
+            this.groupBox12.Controls.Add(this.rBtn_MotConDirect);
+            this.groupBox12.Controls.Add(this.rBtn_MotConIndirect);
             this.groupBox12.Location = new System.Drawing.Point(13, 29);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(161, 114);
@@ -1090,49 +1104,53 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Motor Control Mode";
             // 
-            // radioButton16
+            // rBtn_MotConClosedSpeed
             // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Location = new System.Drawing.Point(6, 90);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(118, 17);
-            this.radioButton16.TabIndex = 3;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "Closed-Loop Speed";
-            this.radioButton16.UseVisualStyleBackColor = true;
+            this.rBtn_MotConClosedSpeed.AutoSize = true;
+            this.rBtn_MotConClosedSpeed.Location = new System.Drawing.Point(6, 90);
+            this.rBtn_MotConClosedSpeed.Name = "rBtn_MotConClosedSpeed";
+            this.rBtn_MotConClosedSpeed.Size = new System.Drawing.Size(118, 17);
+            this.rBtn_MotConClosedSpeed.TabIndex = 3;
+            this.rBtn_MotConClosedSpeed.TabStop = true;
+            this.rBtn_MotConClosedSpeed.Text = "Closed-Loop Speed";
+            this.rBtn_MotConClosedSpeed.UseVisualStyleBackColor = true;
+            this.rBtn_MotConClosedSpeed.CheckedChanged += new System.EventHandler(this.rBtn_MotConClosedSpeed_CheckedChanged);
             // 
-            // radioButton15
+            // rBtn_MotConClosedCurr
             // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(6, 67);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(121, 17);
-            this.radioButton15.TabIndex = 2;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "Closed-Loop Current";
-            this.radioButton15.UseVisualStyleBackColor = true;
+            this.rBtn_MotConClosedCurr.AutoSize = true;
+            this.rBtn_MotConClosedCurr.Location = new System.Drawing.Point(6, 67);
+            this.rBtn_MotConClosedCurr.Name = "rBtn_MotConClosedCurr";
+            this.rBtn_MotConClosedCurr.Size = new System.Drawing.Size(121, 17);
+            this.rBtn_MotConClosedCurr.TabIndex = 2;
+            this.rBtn_MotConClosedCurr.TabStop = true;
+            this.rBtn_MotConClosedCurr.Text = "Closed-Loop Current";
+            this.rBtn_MotConClosedCurr.UseVisualStyleBackColor = true;
+            this.rBtn_MotConClosedCurr.CheckedChanged += new System.EventHandler(this.rBtn_MotConClosedCurr_CheckedChanged);
             // 
-            // radioButton14
+            // rBtn_MotConDirect
             // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Location = new System.Drawing.Point(6, 42);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(147, 17);
-            this.radioButton14.TabIndex = 1;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "Direct Speed (Duty Cycle)";
-            this.radioButton14.UseVisualStyleBackColor = true;
+            this.rBtn_MotConDirect.AutoSize = true;
+            this.rBtn_MotConDirect.Location = new System.Drawing.Point(6, 42);
+            this.rBtn_MotConDirect.Name = "rBtn_MotConDirect";
+            this.rBtn_MotConDirect.Size = new System.Drawing.Size(147, 17);
+            this.rBtn_MotConDirect.TabIndex = 1;
+            this.rBtn_MotConDirect.TabStop = true;
+            this.rBtn_MotConDirect.Text = "Direct Speed (Duty Cycle)";
+            this.rBtn_MotConDirect.UseVisualStyleBackColor = true;
+            this.rBtn_MotConDirect.CheckedChanged += new System.EventHandler(this.rBtn_MotConDirect_CheckedChanged);
             // 
-            // radioButton13
+            // rBtn_MotConIndirect
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(6, 19);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(154, 17);
-            this.radioButton13.TabIndex = 0;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Indirect Speed (Duty Cycle)";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.rBtn_MotConIndirect.AutoSize = true;
+            this.rBtn_MotConIndirect.Location = new System.Drawing.Point(6, 19);
+            this.rBtn_MotConIndirect.Name = "rBtn_MotConIndirect";
+            this.rBtn_MotConIndirect.Size = new System.Drawing.Size(154, 17);
+            this.rBtn_MotConIndirect.TabIndex = 0;
+            this.rBtn_MotConIndirect.TabStop = true;
+            this.rBtn_MotConIndirect.Text = "Indirect Speed (Duty Cycle)";
+            this.rBtn_MotConIndirect.UseVisualStyleBackColor = true;
+            this.rBtn_MotConIndirect.CheckedChanged += new System.EventHandler(this.rBtn_MotConIndirect_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -1249,12 +1267,12 @@
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_PhaseAdvance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_InGainSpeedCon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_MaxSpeedHz)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DutyCycleControl)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1293,7 +1311,7 @@
         private System.Windows.Forms.NumericUpDown numUpDown_PropGainPosCon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton200;
+        private System.Windows.Forms.RadioButton rBtn_OvrSpeed200;
         private System.Windows.Forms.RadioButton rBtn_OvrSpeed100;
         private System.Windows.Forms.RadioButton rBtn_OvrSpeed150;
         private System.Windows.Forms.RadioButton rBtn_OvrSpeed125;
@@ -1325,32 +1343,32 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private System.Windows.Forms.NumericUpDown numUpDown_PhaseAdvance;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.NumericUpDown numericUpDown14;
-        private System.Windows.Forms.NumericUpDown numericUpDown15;
+        private System.Windows.Forms.NumericUpDown numUpDown_InGainSpeedCon;
+        private System.Windows.Forms.NumericUpDown numUpDown_MaxSpeedHz;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton rBtn_SpeedOutSelCommuFreq;
+        private System.Windows.Forms.RadioButton rBtn_SpeedOutSelElectricFreeq;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
+        private System.Windows.Forms.NumericUpDown numUpDown_DutyCycleControl;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox chBox_RunEnable;
+        private System.Windows.Forms.CheckBox chBox_DirectionRotation;
+        private System.Windows.Forms.CheckBox chBox_Brake;
+        private System.Windows.Forms.CheckBox chBox_RestartControl;
+        private System.Windows.Forms.CheckBox chBox_EnableStopFail;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.RadioButton radioButton15;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton rBtn_MotConClosedSpeed;
+        private System.Windows.Forms.RadioButton rBtn_MotConClosedCurr;
+        private System.Windows.Forms.RadioButton rBtn_MotConDirect;
+        private System.Windows.Forms.RadioButton rBtn_MotConIndirect;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;

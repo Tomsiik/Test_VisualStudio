@@ -330,7 +330,7 @@ namespace AS4963_Interface
                 return Reg4;
             }
 
-            public static ushort ConfigReg4(ushort si, ushort spo, ushort smx, ushort pa)
+            public static ushort ConfigReg5(ushort si, ushort spo, ushort smx, ushort pa)
             {
                 ushort Reg5 = 0;
                 Reg5 |= Convert.ToUInt16((Reg5 & (~C5.SI.Mask)) | Convert.ToUInt16(si << C5.SI.Pos));
