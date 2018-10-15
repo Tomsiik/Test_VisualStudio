@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
 using AS4963_Interface;
 
 namespace Test_VisualStudio
 {
     public partial class Form1 : Form
     {
+        string message;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,14 +26,14 @@ namespace Test_VisualStudio
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            NewMethod();
-        }
-
-        private void NewMethod()
-        {
+            string[] ports = SerialPort.GetPortNames();
+            toolStrip_MenuPorts.Items.AddRange(ports);
+            
 
 
         }
+
+        
 
         /*************************************************************************Pull Control Data to Register*********************************************************************/
 
@@ -525,9 +528,9 @@ namespace Test_VisualStudio
         
 
         /*************************************************************************Timer********************************************************************************************/
-
+       
         private void timer1_Tick(object sender, EventArgs e)
-        {
+        { /*
 
             textBox1.Text = "Config 0 =  " + Convert.ToString(Config0_Read()) + Environment.NewLine;
             textBox1.Text = textBox1.Text + "Config 1 =  " + Convert.ToString(Config1_Read()) + Environment.NewLine;
@@ -536,7 +539,90 @@ namespace Test_VisualStudio
             textBox1.Text = textBox1.Text + "Config 4 =  " + Convert.ToString(Config4_Read()) + Environment.NewLine;
             textBox1.Text = textBox1.Text + "Config 5 =  " + Convert.ToString(Config5_Read()) + Environment.NewLine;
             textBox1.Text = textBox1.Text + "Run =  " + Convert.ToString(Run_Read()) + Environment.NewLine;
+        */
         }
+        
+
+        /************************************************************************Serial Port***********************************************************************************/
+
+        private void toolStrip_OpenPort_Click(object sender, EventArgs e)
+        {
+            if (!serialPort1.IsOpen)
+            {
+                serialPort1.PortName = toolStrip_MenuPorts.Text;
+                serialPort1.BaudRate = 115200;
+                serialPort1.Open();
+                toolStrip_ClosePort.Enabled = true;
+                toolStrip_OpenPort.Enabled = false;
+
+                btn_WriteButton.Enabled = true;
+
+
+            }
+            else
+            {
+                toolStrip_ClosePort.Enabled = false;
+                toolStrip_OpenPort.Enabled = true;
+            }
+        }
+
+        private void toolStrip_ClosePort_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+
+                serialPort1.Close();
+                toolStrip_ClosePort.Enabled = false;
+                toolStrip_OpenPort.Enabled = true;
+
+                btn_WriteButton.Enabled = false;
+            }
+            else
+            {
+                toolStrip_ClosePort.Enabled = true;
+                toolStrip_OpenPort.Enabled = false;
+            }
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] ports = SerialPort.GetPortNames();
+            toolStrip_MenuPorts.Items.Clear();
+            toolStrip_MenuPorts.Items.AddRange(ports);
+            
+        }
+
+         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+           {
+               message = serialPort1.ReadExisting();
+               this.Invoke(new EventHandler(ReadData));
+           }
+
+        private void ReadData(object sender, EventArgs e)
+        {
+            textBox1.Text = message;
+
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_WriteButton_Click(object sender, EventArgs e)
+        {
+
+
+            serialPort1.WriteLine(Convert.ToString(Config1_Read()) + Environment.NewLine);
+
+        }
+
+        
+        
+
+
+
 
         /*********************************************************************Control Interaction**********************************************************************************/
 

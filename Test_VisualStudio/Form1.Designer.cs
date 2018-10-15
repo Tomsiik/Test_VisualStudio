@@ -116,24 +116,28 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_MenuPorts = new System.Windows.Forms.ToolStripComboBox();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_OpenPort = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_ClosePort = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
-            this.btn_SetPreset = new System.Windows.Forms.Button();
-            this.btn_ReadConfiguration = new System.Windows.Forms.Button();
-            this.btn_ResetConfiguration = new System.Windows.Forms.Button();
             this.chBox_LockControls = new System.Windows.Forms.CheckBox();
+            this.btn_ResetConfiguration = new System.Windows.Forms.Button();
+            this.btn_ReadConfiguration = new System.Windows.Forms.Button();
+            this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btn_WriteButton = new System.Windows.Forms.Button();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1176,29 +1180,55 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.connectionToolStripMenuItem});
+            this.toolStrip_MenuPorts,
+            this.refreshToolStripMenuItem,
+            this.toolStrip_OpenPort,
+            this.toolStrip_ClosePort});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1394, 27);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(12, 23);
             // 
-            // connectionToolStripMenuItem
+            // toolStrip_MenuPorts
             // 
-            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.connectionToolStripMenuItem.Text = "Connection";
+            this.toolStrip_MenuPorts.AutoToolTip = true;
+            this.toolStrip_MenuPorts.Name = "toolStrip_MenuPorts";
+            this.toolStrip_MenuPorts.Size = new System.Drawing.Size(121, 23);
+            this.toolStrip_MenuPorts.Text = "Select Port";
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 23);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // toolStrip_OpenPort
+            // 
+            this.toolStrip_OpenPort.Name = "toolStrip_OpenPort";
+            this.toolStrip_OpenPort.Size = new System.Drawing.Size(73, 23);
+            this.toolStrip_OpenPort.Text = "Open Port";
+            this.toolStrip_OpenPort.Click += new System.EventHandler(this.toolStrip_OpenPort_Click);
+            // 
+            // toolStrip_ClosePort
+            // 
+            this.toolStrip_ClosePort.Enabled = false;
+            this.toolStrip_ClosePort.Name = "toolStrip_ClosePort";
+            this.toolStrip_ClosePort.Size = new System.Drawing.Size(73, 23);
+            this.toolStrip_ClosePort.Text = "Close Port";
+            this.toolStrip_ClosePort.Click += new System.EventHandler(this.toolStrip_ClosePort_Click);
             // 
             // statusStrip1
             // 
@@ -1252,23 +1282,15 @@
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
             // 
-            // btn_SetPreset
+            // chBox_LockControls
             // 
-            this.btn_SetPreset.Location = new System.Drawing.Point(8, 22);
-            this.btn_SetPreset.Name = "btn_SetPreset";
-            this.btn_SetPreset.Size = new System.Drawing.Size(200, 25);
-            this.btn_SetPreset.TabIndex = 38;
-            this.btn_SetPreset.Text = "Set Preset";
-            this.btn_SetPreset.UseVisualStyleBackColor = true;
-            // 
-            // btn_ReadConfiguration
-            // 
-            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 54);
-            this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
-            this.btn_ReadConfiguration.Size = new System.Drawing.Size(200, 25);
-            this.btn_ReadConfiguration.TabIndex = 39;
-            this.btn_ReadConfiguration.Text = "Read Configuration to Preset";
-            this.btn_ReadConfiguration.UseVisualStyleBackColor = true;
+            this.chBox_LockControls.AutoSize = true;
+            this.chBox_LockControls.Location = new System.Drawing.Point(88, 129);
+            this.chBox_LockControls.Name = "chBox_LockControls";
+            this.chBox_LockControls.Size = new System.Drawing.Size(50, 17);
+            this.chBox_LockControls.TabIndex = 41;
+            this.chBox_LockControls.Text = "Lock";
+            this.chBox_LockControls.UseVisualStyleBackColor = true;
             // 
             // btn_ResetConfiguration
             // 
@@ -1279,15 +1301,23 @@
             this.btn_ResetConfiguration.Text = "Reset ";
             this.btn_ResetConfiguration.UseVisualStyleBackColor = true;
             // 
-            // chBox_LockControls
+            // btn_ReadConfiguration
             // 
-            this.chBox_LockControls.AutoSize = true;
-            this.chBox_LockControls.Location = new System.Drawing.Point(88, 129);
-            this.chBox_LockControls.Name = "chBox_LockControls";
-            this.chBox_LockControls.Size = new System.Drawing.Size(50, 17);
-            this.chBox_LockControls.TabIndex = 41;
-            this.chBox_LockControls.Text = "Lock";
-            this.chBox_LockControls.UseVisualStyleBackColor = true;
+            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 54);
+            this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
+            this.btn_ReadConfiguration.Size = new System.Drawing.Size(200, 25);
+            this.btn_ReadConfiguration.TabIndex = 39;
+            this.btn_ReadConfiguration.Text = "Read Configuration to Preset";
+            this.btn_ReadConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // btn_SetPreset
+            // 
+            this.btn_SetPreset.Location = new System.Drawing.Point(8, 22);
+            this.btn_SetPreset.Name = "btn_SetPreset";
+            this.btn_SetPreset.Size = new System.Drawing.Size(200, 25);
+            this.btn_SetPreset.TabIndex = 38;
+            this.btn_SetPreset.Text = "Set Preset";
+            this.btn_SetPreset.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1306,7 +1336,7 @@
             this.groupBox13.Controls.Add(this.radioButton2);
             this.groupBox13.Controls.Add(this.radioButton1);
             this.groupBox13.Controls.Add(this.button4);
-            this.groupBox13.Controls.Add(this.button1);
+            this.groupBox13.Controls.Add(this.btn_WriteButton);
             this.groupBox13.Location = new System.Drawing.Point(1082, 425);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(299, 175);
@@ -1314,34 +1344,14 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(9, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 60);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Write Configuration";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(149, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 57);
-            this.button4.TabIndex = 42;
-            this.button4.Text = "Read Configuration";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(21, 99);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 17);
-            this.radioButton1.TabIndex = 43;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Single Mode";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(149, 96);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 60);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Read Diagnostic";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -1354,14 +1364,41 @@
             this.radioButton2.Text = "Auto Write Mode";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // radioButton1
             // 
-            this.button2.Location = new System.Drawing.Point(149, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 60);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "Read Diagnostic";
-            this.button2.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(21, 99);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(84, 17);
+            this.radioButton1.TabIndex = 43;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Single Mode";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(149, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(134, 57);
+            this.button4.TabIndex = 42;
+            this.button4.Text = "Read Configuration";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btn_WriteButton
+            // 
+            this.btn_WriteButton.Enabled = false;
+            this.btn_WriteButton.Location = new System.Drawing.Point(9, 19);
+            this.btn_WriteButton.Name = "btn_WriteButton";
+            this.btn_WriteButton.Size = new System.Drawing.Size(134, 60);
+            this.btn_WriteButton.TabIndex = 39;
+            this.btn_WriteButton.Text = "Write Configuration";
+            this.btn_WriteButton.UseVisualStyleBackColor = true;
+            this.btn_WriteButton.Click += new System.EventHandler(this.btn_WriteButton_Click);
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.BaudRate = 115200;
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // Form1
             // 
@@ -1525,7 +1562,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_ClosePort;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TextBox textBox1;
@@ -1542,7 +1579,11 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_WriteButton;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_OpenPort;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        public System.Windows.Forms.ToolStripComboBox toolStrip_MenuPorts;
+        public System.IO.Ports.SerialPort serialPort1;
     }
 }
 
