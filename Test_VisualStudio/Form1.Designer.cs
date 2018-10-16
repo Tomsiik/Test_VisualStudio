@@ -138,6 +138,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btn_WriteButton = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1234,7 +1235,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 620);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 609);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1394, 22);
             this.statusStrip1.TabIndex = 34;
@@ -1332,6 +1333,7 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.progressBar1);
             this.groupBox13.Controls.Add(this.button2);
             this.groupBox13.Controls.Add(this.radioButton2);
             this.groupBox13.Controls.Add(this.radioButton1);
@@ -1356,7 +1358,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(21, 124);
+            this.radioButton2.Location = new System.Drawing.Point(21, 114);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(105, 17);
             this.radioButton2.TabIndex = 44;
@@ -1367,7 +1369,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(21, 99);
+            this.radioButton1.Location = new System.Drawing.Point(21, 92);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(84, 17);
             this.radioButton1.TabIndex = 43;
@@ -1400,11 +1402,18 @@
             this.serialPort1.BaudRate = 115200;
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(9, 138);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(134, 19);
+            this.progressBar1.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 642);
+            this.ClientSize = new System.Drawing.Size(1394, 631);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.gpBox_ConInteraction);
             this.Controls.Add(this.statusStrip1);
@@ -1584,6 +1593,7 @@
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         public System.Windows.Forms.ToolStripComboBox toolStrip_MenuPorts;
         public System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

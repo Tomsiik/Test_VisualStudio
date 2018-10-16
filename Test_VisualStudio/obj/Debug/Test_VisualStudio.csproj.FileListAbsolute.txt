@@ -48,3 +48,13 @@ d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.cspr
 d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
 d:\ZAT\Moje\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
 C:\Users\Tomsik\Documents\Visual Studio 2017\Projects\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb

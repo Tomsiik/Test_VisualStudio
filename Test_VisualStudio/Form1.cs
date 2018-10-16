@@ -16,6 +16,7 @@ namespace Test_VisualStudio
     {
         string message;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Test_VisualStudio
         {
             string[] ports = SerialPort.GetPortNames();
             toolStrip_MenuPorts.Items.AddRange(ports);
-            
+            toolStripStatusLabel1.Text = "Disconnected";
 
 
         }
@@ -556,13 +557,14 @@ namespace Test_VisualStudio
                 toolStrip_OpenPort.Enabled = false;
 
                 btn_WriteButton.Enabled = true;
-
+                toolStripStatusLabel1.Text = "Connected";
 
             }
             else
             {
                 toolStrip_ClosePort.Enabled = false;
                 toolStrip_OpenPort.Enabled = true;
+                toolStripStatusLabel1.Text = "Disconnected";
             }
         }
 
@@ -576,11 +578,13 @@ namespace Test_VisualStudio
                 toolStrip_OpenPort.Enabled = true;
 
                 btn_WriteButton.Enabled = false;
+                toolStripStatusLabel1.Text = "Disconnected";
             }
             else
             {
                 toolStrip_ClosePort.Enabled = true;
                 toolStrip_OpenPort.Enabled = false;
+                toolStripStatusLabel1.Text = "Connected";
             }
         }
 
@@ -600,7 +604,7 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-            textBox1.Text = message;
+            textBox1.Text = Convert.ToString(message);
 
 
         }
@@ -613,8 +617,43 @@ namespace Test_VisualStudio
         private void btn_WriteButton_Click(object sender, EventArgs e)
         {
 
+            ushort reg0 = Config0_Read();
+            ushort reg1 = Config1_Read();
+            ushort reg2 = Config2_Read();
+            ushort reg3 = Config3_Read();
+            ushort reg4 = Config4_Read();
+            ushort reg5 = Config5_Read();
+            ushort run = Run_Read();
 
-            serialPort1.WriteLine(Convert.ToString(Config1_Read()) + Environment.NewLine);
+            byte[] regs = new byte[16];
+
+
+            regs[0] = Convert.ToByte('W');
+            regs[1] = Convert.ToByte('R');
+
+            regs[3] = (byte)reg0;
+            regs[2] = (byte)(reg0 >> 8);
+
+            regs[5] = (byte)reg1;
+            regs[4] = (byte)(reg1 >> 8);
+
+            regs[7] = (byte)reg2;
+            regs[6] = (byte)(reg2 >> 8);
+
+            regs[9] = (byte)reg3;
+            regs[8] = (byte)(reg3 >> 8);
+
+            regs[11] = (byte)reg4;
+            regs[10] = (byte)(reg4 >> 8);
+
+            regs[13] = (byte)reg5;
+            regs[12] = (byte)(reg5 >> 8);
+
+            regs[15] = (byte)run;
+            regs[14] = (byte)(run >> 8);
+
+            serialPort1.Write(regs, 0, 16);
+
 
         }
 
