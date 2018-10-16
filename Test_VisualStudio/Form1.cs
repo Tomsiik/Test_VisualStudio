@@ -15,7 +15,7 @@ namespace Test_VisualStudio
     public partial class Form1 : Form
     {
         string message;
-
+        
 
         public Form1()
         {
@@ -600,7 +600,36 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(message);
+            if (State.WR)   //handlery pro příjem rámců na základě zvoleného příkazu
+            {
+                 
+
+
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    "+Convert.ToString(message) ;
+                textBox1.Text = textBox1.Text + Environment.NewLine;
+
+                byte[] WRdiag = Encoding.ASCII.GetBytes(message);
+
+                State.WR = false;
+                State.STAY = true;
+                timer1.Enabled = false;
+            }
+
+            if (State.RDCO)
+            {
+
+                State.RDCO = false;
+                State.STAY = true;
+            }
+
+            if (State.RDDI)
+            {
+
+                State.RDDI = false;
+                State.STAY = true;
+            }
+
+            
 
         }
 
@@ -652,6 +681,12 @@ namespace Test_VisualStudio
 
             serialPort1.Write(regs, 0, 16);
 
+            State.WR = true;
+            State.STAY = false;
+            timer1.Interval = 200; 
+            timer1.Enabled = true;
+
+
         }
 
 
@@ -678,8 +713,16 @@ namespace Test_VisualStudio
             serialPort1.Write(command, 0, 4);
         }
 
+        /*třída State nese proměnné pro komunikaci s nadřazenými třídami, které ovládají komunikaci
+          pokud se aktivuje nějaký příkaz dojde k nahození danného bitu v této třídě.*/
+        public static class State 
+        {
+            public static bool WR = false;  //
+            public static bool RDCO = false;
+            public static bool RDDI = false;
+            public static bool STAY = true;
 
-
+        }
 
 
 
@@ -698,7 +741,16 @@ namespace Test_VisualStudio
         /*************************************************************************Timer********************************************************************************************/
 
         private void timer1_Tick(object sender, EventArgs e)
-        { 
+        {
+            if (State.WR)
+            {
+                timer1.Enabled = false;
+                MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Text = "Timeout";
+                State.WR = false;
+                State.STAY = true;
+            }
+
 
         }
 
