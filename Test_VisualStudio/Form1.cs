@@ -20,7 +20,7 @@ namespace Test_VisualStudio
         public Form1()
         {
             InitializeComponent();
-            
+
 
 
         }
@@ -34,7 +34,7 @@ namespace Test_VisualStudio
 
         }
 
-        
+
 
         /*************************************************************************Pull Control Data to Register*********************************************************************/
 
@@ -147,7 +147,7 @@ namespace Test_VisualStudio
             ushort regPA = 0;
 
             regSI = Convert.ToUInt16(numUpDown_InGainSpeedCon.Value);
-            
+
 
             if (rBtn_SpeedOutSelElectricFreeq.Checked)
                 regSPO = 0;
@@ -164,7 +164,7 @@ namespace Test_VisualStudio
         {
             ushort regCM = 0;
             ushort regESF = 0;
-            ushort regDI = 0;  
+            ushort regDI = 0;
             ushort regRSC = 0;
             ushort regBRK = 0;
             ushort regDIR = 0;
@@ -199,36 +199,36 @@ namespace Test_VisualStudio
 
         private void rBtn_RcModeAuto_CheckedChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void rBtn_RcModeHigh_CheckedChanged(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void rBtn_RcModeLow_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_RcModeOff_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
 
         private void numUpDown_DeadTime_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void numUpDown_BlankTime_ValueChanged(object sender, EventArgs e)
         {
-          
+
         }
 
 
@@ -239,24 +239,24 @@ namespace Test_VisualStudio
 
         private void chBox_PFD_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
         private void chBox_IPI_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
         private void rBtn_DebTim_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void rBtn_WinTim_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -268,12 +268,12 @@ namespace Test_VisualStudio
 
             label7.Text = Convert.ToString(CurrSensTR_mV);
 
-           
+
         }
 
         private void numUpDown_VdsThr_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         /***********************************************************************Config 2********************************************************************************************/
@@ -285,48 +285,48 @@ namespace Test_VisualStudio
             double Kcp = Math.Pow(2, Convert.ToDouble(Kcp_value - 7));
 
             label9.Text = Convert.ToString(Kcp);
-           
+
         }
 
 
 
         private void rBtn_OvrSpeed100_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_OvrSpeed125_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_OvrSpeed150_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_OvrSpeed200_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
         private void chBox_DegComp_CheckedChanged(object sender, EventArgs e)
         {
-          
+
         }
 
-        
-       
-    private void numUpDown_OffTime_ValueChanged(object sender, EventArgs e)
-    {
+
+
+        private void numUpDown_OffTime_ValueChanged(object sender, EventArgs e)
+        {
             decimal tpw_value = numUpDown_OffTime.Value;
 
             double tpw_us = 20 + (Convert.ToDouble(tpw_value) * 1.6);
 
             label11.Text = Convert.ToString(tpw_us);
 
-           
+
         }
 
 
@@ -342,7 +342,7 @@ namespace Test_VisualStudio
 
             label12.Text = Convert.ToString(Kci);
 
-            
+
         }
 
 
@@ -355,7 +355,7 @@ namespace Test_VisualStudio
 
             label15.Text = Convert.ToString(Dh_percent);
 
-            
+
         }
 
 
@@ -366,7 +366,7 @@ namespace Test_VisualStudio
 
             label16.Text = Convert.ToString(thold_value);
 
-           
+
         }
 
 
@@ -381,7 +381,7 @@ namespace Test_VisualStudio
 
             label21.Text = Convert.ToString(Ksp);
 
-            
+
         }
 
 
@@ -393,7 +393,7 @@ namespace Test_VisualStudio
 
             label20.Text = Convert.ToString(Ds_percent);
 
-           
+
         }
 
 
@@ -406,7 +406,7 @@ namespace Test_VisualStudio
 
             label18.Text = Convert.ToString(Fst_value);
 
-           
+
 
         }
 
@@ -426,10 +426,10 @@ namespace Test_VisualStudio
 
             label29.Text = Convert.ToString(Ksi);
 
-           
+
         }
 
-        
+
         private void numUpDown_MaxSpeedHz_ValueChanged(object sender, EventArgs e)
         {
             decimal Fmx_value = numUpDown_MaxSpeedHz.Value;
@@ -438,18 +438,18 @@ namespace Test_VisualStudio
 
             label28.Text = Convert.ToString(Fmx_hz);
 
-            
+
         }
 
 
         private void rBtn_SpeedOutSelElectricFreeq_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void rBtn_SpeedOutSelCommuFreq_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -462,7 +462,7 @@ namespace Test_VisualStudio
 
             label26.Text = Convert.ToString(Oadv_hz);
 
-           
+
         }
 
 
@@ -472,77 +472,64 @@ namespace Test_VisualStudio
 
         private void rBtn_MotConIndirect_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_MotConDirect_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void rBtn_MotConClosedCurr_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void rBtn_MotConClosedSpeed_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void numUpDown_DutyCycleControl_ValueChanged(object sender, EventArgs e)
         {
-         decimal Dc_value = numUpDown_DutyCycleControl.Value;
+            decimal Dc_value = numUpDown_DutyCycleControl.Value;
 
             Dc_value = (Dc_value * 3) + 7;
 
             label1.Text = Convert.ToString(Dc_value);
 
-           
+
         }
 
         private void chBox_EnableStopFail_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void chBox_RestartControl_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chBox_Brake_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chBox_DirectionRotation_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chBox_RunEnable_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        
 
-        /*************************************************************************Timer********************************************************************************************/
-       
-        private void timer1_Tick(object sender, EventArgs e)
-        { /*
 
-            textBox1.Text = "Config 0 =  " + Convert.ToString(Config0_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Config 1 =  " + Convert.ToString(Config1_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Config 2 =  " + Convert.ToString(Config2_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Config 3 =  " + Convert.ToString(Config3_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Config 4 =  " + Convert.ToString(Config4_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Config 5 =  " + Convert.ToString(Config5_Read()) + Environment.NewLine;
-            textBox1.Text = textBox1.Text + "Run =  " + Convert.ToString(Run_Read()) + Environment.NewLine;
-        */
-        }
-        
+      
+
 
         /************************************************************************Serial Port***********************************************************************************/
 
@@ -556,7 +543,11 @@ namespace Test_VisualStudio
                 toolStrip_ClosePort.Enabled = true;
                 toolStrip_OpenPort.Enabled = false;
 
-                btn_WriteButton.Enabled = true;
+                btn_WriteConfig.Enabled = true;
+                btn_ReadConfig.Enabled = true;
+                btn_ReadDiag.Enabled = true;
+                rBtn_SingleMode.Enabled = true;
+                rBtn_AutoWriteMode.Enabled = true;
                 toolStripStatusLabel1.Text = "Connected";
 
             }
@@ -577,7 +568,11 @@ namespace Test_VisualStudio
                 toolStrip_ClosePort.Enabled = false;
                 toolStrip_OpenPort.Enabled = true;
 
-                btn_WriteButton.Enabled = false;
+                btn_WriteConfig.Enabled = false;
+                btn_ReadConfig.Enabled = false;
+                btn_ReadDiag.Enabled = false;
+                rBtn_SingleMode.Enabled = false;
+                rBtn_AutoWriteMode.Enabled = false;
                 toolStripStatusLabel1.Text = "Disconnected";
             }
             else
@@ -588,33 +583,36 @@ namespace Test_VisualStudio
             }
         }
 
-        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStrip_RefreshPorts_Click(object sender, EventArgs e)
         {
             string[] ports = SerialPort.GetPortNames();
             toolStrip_MenuPorts.Items.Clear();
             toolStrip_MenuPorts.Items.AddRange(ports);
-            
+
         }
 
-         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-           {
-               message = serialPort1.ReadExisting();
-               this.Invoke(new EventHandler(ReadData));
-           }
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            message = serialPort1.ReadExisting();
+            this.Invoke(new EventHandler(ReadData));
+        }
 
         private void ReadData(object sender, EventArgs e)
         {
             textBox1.Text = Convert.ToString(message);
 
-
         }
+
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_WriteButton_Click(object sender, EventArgs e)
+
+        private void btn_WriteConfig_Click(object sender, EventArgs e)
         {
 
             ushort reg0 = Config0_Read();
@@ -654,16 +652,35 @@ namespace Test_VisualStudio
 
             serialPort1.Write(regs, 0, 16);
 
-
         }
 
-        
-        
+
+        private void btn_ReadConfig_Click(object sender, EventArgs e)
+        {
+            byte[] command = new byte[4];
+            command[0] = Convert.ToByte('R');
+            command[1] = Convert.ToByte('D');
+            command[2] = Convert.ToByte('C');
+            command[3] = Convert.ToByte('O');
+
+            serialPort1.Write(command, 0, 4);
+        }
+
+
+        private void btn_ReadDiag_Click(object sender, EventArgs e)
+        {
+            byte[] command = new byte[4];
+            command[0] = Convert.ToByte('R');
+            command[1] = Convert.ToByte('D');
+            command[2] = Convert.ToByte('D');
+            command[3] = Convert.ToByte('I');
+
+            serialPort1.Write(command, 0, 4);
+        }
 
 
 
 
-        /*********************************************************************Control Interaction**********************************************************************************/
 
 
 
@@ -672,6 +689,18 @@ namespace Test_VisualStudio
 
 
 
+
+
+
+
+
+
+        /*************************************************************************Timer********************************************************************************************/
+
+        private void timer1_Tick(object sender, EventArgs e)
+        { 
+
+        }
 
 
 

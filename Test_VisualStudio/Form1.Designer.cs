@@ -116,10 +116,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip_MenuPorts = new System.Windows.Forms.ToolStripComboBox();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_OpenPort = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_ClosePort = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_MenuPorts = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip_RefreshPorts = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -132,13 +132,13 @@
             this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btn_WriteButton = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btn_ReadDiag = new System.Windows.Forms.Button();
+            this.rBtn_AutoWriteMode = new System.Windows.Forms.RadioButton();
+            this.rBtn_SingleMode = new System.Windows.Forms.RadioButton();
+            this.btn_ReadConfig = new System.Windows.Forms.Button();
+            this.btn_WriteConfig = new System.Windows.Forms.Button();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1181,10 +1181,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.toolStrip_MenuPorts,
-            this.refreshToolStripMenuItem,
             this.toolStrip_OpenPort,
-            this.toolStrip_ClosePort});
+            this.toolStrip_ClosePort,
+            this.toolStrip_MenuPorts,
+            this.toolStrip_RefreshPorts});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1394, 27);
@@ -1202,20 +1202,6 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(12, 23);
             // 
-            // toolStrip_MenuPorts
-            // 
-            this.toolStrip_MenuPorts.AutoToolTip = true;
-            this.toolStrip_MenuPorts.Name = "toolStrip_MenuPorts";
-            this.toolStrip_MenuPorts.Size = new System.Drawing.Size(121, 23);
-            this.toolStrip_MenuPorts.Text = "Select Port";
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 23);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
-            // 
             // toolStrip_OpenPort
             // 
             this.toolStrip_OpenPort.Name = "toolStrip_OpenPort";
@@ -1230,6 +1216,20 @@
             this.toolStrip_ClosePort.Size = new System.Drawing.Size(73, 23);
             this.toolStrip_ClosePort.Text = "Close Port";
             this.toolStrip_ClosePort.Click += new System.EventHandler(this.toolStrip_ClosePort_Click);
+            // 
+            // toolStrip_MenuPorts
+            // 
+            this.toolStrip_MenuPorts.AutoToolTip = true;
+            this.toolStrip_MenuPorts.Name = "toolStrip_MenuPorts";
+            this.toolStrip_MenuPorts.Size = new System.Drawing.Size(121, 23);
+            this.toolStrip_MenuPorts.Text = "Select Port";
+            // 
+            // toolStrip_RefreshPorts
+            // 
+            this.toolStrip_RefreshPorts.Name = "toolStrip_RefreshPorts";
+            this.toolStrip_RefreshPorts.Size = new System.Drawing.Size(58, 23);
+            this.toolStrip_RefreshPorts.Text = "Refresh";
+            this.toolStrip_RefreshPorts.Click += new System.EventHandler(this.toolStrip_RefreshPorts_Click);
             // 
             // statusStrip1
             // 
@@ -1326,7 +1326,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(1082, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 381);
+            this.groupBox1.Size = new System.Drawing.Size(299, 381);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
@@ -1334,11 +1334,11 @@
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.progressBar1);
-            this.groupBox13.Controls.Add(this.button2);
-            this.groupBox13.Controls.Add(this.radioButton2);
-            this.groupBox13.Controls.Add(this.radioButton1);
-            this.groupBox13.Controls.Add(this.button4);
-            this.groupBox13.Controls.Add(this.btn_WriteButton);
+            this.groupBox13.Controls.Add(this.btn_ReadDiag);
+            this.groupBox13.Controls.Add(this.rBtn_AutoWriteMode);
+            this.groupBox13.Controls.Add(this.rBtn_SingleMode);
+            this.groupBox13.Controls.Add(this.btn_ReadConfig);
+            this.groupBox13.Controls.Add(this.btn_WriteConfig);
             this.groupBox13.Location = new System.Drawing.Point(1082, 425);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(299, 175);
@@ -1346,68 +1346,74 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(149, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 60);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "Read Diagnostic";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(21, 114);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(105, 17);
-            this.radioButton2.TabIndex = 44;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Auto Write Mode";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(21, 92);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 17);
-            this.radioButton1.TabIndex = 43;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Single Mode";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(149, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 57);
-            this.button4.TabIndex = 42;
-            this.button4.Text = "Read Configuration";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // btn_WriteButton
-            // 
-            this.btn_WriteButton.Enabled = false;
-            this.btn_WriteButton.Location = new System.Drawing.Point(9, 19);
-            this.btn_WriteButton.Name = "btn_WriteButton";
-            this.btn_WriteButton.Size = new System.Drawing.Size(134, 60);
-            this.btn_WriteButton.TabIndex = 39;
-            this.btn_WriteButton.Text = "Write Configuration";
-            this.btn_WriteButton.UseVisualStyleBackColor = true;
-            this.btn_WriteButton.Click += new System.EventHandler(this.btn_WriteButton_Click);
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.BaudRate = 115200;
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(9, 138);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(134, 19);
             this.progressBar1.TabIndex = 40;
+            // 
+            // btn_ReadDiag
+            // 
+            this.btn_ReadDiag.Enabled = false;
+            this.btn_ReadDiag.Location = new System.Drawing.Point(149, 101);
+            this.btn_ReadDiag.Name = "btn_ReadDiag";
+            this.btn_ReadDiag.Size = new System.Drawing.Size(134, 56);
+            this.btn_ReadDiag.TabIndex = 45;
+            this.btn_ReadDiag.Text = "Read Diagnostic";
+            this.btn_ReadDiag.UseVisualStyleBackColor = true;
+            this.btn_ReadDiag.Click += new System.EventHandler(this.btn_ReadDiag_Click);
+            // 
+            // rBtn_AutoWriteMode
+            // 
+            this.rBtn_AutoWriteMode.AutoSize = true;
+            this.rBtn_AutoWriteMode.Enabled = false;
+            this.rBtn_AutoWriteMode.Location = new System.Drawing.Point(21, 114);
+            this.rBtn_AutoWriteMode.Name = "rBtn_AutoWriteMode";
+            this.rBtn_AutoWriteMode.Size = new System.Drawing.Size(105, 17);
+            this.rBtn_AutoWriteMode.TabIndex = 44;
+            this.rBtn_AutoWriteMode.Text = "Auto Write Mode";
+            this.rBtn_AutoWriteMode.UseVisualStyleBackColor = true;
+            // 
+            // rBtn_SingleMode
+            // 
+            this.rBtn_SingleMode.AutoSize = true;
+            this.rBtn_SingleMode.Checked = true;
+            this.rBtn_SingleMode.Enabled = false;
+            this.rBtn_SingleMode.Location = new System.Drawing.Point(21, 92);
+            this.rBtn_SingleMode.Name = "rBtn_SingleMode";
+            this.rBtn_SingleMode.Size = new System.Drawing.Size(84, 17);
+            this.rBtn_SingleMode.TabIndex = 43;
+            this.rBtn_SingleMode.TabStop = true;
+            this.rBtn_SingleMode.Text = "Single Mode";
+            this.rBtn_SingleMode.UseVisualStyleBackColor = true;
+            // 
+            // btn_ReadConfig
+            // 
+            this.btn_ReadConfig.Enabled = false;
+            this.btn_ReadConfig.Location = new System.Drawing.Point(149, 21);
+            this.btn_ReadConfig.Name = "btn_ReadConfig";
+            this.btn_ReadConfig.Size = new System.Drawing.Size(134, 57);
+            this.btn_ReadConfig.TabIndex = 42;
+            this.btn_ReadConfig.Text = "Read Configuration";
+            this.btn_ReadConfig.UseVisualStyleBackColor = true;
+            this.btn_ReadConfig.Click += new System.EventHandler(this.btn_ReadConfig_Click);
+            // 
+            // btn_WriteConfig
+            // 
+            this.btn_WriteConfig.Enabled = false;
+            this.btn_WriteConfig.Location = new System.Drawing.Point(9, 21);
+            this.btn_WriteConfig.Name = "btn_WriteConfig";
+            this.btn_WriteConfig.Size = new System.Drawing.Size(134, 57);
+            this.btn_WriteConfig.TabIndex = 39;
+            this.btn_WriteConfig.Text = "Write Configuration";
+            this.btn_WriteConfig.UseVisualStyleBackColor = true;
+            this.btn_WriteConfig.Click += new System.EventHandler(this.btn_WriteConfig_Click);
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.BaudRate = 115200;
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // Form1
             // 
@@ -1584,13 +1590,13 @@
         private System.Windows.Forms.Button btn_SetPreset;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btn_WriteButton;
+        private System.Windows.Forms.Button btn_ReadDiag;
+        private System.Windows.Forms.RadioButton rBtn_AutoWriteMode;
+        private System.Windows.Forms.RadioButton rBtn_SingleMode;
+        private System.Windows.Forms.Button btn_ReadConfig;
+        private System.Windows.Forms.Button btn_WriteConfig;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_OpenPort;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStrip_RefreshPorts;
         public System.Windows.Forms.ToolStripComboBox toolStrip_MenuPorts;
         public System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.ProgressBar progressBar1;
