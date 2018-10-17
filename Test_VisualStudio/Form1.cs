@@ -655,34 +655,34 @@ namespace Test_VisualStudio
             ushort reg5 = Config5_Read();
             ushort run = Run_Read();
 
-            byte[] regs = new byte[16];
+            byte[] regs = new byte[15];
 
 
             regs[0] = Convert.ToByte('W');
-            regs[1] = Convert.ToByte('R');
+           
 
-            regs[3] = (byte)reg0;
-            regs[2] = (byte)(reg0 >> 8);
+            regs[2] = (byte)reg0;
+            regs[1] = (byte)(reg0 >> 8);
 
-            regs[5] = (byte)reg1;
-            regs[4] = (byte)(reg1 >> 8);
+            regs[4] = (byte)reg1;
+            regs[3] = (byte)(reg1 >> 8);
 
-            regs[7] = (byte)reg2;
-            regs[6] = (byte)(reg2 >> 8);
+            regs[6] = (byte)reg2;
+            regs[5] = (byte)(reg2 >> 8);
 
-            regs[9] = (byte)reg3;
-            regs[8] = (byte)(reg3 >> 8);
+            regs[8] = (byte)reg3;
+            regs[7] = (byte)(reg3 >> 8);
 
-            regs[11] = (byte)reg4;
-            regs[10] = (byte)(reg4 >> 8);
+            regs[10] = (byte)reg4;
+            regs[9] = (byte)(reg4 >> 8);
 
-            regs[13] = (byte)reg5;
-            regs[12] = (byte)(reg5 >> 8);
+            regs[12] = (byte)reg5;
+            regs[11] = (byte)(reg5 >> 8);
 
-            regs[15] = (byte)run;
-            regs[14] = (byte)(run >> 8);
+            regs[14] = (byte)run;
+            regs[13] = (byte)(run >> 8);
 
-            serialPort1.Write(regs, 0, 16);
+            serialPort1.Write(regs, 0, 15);
             prgBar_CommandProgress.Value = 50;
             State.WR = true;
             State.STAY = false;
