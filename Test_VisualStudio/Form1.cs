@@ -548,14 +548,14 @@ namespace Test_VisualStudio
                 btn_ReadDiag.Enabled = true;
                 rBtn_SingleMode.Enabled = true;
                 rBtn_AutoWriteMode.Enabled = true;
-                toolStripStatusLabel1.Text = "Connected";
+                toolStripStatusLabel1.Text = "Port Connected";
 
             }
             else
             {
                 toolStrip_ClosePort.Enabled = false;
                 toolStrip_OpenPort.Enabled = true;
-                toolStripStatusLabel1.Text = "Disconnected";
+                toolStripStatusLabel1.Text = "Port Disconnected";
             }
         }
 
@@ -573,13 +573,13 @@ namespace Test_VisualStudio
                 btn_ReadDiag.Enabled = false;
                 rBtn_SingleMode.Enabled = false;
                 rBtn_AutoWriteMode.Enabled = false;
-                toolStripStatusLabel1.Text = "Disconnected";
+                toolStripStatusLabel1.Text = "Port Disconnected";
             }
             else
             {
                 toolStrip_ClosePort.Enabled = true;
                 toolStrip_OpenPort.Enabled = false;
-                toolStripStatusLabel1.Text = "Connected";
+                toolStripStatusLabel1.Text = "Port Connected";
             }
         }
 
@@ -592,6 +592,7 @@ namespace Test_VisualStudio
         }
 
 
+        /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             message = serialPort1.ReadExisting();
@@ -600,19 +601,21 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-            if (State.WR)   //handlery pro příjem rámců na základě zvoleného příkazu
+            if (State.WR)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu
             {
                  
-
-
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    "+Convert.ToString(message) ;
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    "+ Convert.ToString(message) ;
                 textBox1.Text = textBox1.Text + Environment.NewLine;
 
                 byte[] WRdiag = Encoding.ASCII.GetBytes(message);
 
+                prgBar_CommandProgress.Value = 100;
+
                 State.WR = false;
                 State.STAY = true;
                 timer1.Enabled = false;
+                timer_CommandProgressBar.Enabled = true;
+
             }
 
             if (State.RDCO)
@@ -629,7 +632,6 @@ namespace Test_VisualStudio
                 State.STAY = true;
             }
 
-            
 
         }
 
@@ -643,6 +645,7 @@ namespace Test_VisualStudio
 
         private void btn_WriteConfig_Click(object sender, EventArgs e)
         {
+
 
             ushort reg0 = Config0_Read();
             ushort reg1 = Config1_Read();
@@ -680,10 +683,10 @@ namespace Test_VisualStudio
             regs[14] = (byte)(run >> 8);
 
             serialPort1.Write(regs, 0, 16);
-
+            prgBar_CommandProgress.Value = 50;
             State.WR = true;
             State.STAY = false;
-            timer1.Interval = 200; 
+          
             timer1.Enabled = true;
 
 
@@ -732,29 +735,28 @@ namespace Test_VisualStudio
 
 
 
-
-
-
-
-
-
         /*************************************************************************Timer********************************************************************************************/
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (State.WR)
+            if (!State.STAY)
             {
                 timer1.Enabled = false;
                 MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox1.Text = "Timeout";
                 State.WR = false;
                 State.STAY = true;
+                prgBar_CommandProgress.Value = 0;
             }
 
 
         }
 
+       
 
-
+        private void timer_CommandProgressBar_Tick(object sender, EventArgs e)
+        {
+            prgBar_CommandProgress.Value = 0;
+            timer_CommandProgressBar.Enabled = false;
+        }
     }
 }

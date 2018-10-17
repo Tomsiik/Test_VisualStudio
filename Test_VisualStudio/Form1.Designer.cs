@@ -122,6 +122,7 @@
             this.toolStrip_RefreshPorts = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.prgBar_CommandProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -132,13 +133,13 @@
             this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btn_ReadDiag = new System.Windows.Forms.Button();
             this.rBtn_AutoWriteMode = new System.Windows.Forms.RadioButton();
             this.rBtn_SingleMode = new System.Windows.Forms.RadioButton();
             this.btn_ReadConfig = new System.Windows.Forms.Button();
             this.btn_WriteConfig = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.timer_CommandProgressBar = new System.Windows.Forms.Timer(this.components);
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1234,7 +1235,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.prgBar_CommandProgress});
             this.statusStrip1.Location = new System.Drawing.Point(0, 609);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1394, 22);
@@ -1244,8 +1246,14 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(66, 17);
-            this.toolStripStatusLabel1.Text = "Status Strip";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(104, 17);
+            this.toolStripStatusLabel1.Text = "Port Disconnected";
+            // 
+            // prgBar_CommandProgress
+            // 
+            this.prgBar_CommandProgress.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.prgBar_CommandProgress.Name = "prgBar_CommandProgress";
+            this.prgBar_CommandProgress.Size = new System.Drawing.Size(100, 16);
             // 
             // textBox1
             // 
@@ -1267,6 +1275,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // gpBox_ConInteraction
@@ -1332,7 +1341,6 @@
             // 
             // groupBox13
             // 
-            this.groupBox13.Controls.Add(this.progressBar1);
             this.groupBox13.Controls.Add(this.btn_ReadDiag);
             this.groupBox13.Controls.Add(this.rBtn_AutoWriteMode);
             this.groupBox13.Controls.Add(this.rBtn_SingleMode);
@@ -1344,13 +1352,6 @@
             this.groupBox13.TabIndex = 39;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 138);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(134, 19);
-            this.progressBar1.TabIndex = 40;
             // 
             // btn_ReadDiag
             // 
@@ -1367,7 +1368,7 @@
             // 
             this.rBtn_AutoWriteMode.AutoSize = true;
             this.rBtn_AutoWriteMode.Enabled = false;
-            this.rBtn_AutoWriteMode.Location = new System.Drawing.Point(21, 114);
+            this.rBtn_AutoWriteMode.Location = new System.Drawing.Point(21, 134);
             this.rBtn_AutoWriteMode.Name = "rBtn_AutoWriteMode";
             this.rBtn_AutoWriteMode.Size = new System.Drawing.Size(105, 17);
             this.rBtn_AutoWriteMode.TabIndex = 44;
@@ -1379,7 +1380,7 @@
             this.rBtn_SingleMode.AutoSize = true;
             this.rBtn_SingleMode.Checked = true;
             this.rBtn_SingleMode.Enabled = false;
-            this.rBtn_SingleMode.Location = new System.Drawing.Point(21, 92);
+            this.rBtn_SingleMode.Location = new System.Drawing.Point(21, 101);
             this.rBtn_SingleMode.Name = "rBtn_SingleMode";
             this.rBtn_SingleMode.Size = new System.Drawing.Size(84, 17);
             this.rBtn_SingleMode.TabIndex = 43;
@@ -1413,6 +1414,11 @@
             // 
             this.serialPort1.BaudRate = 115200;
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // timer_CommandProgressBar
+            // 
+            this.timer_CommandProgressBar.Interval = 700;
+            this.timer_CommandProgressBar.Tick += new System.EventHandler(this.timer_CommandProgressBar_Tick);
             // 
             // Form1
             // 
@@ -1598,7 +1604,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStrip_RefreshPorts;
         public System.Windows.Forms.ToolStripComboBox toolStrip_MenuPorts;
         public System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ToolStripProgressBar prgBar_CommandProgress;
+        private System.Windows.Forms.Timer timer_CommandProgressBar;
     }
 }
 
