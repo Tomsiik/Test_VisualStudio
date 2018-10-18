@@ -125,7 +125,7 @@
             this.prgBar_CommandProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_TimeoutCommunication = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
             this.chBox_LockControls = new System.Windows.Forms.CheckBox();
             this.btn_ResetConfiguration = new System.Windows.Forms.Button();
@@ -140,6 +140,15 @@
             this.btn_WriteConfig = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.timer_CommandProgressBar = new System.Windows.Forms.Timer(this.components);
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.chBox_PWMGenerationOn = new System.Windows.Forms.CheckBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.lbl_DutyCycle = new System.Windows.Forms.Label();
+            this.trcBar_DutyCycle = new System.Windows.Forms.TrackBar();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lbl_SpeedControl = new System.Windows.Forms.Label();
+            this.trcBar_SpeedControl = new System.Windows.Forms.TrackBar();
+            this.timing_PwmGenControl = new System.Windows.Forms.Timer(this.components);
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -172,6 +181,9 @@
             this.gpBox_ConInteraction.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trcBar_DutyCycle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcBar_SpeedControl)).BeginInit();
             this.SuspendLayout();
             // 
             // rBtn_RcModeAuto
@@ -209,7 +221,7 @@
             // 
             // groupBoxC0
             // 
-            this.groupBoxC0.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxC0.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeOff);
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeLow);
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeAuto);
@@ -432,6 +444,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox3.Controls.Add(this.chBox_PFD);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
@@ -441,7 +454,7 @@
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.numUpDown_CurrSenseThr);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(30, 231);
+            this.groupBox3.Location = new System.Drawing.Point(30, 224);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox3.Size = new System.Drawing.Size(361, 152);
@@ -451,6 +464,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.numUpDown_OffTime);
@@ -616,6 +630,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.numUpDown_HoldTime);
             this.groupBox6.Controls.Add(this.label17);
@@ -629,7 +644,7 @@
             this.groupBox6.Location = new System.Drawing.Point(409, 37);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox6.Size = new System.Drawing.Size(361, 178);
+            this.groupBox6.Size = new System.Drawing.Size(330, 178);
             this.groupBox6.TabIndex = 28;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Config 3 (Hold)";
@@ -729,6 +744,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox7.Controls.Add(this.label24);
             this.groupBox7.Controls.Add(this.label18);
             this.groupBox7.Controls.Add(this.numUpDown_StartSpeed);
@@ -743,7 +759,7 @@
             this.groupBox7.Location = new System.Drawing.Point(409, 233);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox7.Size = new System.Drawing.Size(361, 178);
+            this.groupBox7.Size = new System.Drawing.Size(334, 178);
             this.groupBox7.TabIndex = 29;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Config 4 (Start)";
@@ -852,6 +868,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox8.Controls.Add(this.groupBox9);
             this.groupBox8.Controls.Add(this.label25);
             this.groupBox8.Controls.Add(this.label26);
@@ -1011,6 +1028,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox11.Controls.Add(this.label1);
             this.groupBox11.Controls.Add(this.numUpDown_DutyCycleControl);
             this.groupBox11.Controls.Add(this.label32);
@@ -1021,9 +1039,9 @@
             this.groupBox11.Controls.Add(this.chBox_EnableStopFail);
             this.groupBox11.Controls.Add(this.groupBox12);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox11.Location = new System.Drawing.Point(817, 37);
+            this.groupBox11.Location = new System.Drawing.Point(761, 39);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(213, 374);
+            this.groupBox11.Size = new System.Drawing.Size(196, 374);
             this.groupBox11.TabIndex = 31;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Run";
@@ -1260,6 +1278,7 @@
             this.textBox1.Location = new System.Drawing.Point(9, 50);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(264, 193);
             this.textBox1.TabIndex = 35;
@@ -1273,13 +1292,14 @@
             this.label33.TabIndex = 36;
             this.label33.Text = "Serial Input Data";
             // 
-            // timer1
+            // timer_TimeoutCommunication
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer_TimeoutCommunication.Interval = 1000;
+            this.timer_TimeoutCommunication.Tick += new System.EventHandler(this.timer_TimeoutCommunication_Tick);
             // 
             // gpBox_ConInteraction
             // 
+            this.gpBox_ConInteraction.BackColor = System.Drawing.SystemColors.Control;
             this.gpBox_ConInteraction.Controls.Add(this.chBox_LockControls);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
@@ -1332,15 +1352,16 @@
             // 
             this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1082, 30);
+            this.groupBox1.Location = new System.Drawing.Point(1103, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(299, 381);
+            this.groupBox1.Size = new System.Drawing.Size(278, 374);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
             // 
             // groupBox13
             // 
+            this.groupBox13.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox13.Controls.Add(this.btn_ReadDiag);
             this.groupBox13.Controls.Add(this.rBtn_AutoWriteMode);
             this.groupBox13.Controls.Add(this.rBtn_SingleMode);
@@ -1355,13 +1376,14 @@
             // 
             // btn_ReadDiag
             // 
+            this.btn_ReadDiag.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_ReadDiag.Enabled = false;
             this.btn_ReadDiag.Location = new System.Drawing.Point(149, 101);
             this.btn_ReadDiag.Name = "btn_ReadDiag";
             this.btn_ReadDiag.Size = new System.Drawing.Size(134, 56);
             this.btn_ReadDiag.TabIndex = 45;
             this.btn_ReadDiag.Text = "Read Diagnostic";
-            this.btn_ReadDiag.UseVisualStyleBackColor = true;
+            this.btn_ReadDiag.UseVisualStyleBackColor = false;
             this.btn_ReadDiag.Click += new System.EventHandler(this.btn_ReadDiag_Click);
             // 
             // rBtn_AutoWriteMode
@@ -1390,24 +1412,26 @@
             // 
             // btn_ReadConfig
             // 
+            this.btn_ReadConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_ReadConfig.Enabled = false;
             this.btn_ReadConfig.Location = new System.Drawing.Point(149, 21);
             this.btn_ReadConfig.Name = "btn_ReadConfig";
             this.btn_ReadConfig.Size = new System.Drawing.Size(134, 57);
             this.btn_ReadConfig.TabIndex = 42;
             this.btn_ReadConfig.Text = "Read Configuration";
-            this.btn_ReadConfig.UseVisualStyleBackColor = true;
+            this.btn_ReadConfig.UseVisualStyleBackColor = false;
             this.btn_ReadConfig.Click += new System.EventHandler(this.btn_ReadConfig_Click);
             // 
             // btn_WriteConfig
             // 
+            this.btn_WriteConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_WriteConfig.Enabled = false;
             this.btn_WriteConfig.Location = new System.Drawing.Point(9, 21);
             this.btn_WriteConfig.Name = "btn_WriteConfig";
             this.btn_WriteConfig.Size = new System.Drawing.Size(134, 57);
             this.btn_WriteConfig.TabIndex = 39;
             this.btn_WriteConfig.Text = "Write Configuration";
-            this.btn_WriteConfig.UseVisualStyleBackColor = true;
+            this.btn_WriteConfig.UseVisualStyleBackColor = false;
             this.btn_WriteConfig.Click += new System.EventHandler(this.btn_WriteConfig_Click);
             // 
             // serialPort1
@@ -1420,11 +1444,108 @@
             this.timer_CommandProgressBar.Interval = 700;
             this.timer_CommandProgressBar.Tick += new System.EventHandler(this.timer_CommandProgressBar_Tick);
             // 
+            // groupBox14
+            // 
+            this.groupBox14.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox14.Controls.Add(this.chBox_PWMGenerationOn);
+            this.groupBox14.Controls.Add(this.label35);
+            this.groupBox14.Controls.Add(this.lbl_DutyCycle);
+            this.groupBox14.Controls.Add(this.trcBar_DutyCycle);
+            this.groupBox14.Controls.Add(this.label34);
+            this.groupBox14.Controls.Add(this.lbl_SpeedControl);
+            this.groupBox14.Controls.Add(this.trcBar_SpeedControl);
+            this.groupBox14.Location = new System.Drawing.Point(976, 39);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(111, 211);
+            this.groupBox14.TabIndex = 40;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "PWM Generator";
+            // 
+            // chBox_PWMGenerationOn
+            // 
+            this.chBox_PWMGenerationOn.AutoSize = true;
+            this.chBox_PWMGenerationOn.Enabled = false;
+            this.chBox_PWMGenerationOn.Location = new System.Drawing.Point(20, 187);
+            this.chBox_PWMGenerationOn.Name = "chBox_PWMGenerationOn";
+            this.chBox_PWMGenerationOn.Size = new System.Drawing.Size(59, 17);
+            this.chBox_PWMGenerationOn.TabIndex = 22;
+            this.chBox_PWMGenerationOn.Text = "On/Off";
+            this.chBox_PWMGenerationOn.UseVisualStyleBackColor = true;
+            this.chBox_PWMGenerationOn.CheckedChanged += new System.EventHandler(this.chBox_PWMGenerationOn_CheckedChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(6, 102);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(58, 13);
+            this.label35.TabIndex = 21;
+            this.label35.Text = "Duty Cycle";
+            // 
+            // lbl_DutyCycle
+            // 
+            this.lbl_DutyCycle.AutoSize = true;
+            this.lbl_DutyCycle.Location = new System.Drawing.Point(45, 157);
+            this.lbl_DutyCycle.Name = "lbl_DutyCycle";
+            this.lbl_DutyCycle.Size = new System.Drawing.Size(13, 13);
+            this.lbl_DutyCycle.TabIndex = 20;
+            this.lbl_DutyCycle.Text = "0";
+            // 
+            // trcBar_DutyCycle
+            // 
+            this.trcBar_DutyCycle.Enabled = false;
+            this.trcBar_DutyCycle.LargeChange = 0;
+            this.trcBar_DutyCycle.Location = new System.Drawing.Point(6, 125);
+            this.trcBar_DutyCycle.Maximum = 100;
+            this.trcBar_DutyCycle.Name = "trcBar_DutyCycle";
+            this.trcBar_DutyCycle.Size = new System.Drawing.Size(99, 45);
+            this.trcBar_DutyCycle.TabIndex = 19;
+            this.trcBar_DutyCycle.TabStop = false;
+            this.trcBar_DutyCycle.Scroll += new System.EventHandler(this.trcBar_DutyCycle_Scroll);
+            this.trcBar_DutyCycle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trcBar_DutyCycle_MouseUp);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 27);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(87, 13);
+            this.label34.TabIndex = 18;
+            this.label34.Text = "PWM Frequency";
+            // 
+            // lbl_SpeedControl
+            // 
+            this.lbl_SpeedControl.AutoSize = true;
+            this.lbl_SpeedControl.Location = new System.Drawing.Point(45, 82);
+            this.lbl_SpeedControl.Name = "lbl_SpeedControl";
+            this.lbl_SpeedControl.Size = new System.Drawing.Size(13, 13);
+            this.lbl_SpeedControl.TabIndex = 17;
+            this.lbl_SpeedControl.Text = "0";
+            // 
+            // trcBar_SpeedControl
+            // 
+            this.trcBar_SpeedControl.Enabled = false;
+            this.trcBar_SpeedControl.LargeChange = 0;
+            this.trcBar_SpeedControl.Location = new System.Drawing.Point(6, 50);
+            this.trcBar_SpeedControl.Maximum = 200;
+            this.trcBar_SpeedControl.Name = "trcBar_SpeedControl";
+            this.trcBar_SpeedControl.Size = new System.Drawing.Size(99, 45);
+            this.trcBar_SpeedControl.TabIndex = 0;
+            this.trcBar_SpeedControl.TabStop = false;
+            this.trcBar_SpeedControl.Scroll += new System.EventHandler(this.trcBar_SpeedControl_Scroll);
+            this.trcBar_SpeedControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trcBar_SpeedControl_MouseUp);
+            // 
+            // timing_PwmGenControl
+            // 
+            this.timing_PwmGenControl.Interval = 50;
+            this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1394, 631);
+            this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.gpBox_ConInteraction);
             this.Controls.Add(this.statusStrip1);
@@ -1489,6 +1610,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trcBar_DutyCycle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcBar_SpeedControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1587,7 +1712,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer_TimeoutCommunication;
         private System.Windows.Forms.GroupBox gpBox_ConInteraction;
         private System.Windows.Forms.CheckBox chBox_LockControls;
         private System.Windows.Forms.Button btn_ResetConfiguration;
@@ -1606,6 +1731,15 @@
         public System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.ToolStripProgressBar prgBar_CommandProgress;
         private System.Windows.Forms.Timer timer_CommandProgressBar;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Label lbl_SpeedControl;
+        private System.Windows.Forms.TrackBar trcBar_SpeedControl;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label lbl_DutyCycle;
+        private System.Windows.Forms.TrackBar trcBar_DutyCycle;
+        private System.Windows.Forms.CheckBox chBox_PWMGenerationOn;
+        private System.Windows.Forms.Timer timing_PwmGenControl;
     }
 }
 

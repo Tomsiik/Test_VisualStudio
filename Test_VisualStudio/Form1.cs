@@ -15,7 +15,8 @@ namespace Test_VisualStudio
     public partial class Form1 : Form
     {
         string message;
-        
+
+        public static bool CommandState = false;
 
         public Form1()
         {
@@ -29,7 +30,7 @@ namespace Test_VisualStudio
         {
             string[] ports = SerialPort.GetPortNames();
             toolStrip_MenuPorts.Items.AddRange(ports);
-            toolStripStatusLabel1.Text = "Disconnected";
+            toolStripStatusLabel1.Text = "Port Disconnected";
 
 
         }
@@ -37,7 +38,10 @@ namespace Test_VisualStudio
 
 
         /*************************************************************************Pull Control Data to Register*********************************************************************/
-
+        /* Deklarace funkcí, ktré vrací hodnotu 16-bitového registru do AS4963 obvodu, na základě nastavených prvků
+         * Nastavovat lze Konfigurační registry 0 až 5 a registr Run
+         * 
+         */
         public ushort Config0_Read()
         {
             ushort regRM = 0;
@@ -195,7 +199,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config 0********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 0
+         */
 
         private void rBtn_RcModeAuto_CheckedChanged(object sender, EventArgs e)
         {
@@ -236,7 +241,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config 1********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 1
+         */
         private void chBox_PFD_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -277,7 +283,8 @@ namespace Test_VisualStudio
         }
 
         /***********************************************************************Config 2********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 2
+        */
         private void numUpDown_PropGainPosCon_ValueChanged(object sender, EventArgs e)
         {
             decimal Kcp_value = numUpDown_PropGainPosCon.Value;
@@ -332,7 +339,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config 3********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 3
+        */
 
         private void numUpDown_InGainPosCon_ValueChanged(object sender, EventArgs e)
         {
@@ -371,7 +379,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config 4********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 4
+        */
 
         private void numUpDown_PropGainSpeed_ValueChanged(object sender, EventArgs e)
         {
@@ -414,7 +423,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config 5********************************************************************************************/
-
+        /* Eventy ovládacích prvků konfiguračního registr 5
+        */
 
 
 
@@ -469,6 +479,8 @@ namespace Test_VisualStudio
 
 
         /***********************************************************************Config Run********************************************************************************************/
+        /* Eventy ovládacích prvků Run registru
+        */
 
         private void rBtn_MotConIndirect_CheckedChanged(object sender, EventArgs e)
         {
@@ -527,12 +539,79 @@ namespace Test_VisualStudio
         }
 
 
+        /*************************************************************************Speed Control************************************************************************************/
+        /* Eventy ovládacích prvků generátoru PWM a zároveň odesílání povelu přes seriovou linku
+         * komunikace pro změnu PWM probíhá automaticky při změně nějakého prvku s časovou prodlevou, kvůli nezahlcování seriové linky
+         * časovou prodlevu zajišťuje timer_PwmGenControl    
+         */
 
-      
 
 
-        /************************************************************************Serial Port***********************************************************************************/
+        /*event uvolnění tlačítka myši na track baru, dojde ke spuštění timeru, následně je pak odeslán povel seriovým portem*/
+        private void trcBar_SpeedControl_MouseUp(object sender, MouseEventArgs e)
+        {
 
+            timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = true;
+
+        }
+
+        /*label se ze změnou track baru aktualizuje nicméně není odeslán příkaz, příkaz je odeslán až po uvolnění tlačítka myši*/
+        private void trcBar_SpeedControl_Scroll(object sender, EventArgs e)
+        {
+
+            lbl_SpeedControl.Text = Convert.ToString(trcBar_SpeedControl.Value * 100);
+
+
+        }
+
+
+        private void trcBar_DutyCycle_MouseUp(object sender, MouseEventArgs e)
+        {   
+            timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = true;
+        }
+
+
+        private void trcBar_DutyCycle_Scroll(object sender, EventArgs e)
+        {
+            lbl_DutyCycle.Text = Convert.ToString(trcBar_DutyCycle.Value);
+            
+
+        }
+
+        private void chBox_PWMGenerationOn_CheckedChanged(object sender, EventArgs e)
+        {
+            timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = true;
+        }
+
+
+
+        private void timing_PwmGenControl_Tick(object sender, EventArgs e)
+        {
+
+                timing_PwmGenControl.Enabled = false;
+
+                byte[] speedcontrol = new byte[4];
+                speedcontrol[0] = Convert.ToByte('P');
+                speedcontrol[1] = Convert.ToByte(trcBar_SpeedControl.Value);
+                speedcontrol[2] = Convert.ToByte(trcBar_DutyCycle.Value);
+                speedcontrol[3] = Convert.ToByte(chBox_PWMGenerationOn.Checked);
+
+                serialPort1.Write(speedcontrol, 0, 4);
+
+                prgBar_CommandProgress.Value = 50;
+                CommandState = true;
+                timer_TimeoutCommunication.Enabled = true;
+        }
+
+
+
+        /************************************************************************Controls of Serial Ports***********************************************************************************/
+        /* Eventy ovládacích prvků komunikačního rozhraní seriové linky a jeho nastavení
+         *
+         */
         private void toolStrip_OpenPort_Click(object sender, EventArgs e)
         {
             if (!serialPort1.IsOpen)
@@ -548,6 +627,9 @@ namespace Test_VisualStudio
                 btn_ReadDiag.Enabled = true;
                 rBtn_SingleMode.Enabled = true;
                 rBtn_AutoWriteMode.Enabled = true;
+                trcBar_DutyCycle.Enabled = true;
+                trcBar_SpeedControl.Enabled = true;
+                chBox_PWMGenerationOn.Enabled = true;
                 toolStripStatusLabel1.Text = "Port Connected";
 
             }
@@ -573,6 +655,9 @@ namespace Test_VisualStudio
                 btn_ReadDiag.Enabled = false;
                 rBtn_SingleMode.Enabled = false;
                 rBtn_AutoWriteMode.Enabled = false;
+                trcBar_DutyCycle.Enabled = false;
+                trcBar_SpeedControl.Enabled = false;
+                chBox_PWMGenerationOn.Enabled = false;
                 toolStripStatusLabel1.Text = "Port Disconnected";
             }
             else
@@ -592,50 +677,92 @@ namespace Test_VisualStudio
         }
 
 
+        /************************************************************************Serial Port Read***********************************************************************************/
+        /* Eventy přímo serial portu
+         *
+         */
+
         /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            message = serialPort1.ReadExisting();
-            this.Invoke(new EventHandler(ReadData));
+            
+                message = serialPort1.ReadExisting();
+            
+                this.Invoke(new EventHandler(ReadData));
         }
+
 
         private void ReadData(object sender, EventArgs e)
         {
-            if (State.WR)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu
+            byte[] RxmessageArray = RxmessageArray = Encoding.ASCII.GetBytes(message);
+            
+
+
+            if (RxmessageArray[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
             {
-                 
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    "+ Convert.ToString(message) ;
+
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.Text = textBox1.Text + Environment.NewLine;
 
-                byte[] WRdiag = Encoding.ASCII.GetBytes(message);
+                //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
+
+
+
 
                 prgBar_CommandProgress.Value = 100;
-
-                State.WR = false;
-                State.STAY = true;
-                timer1.Enabled = false;
+                CommandState = false;
+                timer_TimeoutCommunication.Enabled = false; //deaktivace timeru který počítá timeout pro přijem odpovědi, odpověď přišla 
                 timer_CommandProgressBar.Enabled = true;
 
             }
 
-            if (State.RDCO)
+            if (RxmessageArray[0] == Convert.ToByte('R'))
             {
 
-                State.RDCO = false;
-                State.STAY = true;
+
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.Text = textBox1.Text + Environment.NewLine;
+
+
+                prgBar_CommandProgress.Value = 100;
+                CommandState = false;
+                timer_TimeoutCommunication.Enabled = false;
+                timer_CommandProgressBar.Enabled = true;
             }
 
-            if (State.RDDI)
+            if (RxmessageArray[0] == Convert.ToByte('D'))
             {
 
-                State.RDDI = false;
-                State.STAY = true;
+
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.Text = textBox1.Text + Environment.NewLine;
+
+
+
+                prgBar_CommandProgress.Value = 100;
+                CommandState = false;
+                timer_TimeoutCommunication.Enabled = false;
+                timer_CommandProgressBar.Enabled = true;
             }
 
+            if (RxmessageArray[0] == Convert.ToByte('P')) 
+            {
+                
+                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.Text = textBox1.Text + Environment.NewLine;
 
+
+                CommandState = false;
+                prgBar_CommandProgress.Value = 100;
+                timer_TimeoutCommunication.Enabled = false;
+                timer_CommandProgressBar.Enabled = true;
+            }
         }
 
-
+        /************************************************************************Controls of Commands for Serial port*******************************************************************************/
+        /* Eventy ovládacích prvků pro povelování seriového portu
+         *
+         */
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -659,7 +786,7 @@ namespace Test_VisualStudio
 
 
             regs[0] = Convert.ToByte('W');
-           
+
 
             regs[2] = (byte)reg0;
             regs[1] = (byte)(reg0 >> 8);
@@ -684,79 +811,62 @@ namespace Test_VisualStudio
 
             serialPort1.Write(regs, 0, 15);
             prgBar_CommandProgress.Value = 50;
-            State.WR = true;
-            State.STAY = false;
-          
-            timer1.Enabled = true;
-
-
+            CommandState = true;
+            timer_TimeoutCommunication.Enabled = true;
         }
 
 
         private void btn_ReadConfig_Click(object sender, EventArgs e)
         {
-            byte[] command = new byte[4];
-            command[0] = Convert.ToByte('R');
-            command[1] = Convert.ToByte('D');
-            command[2] = Convert.ToByte('C');
-            command[3] = Convert.ToByte('O');
 
-            serialPort1.Write(command, 0, 4);
+            serialPort1.Write("R");
+            prgBar_CommandProgress.Value = 50;
+            CommandState = true;
+            timer_TimeoutCommunication.Enabled = true;
+
         }
 
 
         private void btn_ReadDiag_Click(object sender, EventArgs e)
         {
-            byte[] command = new byte[4];
-            command[0] = Convert.ToByte('R');
-            command[1] = Convert.ToByte('D');
-            command[2] = Convert.ToByte('D');
-            command[3] = Convert.ToByte('I');
+            // byte[] command = new byte[1];
+            //command[0] = Convert.ToByte('D');
 
-            serialPort1.Write(command, 0, 4);
+            serialPort1.Write("D");
+            prgBar_CommandProgress.Value = 50;
+            CommandState = true;
+            timer_TimeoutCommunication.Enabled = true;
         }
 
         /*třída State nese proměnné pro komunikaci s nadřazenými třídami, které ovládají komunikaci
           pokud se aktivuje nějaký příkaz dojde k nahození danného bitu v této třídě.*/
-        public static class State 
+        
+
+        /************************************************************************Timing of Serial Comunication***********************************************************************************/
+        /* Eventy timerů, které časují události ohledně komunikace
+         * První Timer je určen pro vyhodnocení časové prodlevy (timeout) komunikace mezi programem a HW STM32, pokud je timeout a HW neodpovídá je vyvolán messagebox po určitém čase 
+         * Druhý Timer pouze určuje dobu na jak dlouho se ponechá plný progress bar, poté ho opět nuluje.
+         */
+
+        private void timer_TimeoutCommunication_Tick(object sender, EventArgs e)
         {
-            public static bool WR = false;  //
-            public static bool RDCO = false;
-            public static bool RDDI = false;
-            public static bool STAY = true;
-
-        }
-
-
-
-
-
-
-
-
-
-        /*************************************************************************Timer********************************************************************************************/
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (!State.STAY)
+            if (CommandState == true)
             {
-                timer1.Enabled = false;
+                timer_TimeoutCommunication.Enabled = false;
                 MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                State.WR = false;
-                State.STAY = true;
                 prgBar_CommandProgress.Value = 0;
             }
 
-
         }
 
-       
+
 
         private void timer_CommandProgressBar_Tick(object sender, EventArgs e)
         {
             prgBar_CommandProgress.Value = 0;
             timer_CommandProgressBar.Enabled = false;
         }
+
+       
     }
 }
