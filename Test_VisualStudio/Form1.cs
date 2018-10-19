@@ -555,7 +555,11 @@ namespace Test_VisualStudio
             timing_PwmGenControl.Enabled = true;
 
         }
-
+        private void trcBar_SpeedControl_KeyUp(object sender, KeyEventArgs e)
+        {
+            timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = true;
+        }
         /*label se ze změnou track baru aktualizuje nicméně není odeslán příkaz, příkaz je odeslán až po uvolnění tlačítka myši*/
         private void trcBar_SpeedControl_Scroll(object sender, EventArgs e)
         {
@@ -566,20 +570,27 @@ namespace Test_VisualStudio
         }
 
 
+
         private void trcBar_DutyCycle_MouseUp(object sender, MouseEventArgs e)
-        {   
+        {
             timing_PwmGenControl.Enabled = false;
             timing_PwmGenControl.Enabled = true;
         }
 
 
+
+        private void trcBar_DutyCycle_KeyUp(object sender, KeyEventArgs e)
+        {
+            timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = true;
+        }
+
         private void trcBar_DutyCycle_Scroll(object sender, EventArgs e)
         {
             lbl_DutyCycle.Text = Convert.ToString(trcBar_DutyCycle.Value);
-            
+
 
         }
-
         private void chBox_PWMGenerationOn_CheckedChanged(object sender, EventArgs e)
         {
             timing_PwmGenControl.Enabled = false;
@@ -591,19 +602,19 @@ namespace Test_VisualStudio
         private void timing_PwmGenControl_Tick(object sender, EventArgs e)
         {
 
-                timing_PwmGenControl.Enabled = false;
+            timing_PwmGenControl.Enabled = false;
 
-                byte[] speedcontrol = new byte[4];
-                speedcontrol[0] = Convert.ToByte('P');
-                speedcontrol[1] = Convert.ToByte(trcBar_SpeedControl.Value);
-                speedcontrol[2] = Convert.ToByte(trcBar_DutyCycle.Value);
-                speedcontrol[3] = Convert.ToByte(chBox_PWMGenerationOn.Checked);
+            byte[] speedcontrol = new byte[4];
+            speedcontrol[0] = Convert.ToByte('P');
+            speedcontrol[1] = Convert.ToByte(trcBar_SpeedControl.Value);
+            speedcontrol[2] = Convert.ToByte(trcBar_DutyCycle.Value);
+            speedcontrol[3] = Convert.ToByte(chBox_PWMGenerationOn.Checked);
 
-                serialPort1.Write(speedcontrol, 0, 4);
+            serialPort1.Write(speedcontrol, 0, 4);
 
-                prgBar_CommandProgress.Value = 50;
-                CommandState = true;
-                timer_TimeoutCommunication.Enabled = true;
+            prgBar_CommandProgress.Value = 50;
+            CommandState = true;
+            timer_TimeoutCommunication.Enabled = true;
         }
 
 
@@ -685,24 +696,27 @@ namespace Test_VisualStudio
         /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            
-                message = serialPort1.ReadExisting();
-            
-                this.Invoke(new EventHandler(ReadData));
+
+            message = serialPort1.ReadExisting();
+
+            this.Invoke(new EventHandler(ReadData));
         }
 
 
         private void ReadData(object sender, EventArgs e)
         {
             byte[] RxmessageArray = RxmessageArray = Encoding.ASCII.GetBytes(message);
-            
 
+
+            
 
             if (RxmessageArray[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
             {
-
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.Text = textBox1.Text + Environment.NewLine;
+                textBox1.SelectionStart = textBox1.TextLength;
+                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.AppendText(Environment.NewLine);
+                //textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message));
+                // textBox1.Text = textBox1.Text + Environment.NewLine;
 
                 //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
 
@@ -720,8 +734,9 @@ namespace Test_VisualStudio
             {
 
 
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.Text = textBox1.Text + Environment.NewLine;
+                textBox1.SelectionStart = textBox1.TextLength;
+                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.AppendText(Environment.NewLine);
 
 
                 prgBar_CommandProgress.Value = 100;
@@ -734,8 +749,9 @@ namespace Test_VisualStudio
             {
 
 
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.Text = textBox1.Text + Environment.NewLine;
+                textBox1.SelectionStart = textBox1.TextLength;
+                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.AppendText(Environment.NewLine);
 
 
 
@@ -745,11 +761,12 @@ namespace Test_VisualStudio
                 timer_CommandProgressBar.Enabled = true;
             }
 
-            if (RxmessageArray[0] == Convert.ToByte('P')) 
+            if (RxmessageArray[0] == Convert.ToByte('P'))
             {
-                
-                textBox1.Text = textBox1.Text + DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.Text = textBox1.Text + Environment.NewLine;
+
+                textBox1.SelectionStart = textBox1.TextLength;
+                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.AppendText(Environment.NewLine);
 
 
                 CommandState = false;
@@ -757,6 +774,7 @@ namespace Test_VisualStudio
                 timer_TimeoutCommunication.Enabled = false;
                 timer_CommandProgressBar.Enabled = true;
             }
+            
         }
 
         /************************************************************************Controls of Commands for Serial port*******************************************************************************/
@@ -840,7 +858,7 @@ namespace Test_VisualStudio
 
         /*třída State nese proměnné pro komunikaci s nadřazenými třídami, které ovládají komunikaci
           pokud se aktivuje nějaký příkaz dojde k nahození danného bitu v této třídě.*/
-        
+
 
         /************************************************************************Timing of Serial Comunication***********************************************************************************/
         /* Eventy timerů, které časují události ohledně komunikace
@@ -867,6 +885,20 @@ namespace Test_VisualStudio
             timer_CommandProgressBar.Enabled = false;
         }
 
+
+        /*************************************************************************Diagnostic Terminal****************************************************************************************/
+        private void btn_ClearDiagTextBox_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
        
+        
     }
 }

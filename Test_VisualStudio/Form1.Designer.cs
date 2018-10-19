@@ -121,17 +121,20 @@
             this.toolStrip_MenuPorts = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip_RefreshPorts = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.prgBar_CommandProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.timer_TimeoutCommunication = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
-            this.chBox_LockControls = new System.Windows.Forms.CheckBox();
             this.btn_ResetConfiguration = new System.Windows.Forms.Button();
             this.btn_ReadConfiguration = new System.Windows.Forms.Button();
             this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_ClearDiagTextBox = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.btn_ReadDiag = new System.Windows.Forms.Button();
             this.rBtn_AutoWriteMode = new System.Windows.Forms.RadioButton();
@@ -1253,16 +1256,42 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
             this.toolStripStatusLabel1,
             this.prgBar_CommandProgress});
             this.statusStrip1.Location = new System.Drawing.Point(0, 609);
             this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.statusStrip1.Size = new System.Drawing.Size(1394, 22);
             this.statusStrip1.TabIndex = 34;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Margin = new System.Windows.Forms.Padding(0, 3, -3, 2);
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel2.Text = "RPM : ";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel3.Text = "---";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Margin = new System.Windows.Forms.Padding(850, 3, 0, 2);
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(92, 17);
+            this.toolStripStatusLabel4.Text = "Preset Is Not Set";
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(150, 3, 0, 2);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(104, 17);
             this.toolStripStatusLabel1.Text = "Port Disconnected";
@@ -1272,6 +1301,7 @@
             this.prgBar_CommandProgress.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.prgBar_CommandProgress.Name = "prgBar_CommandProgress";
             this.prgBar_CommandProgress.Size = new System.Drawing.Size(100, 16);
+            this.prgBar_CommandProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
             // textBox1
             // 
@@ -1288,9 +1318,9 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(6, 34);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(86, 13);
+            this.label33.Size = new System.Drawing.Size(103, 13);
             this.label33.TabIndex = 36;
-            this.label33.Text = "Serial Input Data";
+            this.label33.Text = "Serial Input Terminal";
             // 
             // timer_TimeoutCommunication
             // 
@@ -1300,7 +1330,6 @@
             // gpBox_ConInteraction
             // 
             this.gpBox_ConInteraction.BackColor = System.Drawing.SystemColors.Control;
-            this.gpBox_ConInteraction.Controls.Add(this.chBox_LockControls);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_SetPreset);
@@ -1311,18 +1340,9 @@
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
             // 
-            // chBox_LockControls
-            // 
-            this.chBox_LockControls.AutoSize = true;
-            this.chBox_LockControls.Location = new System.Drawing.Point(88, 129);
-            this.chBox_LockControls.Name = "chBox_LockControls";
-            this.chBox_LockControls.Size = new System.Drawing.Size(50, 17);
-            this.chBox_LockControls.TabIndex = 41;
-            this.chBox_LockControls.Text = "Lock";
-            this.chBox_LockControls.UseVisualStyleBackColor = true;
-            // 
             // btn_ResetConfiguration
             // 
+            this.btn_ResetConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ResetConfiguration.Location = new System.Drawing.Point(8, 88);
             this.btn_ResetConfiguration.Name = "btn_ResetConfiguration";
             this.btn_ResetConfiguration.Size = new System.Drawing.Size(200, 25);
@@ -1332,6 +1352,7 @@
             // 
             // btn_ReadConfiguration
             // 
+            this.btn_ReadConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 54);
             this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
             this.btn_ReadConfiguration.Size = new System.Drawing.Size(200, 25);
@@ -1341,15 +1362,17 @@
             // 
             // btn_SetPreset
             // 
+            this.btn_SetPreset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_SetPreset.Location = new System.Drawing.Point(8, 22);
             this.btn_SetPreset.Name = "btn_SetPreset";
             this.btn_SetPreset.Size = new System.Drawing.Size(200, 25);
             this.btn_SetPreset.TabIndex = 38;
-            this.btn_SetPreset.Text = "Set Preset";
+            this.btn_SetPreset.Text = "Set Preset / Reset Preset";
             this.btn_SetPreset.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_ClearDiagTextBox);
             this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(1103, 37);
@@ -1358,6 +1381,17 @@
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
+            // 
+            // btn_ClearDiagTextBox
+            // 
+            this.btn_ClearDiagTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(233, 25);
+            this.btn_ClearDiagTextBox.Name = "btn_ClearDiagTextBox";
+            this.btn_ClearDiagTextBox.Size = new System.Drawing.Size(29, 20);
+            this.btn_ClearDiagTextBox.TabIndex = 37;
+            this.btn_ClearDiagTextBox.Text = "C";
+            this.btn_ClearDiagTextBox.UseVisualStyleBackColor = true;
+            this.btn_ClearDiagTextBox.Click += new System.EventHandler(this.btn_ClearDiagTextBox_Click);
             // 
             // groupBox13
             // 
@@ -1377,6 +1411,7 @@
             // btn_ReadDiag
             // 
             this.btn_ReadDiag.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ReadDiag.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ReadDiag.Enabled = false;
             this.btn_ReadDiag.Location = new System.Drawing.Point(149, 101);
             this.btn_ReadDiag.Name = "btn_ReadDiag";
@@ -1413,6 +1448,7 @@
             // btn_ReadConfig
             // 
             this.btn_ReadConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ReadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ReadConfig.Enabled = false;
             this.btn_ReadConfig.Location = new System.Drawing.Point(149, 21);
             this.btn_ReadConfig.Name = "btn_ReadConfig";
@@ -1425,6 +1461,7 @@
             // btn_WriteConfig
             // 
             this.btn_WriteConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_WriteConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_WriteConfig.Enabled = false;
             this.btn_WriteConfig.Location = new System.Drawing.Point(9, 21);
             this.btn_WriteConfig.Name = "btn_WriteConfig";
@@ -1502,6 +1539,7 @@
             this.trcBar_DutyCycle.TabIndex = 19;
             this.trcBar_DutyCycle.TabStop = false;
             this.trcBar_DutyCycle.Scroll += new System.EventHandler(this.trcBar_DutyCycle_Scroll);
+            this.trcBar_DutyCycle.KeyUp += new System.Windows.Forms.KeyEventHandler(this.trcBar_DutyCycle_KeyUp);
             this.trcBar_DutyCycle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trcBar_DutyCycle_MouseUp);
             // 
             // label34
@@ -1533,11 +1571,12 @@
             this.trcBar_SpeedControl.TabIndex = 0;
             this.trcBar_SpeedControl.TabStop = false;
             this.trcBar_SpeedControl.Scroll += new System.EventHandler(this.trcBar_SpeedControl_Scroll);
+            this.trcBar_SpeedControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.trcBar_SpeedControl_KeyUp);
             this.trcBar_SpeedControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trcBar_SpeedControl_MouseUp);
             // 
             // timing_PwmGenControl
             // 
-            this.timing_PwmGenControl.Interval = 50;
+            this.timing_PwmGenControl.Interval = 150;
             this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
             // 
             // Form1
@@ -1558,8 +1597,11 @@
             this.Controls.Add(this.groupBoxC0);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS4963 Configurator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxC0.ResumeLayout(false);
@@ -1605,7 +1647,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.gpBox_ConInteraction.ResumeLayout(false);
-            this.gpBox_ConInteraction.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox13.ResumeLayout(false);
@@ -1714,7 +1755,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Timer timer_TimeoutCommunication;
         private System.Windows.Forms.GroupBox gpBox_ConInteraction;
-        private System.Windows.Forms.CheckBox chBox_LockControls;
         private System.Windows.Forms.Button btn_ResetConfiguration;
         private System.Windows.Forms.Button btn_ReadConfiguration;
         private System.Windows.Forms.Button btn_SetPreset;
@@ -1740,6 +1780,10 @@
         private System.Windows.Forms.TrackBar trcBar_DutyCycle;
         private System.Windows.Forms.CheckBox chBox_PWMGenerationOn;
         private System.Windows.Forms.Timer timing_PwmGenControl;
+        private System.Windows.Forms.Button btn_ClearDiagTextBox;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 
