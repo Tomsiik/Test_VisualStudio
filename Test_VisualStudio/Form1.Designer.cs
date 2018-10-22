@@ -152,6 +152,13 @@
             this.lbl_SpeedControl = new System.Windows.Forms.Label();
             this.trcBar_SpeedControl = new System.Windows.Forms.TrackBar();
             this.timing_PwmGenControl = new System.Windows.Forms.Timer(this.components);
+            this.lbl_Config0 = new System.Windows.Forms.Label();
+            this.lbl_Config1 = new System.Windows.Forms.Label();
+            this.lbl_Config2 = new System.Windows.Forms.Label();
+            this.lbl_Config3 = new System.Windows.Forms.Label();
+            this.lbl_Config4 = new System.Windows.Forms.Label();
+            this.lbl_Config5 = new System.Windows.Forms.Label();
+            this.lbl_ConfigRun = new System.Windows.Forms.Label();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -225,6 +232,7 @@
             // groupBoxC0
             // 
             this.groupBoxC0.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBoxC0.Controls.Add(this.lbl_Config0);
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeOff);
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeLow);
             this.groupBoxC0.Controls.Add(this.rBtn_RcModeAuto);
@@ -448,6 +456,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.lbl_Config1);
             this.groupBox3.Controls.Add(this.chBox_PFD);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
@@ -468,6 +477,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox4.Controls.Add(this.lbl_Config2);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.numUpDown_OffTime);
@@ -634,6 +644,7 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox6.Controls.Add(this.lbl_Config3);
             this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.numUpDown_HoldTime);
             this.groupBox6.Controls.Add(this.label17);
@@ -748,6 +759,7 @@
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox7.Controls.Add(this.lbl_Config4);
             this.groupBox7.Controls.Add(this.label24);
             this.groupBox7.Controls.Add(this.label18);
             this.groupBox7.Controls.Add(this.numUpDown_StartSpeed);
@@ -872,6 +884,7 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox8.Controls.Add(this.lbl_Config5);
             this.groupBox8.Controls.Add(this.groupBox9);
             this.groupBox8.Controls.Add(this.label25);
             this.groupBox8.Controls.Add(this.label26);
@@ -1032,6 +1045,7 @@
             // groupBox11
             // 
             this.groupBox11.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox11.Controls.Add(this.lbl_ConfigRun);
             this.groupBox11.Controls.Add(this.label1);
             this.groupBox11.Controls.Add(this.numUpDown_DutyCycleControl);
             this.groupBox11.Controls.Add(this.label32);
@@ -1579,6 +1593,83 @@
             this.timing_PwmGenControl.Interval = 150;
             this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
             // 
+            // lbl_Config0
+            // 
+            this.lbl_Config0.AutoSize = true;
+            this.lbl_Config0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config0.Location = new System.Drawing.Point(346, 139);
+            this.lbl_Config0.Name = "lbl_Config0";
+            this.lbl_Config0.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config0.TabIndex = 41;
+            this.lbl_Config0.Text = "R";
+            this.lbl_Config0.Visible = false;
+            // 
+            // lbl_Config1
+            // 
+            this.lbl_Config1.AutoSize = true;
+            this.lbl_Config1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config1.Location = new System.Drawing.Point(346, 139);
+            this.lbl_Config1.Name = "lbl_Config1";
+            this.lbl_Config1.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config1.TabIndex = 42;
+            this.lbl_Config1.Text = "R";
+            this.lbl_Config1.Visible = false;
+            // 
+            // lbl_Config2
+            // 
+            this.lbl_Config2.AutoSize = true;
+            this.lbl_Config2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config2.Location = new System.Drawing.Point(346, 182);
+            this.lbl_Config2.Name = "lbl_Config2";
+            this.lbl_Config2.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config2.TabIndex = 42;
+            this.lbl_Config2.Text = "R";
+            this.lbl_Config2.Visible = false;
+            // 
+            // lbl_Config3
+            // 
+            this.lbl_Config3.AutoSize = true;
+            this.lbl_Config3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config3.Location = new System.Drawing.Point(315, 167);
+            this.lbl_Config3.Name = "lbl_Config3";
+            this.lbl_Config3.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config3.TabIndex = 43;
+            this.lbl_Config3.Text = "R";
+            this.lbl_Config3.Visible = false;
+            // 
+            // lbl_Config4
+            // 
+            this.lbl_Config4.AutoSize = true;
+            this.lbl_Config4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config4.Location = new System.Drawing.Point(319, 165);
+            this.lbl_Config4.Name = "lbl_Config4";
+            this.lbl_Config4.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config4.TabIndex = 44;
+            this.lbl_Config4.Text = "R";
+            this.lbl_Config4.Visible = false;
+            // 
+            // lbl_Config5
+            // 
+            this.lbl_Config5.AutoSize = true;
+            this.lbl_Config5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_Config5.Location = new System.Drawing.Point(399, 164);
+            this.lbl_Config5.Name = "lbl_Config5";
+            this.lbl_Config5.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Config5.TabIndex = 45;
+            this.lbl_Config5.Text = "R";
+            this.lbl_Config5.Visible = false;
+            // 
+            // lbl_ConfigRun
+            // 
+            this.lbl_ConfigRun.AutoSize = true;
+            this.lbl_ConfigRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_ConfigRun.Location = new System.Drawing.Point(181, 361);
+            this.lbl_ConfigRun.Name = "lbl_ConfigRun";
+            this.lbl_ConfigRun.Size = new System.Drawing.Size(15, 13);
+            this.lbl_ConfigRun.TabIndex = 46;
+            this.lbl_ConfigRun.Text = "R";
+            this.lbl_ConfigRun.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1661,8 +1752,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton rBtn_RcModeAuto;
-        private System.Windows.Forms.RadioButton rBtn_RcModeHigh;
         private System.Windows.Forms.RadioButton rBtn_RcModeLow;
         private System.Windows.Forms.GroupBox groupBoxC0;
         private System.Windows.Forms.RadioButton rBtn_RcModeOff;
@@ -1784,6 +1873,15 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.RadioButton rBtn_RcModeHigh;
+        private System.Windows.Forms.RadioButton rBtn_RcModeAuto;
+        private System.Windows.Forms.Label lbl_Config0;
+        private System.Windows.Forms.Label lbl_Config1;
+        private System.Windows.Forms.Label lbl_Config2;
+        private System.Windows.Forms.Label lbl_Config3;
+        private System.Windows.Forms.Label lbl_Config4;
+        private System.Windows.Forms.Label lbl_Config5;
+        private System.Windows.Forms.Label lbl_ConfigRun;
     }
 }
 

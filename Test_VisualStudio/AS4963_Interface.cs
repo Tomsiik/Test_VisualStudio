@@ -113,7 +113,7 @@ namespace AS4963_Interface
             {
                 public const ushort Pos = 0;
                 public const ushort Num = 4;
-                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+                public static ushort Mask = Convert.ToUInt16(0x0F << Pos);
             }
         }
 
@@ -135,7 +135,7 @@ namespace AS4963_Interface
             {
                 public const ushort Pos = 0;
                 public const ushort Num = 4;
-                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+                public static ushort Mask = Convert.ToUInt16(0x0F << Pos);
             }
         }
 
