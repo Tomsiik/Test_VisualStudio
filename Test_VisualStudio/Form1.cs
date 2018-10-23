@@ -14,7 +14,7 @@ namespace Test_VisualStudio
 {
     public partial class Form1 : Form
     {
-        string message;
+        byte[] Rxbuffer = new byte[20];
 
         public static bool CommandState = false;
 
@@ -303,7 +303,7 @@ namespace Test_VisualStudio
 
         private void rBtn_SpeedOutSelElectricFreeq_CheckedChanged(object sender, EventArgs e)
         {
-            ChangeLabel.Config4.Write(this);
+            ChangeLabel.Config5.Write(this);
         }
 
         private void rBtn_SpeedOutSelCommuFreq_CheckedChanged(object sender, EventArgs e)
@@ -545,8 +545,12 @@ namespace Test_VisualStudio
         /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            int bytesLen = serialPort1.BytesToRead;
 
-            message = serialPort1.ReadExisting();
+
+
+
+            serialPort1.Read(Rxbuffer, 0, bytesLen);
 
             this.Invoke(new EventHandler(ReadData));
         }
@@ -554,7 +558,7 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-            byte[] RxmessageArray = RxmessageArray = Encoding.ASCII.GetBytes(message);
+            byte[] RxmessageArray = Rxbuffer;
 
 
 
@@ -562,7 +566,7 @@ namespace Test_VisualStudio
             if (RxmessageArray[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
             {
                 textBox1.SelectionStart = textBox1.TextLength;
-                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
                 //textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message));
                 // textBox1.Text = textBox1.Text + Environment.NewLine;
@@ -585,8 +589,17 @@ namespace Test_VisualStudio
 
 
                 textBox1.SelectionStart = textBox1.TextLength;
-                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
+
+
+                UserControls.Modify.Config0(this, RxmessageArray);
+                UserControls.Modify.Config1(this, RxmessageArray);
+                UserControls.Modify.Config2(this, RxmessageArray);
+                UserControls.Modify.Config3(this, RxmessageArray);
+                UserControls.Modify.Config4(this, RxmessageArray);
+                UserControls.Modify.Config5(this, RxmessageArray);
+                UserControls.Modify.Run(this, RxmessageArray);
 
 
                 prgBar_CommandProgress.Value = 100;
@@ -600,7 +613,7 @@ namespace Test_VisualStudio
 
 
                 textBox1.SelectionStart = textBox1.TextLength;
-                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
 
 
@@ -615,7 +628,7 @@ namespace Test_VisualStudio
             {
 
                 textBox1.SelectionStart = textBox1.TextLength;
-                textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
 
 
@@ -695,6 +708,9 @@ namespace Test_VisualStudio
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
 
+
+
+
         }
 
 
@@ -743,30 +759,10 @@ namespace Test_VisualStudio
         private void btn_ClearDiagTextBox_Click(object sender, EventArgs e)
         {
 
-            byte[] buffer = new byte[15];
-            buffer[1] = 8;
-            buffer[2] = 200;
-            buffer[3] = 255;
-            buffer[4] = 255;
-            buffer[5] = 255;
-            buffer[6] = 255;
-            buffer[7] = 255;
-            buffer[8] = 255;
-            buffer[9] = 255;
-            buffer[10] = 255;
-            buffer[11] = 255;
-            buffer[12] = 255;
-            buffer[13] = 255;
-            textBox1.Clear();
+          
 
 
-            UserControls.Modify.Config0(this, buffer);
-            UserControls.Modify.Config1(this, buffer);
-            UserControls.Modify.Config2(this, buffer);
-            UserControls.Modify.Config3(this, buffer);
-            UserControls.Modify.Config4(this, buffer);
-            UserControls.Modify.Config5(this, buffer);
-            UserControls.Modify.Run(this, buffer);
+          
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -978,6 +974,7 @@ namespace Test_VisualStudio
                         frm.rBtn_RcModeOff.Checked = true;
 
                     frm.numUpDown_BlankTime.Value = regC0_BT * 400;
+
                     frm.numUpDown_DeadTime.Value = regC0_DT * 50;
                     ChangeLabel.Config0.Read(frm);
 
@@ -1085,7 +1082,7 @@ namespace Test_VisualStudio
 
                 public static void Run(Form1 frm, byte[] buffer)
                 {
-                    ushort regRUN = (ushort)((buffer[12] << 8) | buffer[13]);
+                    ushort regRUN = (ushort)((buffer[13] << 8) | buffer[14]);
                     ushort regRUN_CM = (ushort)(((regRUN & (AS4963.RUN.CM.Mask)) >> AS4963.RUN.CM.Pos));
                     ushort regRUN_ESF = (ushort)(((regRUN & (AS4963.RUN.ESF.Mask)) >> AS4963.RUN.ESF.Pos));
                     ushort regRUN_DI = (ushort)(((regRUN & (AS4963.RUN.DI.Mask)) >> AS4963.RUN.DI.Pos));
