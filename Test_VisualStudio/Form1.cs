@@ -540,107 +540,111 @@ namespace Test_VisualStudio
         /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            RxbytesLen = serialPort1.BytesToRead;
 
-            serialPort1.Read(Rxbuffer, 0, RxbytesLen);
+            {
+                RxbytesLen = serialPort1.BytesToRead;
+                if (RxbytesLen < 21)
+                {
+                    serialPort1.Read(Rxbuffer, 0, RxbytesLen);
+                }
+                this.Invoke(new EventHandler(ReadData));
+            }
 
-            this.Invoke(new EventHandler(ReadData));
         }
 
 
         private void ReadData(object sender, EventArgs e)
         {
-            // byte[] RxmessageArray = new byte[RxbytesLen];
-            // Array.Copy(Rxbuffer, RxmessageArray, RxbytesLen);
-
-            //int lenght = RxmessageArray.Length;
-
-            if (Rxbuffer[0] == Convert.ToByte('W') && RxbytesLen == 1)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
+            if (CommandState == true)
             {
-
-                prgBar_CommandProgress.Value = 100;
-                textBox1.SelectionStart = textBox1.TextLength;
-                //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.AppendText(Environment.NewLine);
-                //textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message));
-                // textBox1.Text = textBox1.Text + Environment.NewLine;
-
-                //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
-
-                CommandState = false;
-                timer_TimeoutCommunication.Enabled = false; //deaktivace timeru který počítá timeout pro přijem odpovědi, odpověď přišla 
-                timer_CommandProgressBar.Enabled = true;
-
-                ChangeLabel.ClearAll(this);
-
-            }
-
-            else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen == 15))
-            {
-                prgBar_CommandProgress.Value = 100;
-                textBox1.SelectionStart = textBox1.TextLength;
-                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.AppendText(Environment.NewLine);
-
-                UserControls.Modify.Config0(this, Rxbuffer);
-                UserControls.Modify.Config1(this, Rxbuffer);
-                UserControls.Modify.Config2(this, Rxbuffer);
-                UserControls.Modify.Config3(this, Rxbuffer);
-                UserControls.Modify.Config4(this, Rxbuffer);
-                UserControls.Modify.Config5(this, Rxbuffer);
-                UserControls.Modify.Run(this, Rxbuffer);
-
-
-
-                CommandState = false;
-                timer_TimeoutCommunication.Enabled = false;
-                timer_CommandProgressBar.Enabled = true;
-
-            }
-
-            else if (Rxbuffer[0] == Convert.ToByte('D') && (RxbytesLen == 3))
-            {
-
-
-                textBox1.SelectionStart = textBox1.TextLength;
-                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.AppendText(Environment.NewLine);
-
-
-
-                prgBar_CommandProgress.Value = 100;
-                CommandState = false;
-                timer_TimeoutCommunication.Enabled = false;
-                timer_CommandProgressBar.Enabled = true;
-            }
-
-            else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
-            {
-
-                textBox1.SelectionStart = textBox1.TextLength;
-                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.AppendText(Environment.NewLine);
-
-
-                CommandState = false;
-                prgBar_CommandProgress.Value = 100;
-                timer_TimeoutCommunication.Enabled = false;
-                timer_CommandProgressBar.Enabled = true;
-            }
-            else {
-                MessageBoxState = true;
-                timer_CommandProgressBar.Enabled = false;
-                timer_TimeoutCommunication.Enabled = false;
-
-                string zprava = "Received incorrect frame!" + Environment.NewLine + Convert.ToChar(Rxbuffer[0]); //složení diagnostického message boxu s přijatými daty 
-                for (int y = 1; y< RxbytesLen; y++)
+                if (Rxbuffer[0] == Convert.ToByte('W') && RxbytesLen == 1)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
                 {
-                    zprava = zprava + " | " + Rxbuffer[y];
-                }
-                MessageBox.Show(this, zprava, "Data Frame Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                timer_CommandProgressBar.Enabled = true;
-                MessageBoxState = false;
+                    prgBar_CommandProgress.Value = 100;
+                    textBox1.SelectionStart = textBox1.TextLength;
+                    //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                    textBox1.AppendText(Environment.NewLine);
+                    //textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message));
+                    // textBox1.Text = textBox1.Text + Environment.NewLine;
+
+                    //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
+
+                    CommandState = false;
+                    timer_TimeoutCommunication.Enabled = false; //deaktivace timeru který počítá timeout pro přijem odpovědi, odpověď přišla 
+                    timer_CommandProgressBar.Enabled = true;
+
+                    ChangeLabel.ClearAll(this);
+
+                }
+
+                else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen == 15))
+                {
+                    prgBar_CommandProgress.Value = 100;
+                    textBox1.SelectionStart = textBox1.TextLength;
+                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                    textBox1.AppendText(Environment.NewLine);
+
+                    UserControls.Modify.Config0(this, Rxbuffer);
+                    UserControls.Modify.Config1(this, Rxbuffer);
+                    UserControls.Modify.Config2(this, Rxbuffer);
+                    UserControls.Modify.Config3(this, Rxbuffer);
+                    UserControls.Modify.Config4(this, Rxbuffer);
+                    UserControls.Modify.Config5(this, Rxbuffer);
+                    UserControls.Modify.Run(this, Rxbuffer);
+
+
+                    CommandState = false;
+                    timer_TimeoutCommunication.Enabled = false;
+                    timer_CommandProgressBar.Enabled = true;
+
+                }
+
+                else if (Rxbuffer[0] == Convert.ToByte('D') && (RxbytesLen == 3))
+                {
+
+
+                    textBox1.SelectionStart = textBox1.TextLength;
+                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                    textBox1.AppendText(Environment.NewLine);
+
+
+
+                    prgBar_CommandProgress.Value = 100;
+                    CommandState = false;
+                    timer_TimeoutCommunication.Enabled = false;
+                    timer_CommandProgressBar.Enabled = true;
+                }
+
+                else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
+                {
+
+                    textBox1.SelectionStart = textBox1.TextLength;
+                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                    textBox1.AppendText(Environment.NewLine);
+
+
+                    CommandState = false;
+                    prgBar_CommandProgress.Value = 100;
+                    timer_TimeoutCommunication.Enabled = false;
+                    timer_CommandProgressBar.Enabled = true;
+                }
+                else
+                {
+                    MessageBoxState = true;
+                    timer_CommandProgressBar.Enabled = false;
+                    timer_TimeoutCommunication.Enabled = false;
+
+                    string zprava = "Received incorrect frame!" + Environment.NewLine + Environment.NewLine; //složení diagnostického message boxu s přijatými daty 
+                    zprava = zprava + "Data:" + Environment.NewLine + Convert.ToChar(Rxbuffer[0]);
+                    for (int y = 1; y < RxbytesLen; y++)
+                    {
+                        zprava = zprava + " | " + Rxbuffer[y];
+                    }
+                    MessageBox.Show(this, zprava, "Data Frame Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CommandState = false;
+                    timer_CommandProgressBar.Enabled = true;
+                    MessageBoxState = false;
+                }
             }
         }
 
