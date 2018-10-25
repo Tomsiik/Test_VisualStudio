@@ -1390,6 +1390,7 @@
             // prgBar_CommandProgress
             // 
             this.prgBar_CommandProgress.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.prgBar_CommandProgress.MarqueeAnimationSpeed = 10;
             this.prgBar_CommandProgress.Name = "prgBar_CommandProgress";
             this.prgBar_CommandProgress.Size = new System.Drawing.Size(100, 16);
             this.prgBar_CommandProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;

@@ -40,16 +40,6 @@ namespace Test_VisualStudio
 
         }
 
-
-
-        /*************************************************************************Pull Control Data to Register*********************************************************************/
-        /* Deklarace funkcí, ktré vrací hodnotu 16-bitového registru do AS4963 obvodu, na základě nastavených prvků
-         * Nastavovat lze Konfigurační registry 0 až 5 a registr Run
-         * 
-         */
-
-
-
         /***********************************************************************Config 0********************************************************************************************/
         /* Eventy ovládacích prvků konfiguračního registr 0
          */
@@ -560,13 +550,15 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-           // byte[] RxmessageArray = new byte[RxbytesLen];
-           // Array.Copy(Rxbuffer, RxmessageArray, RxbytesLen);
+            // byte[] RxmessageArray = new byte[RxbytesLen];
+            // Array.Copy(Rxbuffer, RxmessageArray, RxbytesLen);
 
             //int lenght = RxmessageArray.Length;
 
-            if (Rxbuffer[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
+            if (Rxbuffer[0] == Convert.ToByte('W') && RxbytesLen == 1)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
             {
+
+                prgBar_CommandProgress.Value = 100;
                 textBox1.SelectionStart = textBox1.TextLength;
                 //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
@@ -575,22 +567,19 @@ namespace Test_VisualStudio
 
                 //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
 
-
-
-
-                prgBar_CommandProgress.Value = 100;
                 CommandState = false;
                 timer_TimeoutCommunication.Enabled = false; //deaktivace timeru který počítá timeout pro přijem odpovědi, odpověď přišla 
                 timer_CommandProgressBar.Enabled = true;
 
                 ChangeLabel.ClearAll(this);
+
             }
 
-           else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen > 14))
+            else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen == 15))
             {
-
+                prgBar_CommandProgress.Value = 100;
                 textBox1.SelectionStart = textBox1.TextLength;
-               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
 
                 UserControls.Modify.Config0(this, Rxbuffer);
@@ -602,19 +591,19 @@ namespace Test_VisualStudio
                 UserControls.Modify.Run(this, Rxbuffer);
 
 
-                prgBar_CommandProgress.Value = 100;
+
                 CommandState = false;
                 timer_TimeoutCommunication.Enabled = false;
                 timer_CommandProgressBar.Enabled = true;
 
             }
 
-           else if (Rxbuffer[0] == Convert.ToByte('D'))
+            else if (Rxbuffer[0] == Convert.ToByte('D') && (RxbytesLen == 3))
             {
 
 
                 textBox1.SelectionStart = textBox1.TextLength;
-               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
 
 
@@ -625,11 +614,11 @@ namespace Test_VisualStudio
                 timer_CommandProgressBar.Enabled = true;
             }
 
-            else if (Rxbuffer[0] == Convert.ToByte('P'))
+            else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
             {
 
                 textBox1.SelectionStart = textBox1.TextLength;
-               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
                 textBox1.AppendText(Environment.NewLine);
 
 
@@ -638,9 +627,19 @@ namespace Test_VisualStudio
                 timer_TimeoutCommunication.Enabled = false;
                 timer_CommandProgressBar.Enabled = true;
             }
-            else{
+            else {
                 MessageBoxState = true;
-                MessageBox.Show(this, "Received incorrect frame!", "Data Frame Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                timer_CommandProgressBar.Enabled = false;
+                timer_TimeoutCommunication.Enabled = false;
+
+                string zprava = "Received incorrect frame!" + Environment.NewLine + Convert.ToChar(Rxbuffer[0]); //složení diagnostického message boxu s přijatými daty 
+                for (int y = 1; y< RxbytesLen; y++)
+                {
+                    zprava = zprava + " | " + Rxbuffer[y];
+                }
+                MessageBox.Show(this, zprava, "Data Frame Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                timer_CommandProgressBar.Enabled = true;
                 MessageBoxState = false;
             }
         }
@@ -746,8 +745,10 @@ namespace Test_VisualStudio
             {
                 timer_TimeoutCommunication.Enabled = false;
                 if (MessageBoxState == false)
+                {
                     MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                prgBar_CommandProgress.Value = 0;
+                    prgBar_CommandProgress.Value = 0;
+                }
             }
 
         }
@@ -756,6 +757,7 @@ namespace Test_VisualStudio
 
         private void timer_CommandProgressBar_Tick(object sender, EventArgs e)
         {
+
             prgBar_CommandProgress.Value = 0;
             timer_CommandProgressBar.Enabled = false;
         }
@@ -988,8 +990,11 @@ namespace Test_VisualStudio
                     }
                     catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli
                     {
-                        MessageBoxState = true; 
+                        MessageBoxState = true;
+                        frm.timer_CommandProgressBar.Enabled = false;
+                        frm.timer_TimeoutCommunication.Enabled = false;
                         MessageBox.Show(frm, "Received incorred data of correct frame!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        frm.timer_CommandProgressBar.Enabled = true;
                         MessageBoxState = false;
                     }
 
