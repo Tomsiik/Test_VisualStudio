@@ -14,7 +14,12 @@ namespace Test_VisualStudio
 {
     public partial class Form1 : Form
     {
-        byte[] Rxbuffer = new byte[20];
+
+        public static int RxbytesLen;
+
+        public static byte[] Rxbuffer = new byte[20];
+
+        public static bool MessageBoxState = false;
 
         public static bool CommandState = false;
 
@@ -545,12 +550,9 @@ namespace Test_VisualStudio
         /*event pro příjem dat seriového portu*/
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            int bytesLen = serialPort1.BytesToRead;
+            RxbytesLen = serialPort1.BytesToRead;
 
-
-
-
-            serialPort1.Read(Rxbuffer, 0, bytesLen);
+            serialPort1.Read(Rxbuffer, 0, RxbytesLen);
 
             this.Invoke(new EventHandler(ReadData));
         }
@@ -558,12 +560,12 @@ namespace Test_VisualStudio
 
         private void ReadData(object sender, EventArgs e)
         {
-            byte[] RxmessageArray = Rxbuffer;
+           // byte[] RxmessageArray = new byte[RxbytesLen];
+           // Array.Copy(Rxbuffer, RxmessageArray, RxbytesLen);
 
+            //int lenght = RxmessageArray.Length;
 
-
-
-            if (RxmessageArray[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
+            if (Rxbuffer[0] == Convert.ToByte('W'))   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
             {
                 textBox1.SelectionStart = textBox1.TextLength;
                 //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
@@ -584,7 +586,30 @@ namespace Test_VisualStudio
                 ChangeLabel.ClearAll(this);
             }
 
-            if (RxmessageArray[0] == Convert.ToByte('R'))
+           else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen > 14))
+            {
+
+                textBox1.SelectionStart = textBox1.TextLength;
+               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
+                textBox1.AppendText(Environment.NewLine);
+
+                UserControls.Modify.Config0(this, Rxbuffer);
+                UserControls.Modify.Config1(this, Rxbuffer);
+                UserControls.Modify.Config2(this, Rxbuffer);
+                UserControls.Modify.Config3(this, Rxbuffer);
+                UserControls.Modify.Config4(this, Rxbuffer);
+                UserControls.Modify.Config5(this, Rxbuffer);
+                UserControls.Modify.Run(this, Rxbuffer);
+
+
+                prgBar_CommandProgress.Value = 100;
+                CommandState = false;
+                timer_TimeoutCommunication.Enabled = false;
+                timer_CommandProgressBar.Enabled = true;
+
+            }
+
+           else if (Rxbuffer[0] == Convert.ToByte('D'))
             {
 
 
@@ -593,14 +618,6 @@ namespace Test_VisualStudio
                 textBox1.AppendText(Environment.NewLine);
 
 
-                UserControls.Modify.Config0(this, RxmessageArray);
-                UserControls.Modify.Config1(this, RxmessageArray);
-                UserControls.Modify.Config2(this, RxmessageArray);
-                UserControls.Modify.Config3(this, RxmessageArray);
-                UserControls.Modify.Config4(this, RxmessageArray);
-                UserControls.Modify.Config5(this, RxmessageArray);
-                UserControls.Modify.Run(this, RxmessageArray);
-
 
                 prgBar_CommandProgress.Value = 100;
                 CommandState = false;
@@ -608,23 +625,7 @@ namespace Test_VisualStudio
                 timer_CommandProgressBar.Enabled = true;
             }
 
-            if (RxmessageArray[0] == Convert.ToByte('D'))
-            {
-
-
-                textBox1.SelectionStart = textBox1.TextLength;
-               // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                textBox1.AppendText(Environment.NewLine);
-
-
-
-                prgBar_CommandProgress.Value = 100;
-                CommandState = false;
-                timer_TimeoutCommunication.Enabled = false;
-                timer_CommandProgressBar.Enabled = true;
-            }
-
-            if (RxmessageArray[0] == Convert.ToByte('P'))
+            else if (Rxbuffer[0] == Convert.ToByte('P'))
             {
 
                 textBox1.SelectionStart = textBox1.TextLength;
@@ -637,7 +638,11 @@ namespace Test_VisualStudio
                 timer_TimeoutCommunication.Enabled = false;
                 timer_CommandProgressBar.Enabled = true;
             }
-
+            else{
+                MessageBoxState = true;
+                MessageBox.Show(this, "Received incorrect frame!", "Data Frame Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBoxState = false;
+            }
         }
 
         /************************************************************************Controls of Commands for Serial port*******************************************************************************/
@@ -740,7 +745,8 @@ namespace Test_VisualStudio
             if (CommandState == true)
             {
                 timer_TimeoutCommunication.Enabled = false;
-                MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (MessageBoxState == false)
+                    MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 prgBar_CommandProgress.Value = 0;
             }
 
@@ -959,29 +965,39 @@ namespace Test_VisualStudio
             {
                 public static void Config0(Form1 frm, byte[] buffer)
                 {
-                    ushort regC0 = (ushort)((buffer[1] << 8) | buffer[2]);
-                    ushort regC0_RM = (ushort)(((regC0 & (AS4963.C0.RM.Mask)) >> AS4963.C0.RM.Pos));
-                    ushort regC0_BT = (ushort)(((regC0 & (AS4963.C0.BT.Mask)) >> AS4963.C0.BT.Pos));
-                    ushort regC0_DT = (ushort)(((regC0 & (AS4963.C0.DT.Mask)) >> AS4963.C0.DT.Pos));
+                    try
+                    {
+                        ushort regC0 = (ushort)((buffer[1] << 8) | buffer[2]);
+                        ushort regC0_RM = (ushort)(((regC0 & (AS4963.C0.RM.Mask)) >> AS4963.C0.RM.Pos));
+                        ushort regC0_BT = (ushort)(((regC0 & (AS4963.C0.BT.Mask)) >> AS4963.C0.BT.Pos));
+                        ushort regC0_DT = (ushort)(((regC0 & (AS4963.C0.DT.Mask)) >> AS4963.C0.DT.Pos));
 
-                    if (regC0_RM == 0)
-                        frm.rBtn_RcModeAuto.Checked = true;
-                    if (regC0_RM == 1)
-                        frm.rBtn_RcModeHigh.Checked = true;
-                    if (regC0_RM == 2)
-                        frm.rBtn_RcModeLow.Checked = true;
-                    if (regC0_RM == 3)
-                        frm.rBtn_RcModeOff.Checked = true;
+                        if (regC0_RM == 0)
+                            frm.rBtn_RcModeAuto.Checked = true;
+                        if (regC0_RM == 1)
+                            frm.rBtn_RcModeHigh.Checked = true;
+                        if (regC0_RM == 2)
+                            frm.rBtn_RcModeLow.Checked = true;
+                        if (regC0_RM == 3)
+                            frm.rBtn_RcModeOff.Checked = true;
 
-                    frm.numUpDown_BlankTime.Value = regC0_BT * 400;
+                        frm.numUpDown_BlankTime.Value = regC0_BT * 400;
 
-                    frm.numUpDown_DeadTime.Value = regC0_DT * 50;
-                    ChangeLabel.Config0.Read(frm);
+                        frm.numUpDown_DeadTime.Value = regC0_DT * 50;
+                        ChangeLabel.Config0.Read(frm);
+                    }
+                    catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli
+                    {
+                        MessageBoxState = true; 
+                        MessageBox.Show(frm, "Received incorred data of correct frame!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBoxState = false;
+                    }
 
                 }
 
                 public static void Config1(Form1 frm, byte[] buffer)
                 {
+
                     ushort regC1 = (ushort)((buffer[3] << 8) | buffer[4]);
                     ushort regC1_PFD = (ushort)(((regC1 & (AS4963.C1.PFD.Mask)) >> AS4963.C1.PFD.Pos));
                     ushort regC1_IPI = (ushort)(((regC1 & (AS4963.C1.IPI.Mask)) >> AS4963.C1.IPI.Pos));
