@@ -459,6 +459,8 @@ namespace Test_VisualStudio
             prgBar_CommandProgress.Value = 50;
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
+
+            Diagnostic.Terminal(this, "Tx", speedcontrol, 4);
         }
 
 
@@ -561,11 +563,6 @@ namespace Test_VisualStudio
                 {
 
                     prgBar_CommandProgress.Value = 100;
-                    textBox1.SelectionStart = textBox1.TextLength;
-                    //textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                    textBox1.AppendText(Environment.NewLine);
-                    //textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message));
-                    // textBox1.Text = textBox1.Text + Environment.NewLine;
 
                     //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
 
@@ -580,9 +577,7 @@ namespace Test_VisualStudio
                 else if ((Rxbuffer[0] == Convert.ToByte('R')) && (RxbytesLen == 15))
                 {
                     prgBar_CommandProgress.Value = 100;
-                    textBox1.SelectionStart = textBox1.TextLength;
-                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                    textBox1.AppendText(Environment.NewLine);
+
 
                     UserControls.Modify.Config0(this, Rxbuffer);
                     UserControls.Modify.Config1(this, Rxbuffer);
@@ -603,9 +598,6 @@ namespace Test_VisualStudio
                 {
 
 
-                    textBox1.SelectionStart = textBox1.TextLength;
-                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                    textBox1.AppendText(Environment.NewLine);
 
 
 
@@ -618,15 +610,15 @@ namespace Test_VisualStudio
                 else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
                 {
 
-                    textBox1.SelectionStart = textBox1.TextLength;
-                    // textBox1.SelectedText = DateTime.Now.ToString("HH:mm:ss") + "    " + Convert.ToString(message);
-                    textBox1.AppendText(Environment.NewLine);
+
+                    
 
 
                     CommandState = false;
                     prgBar_CommandProgress.Value = 100;
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
+
                 }
                 else
                 {
@@ -644,6 +636,8 @@ namespace Test_VisualStudio
                     CommandState = false;
                     timer_CommandProgressBar.Enabled = true;
                     MessageBoxState = false;
+
+                    Diagnostic.Terminal(this,"Rx" ,Rxbuffer, (byte)RxbytesLen);
                 }
             }
         }
@@ -703,7 +697,7 @@ namespace Test_VisualStudio
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
 
-           
+            Diagnostic.Terminal(this,"Tx", regs, 15);
           
         }
 
@@ -716,7 +710,7 @@ namespace Test_VisualStudio
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
 
-
+            Diagnostic.Terminal(this,"Tx", 'R');
 
 
         }
@@ -731,6 +725,7 @@ namespace Test_VisualStudio
             prgBar_CommandProgress.Value = 50;
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
+            Diagnostic.Terminal(this, "Tx", 'D');
         }
 
         /*třída State nese proměnné pro komunikaci s nadřazenými třídami, které ovládají komunikaci
@@ -750,7 +745,7 @@ namespace Test_VisualStudio
                 timer_TimeoutCommunication.Enabled = false;
                 if (MessageBoxState == false)
                 {
-                    MessageBox.Show(this, "Timeout, please check connection!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Timeout, please check connection with HW driver!", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     prgBar_CommandProgress.Value = 0;
                 }
             }
@@ -770,7 +765,7 @@ namespace Test_VisualStudio
         /*************************************************************************Diagnostic Terminal****************************************************************************************/
         private void btn_ClearDiagTextBox_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Clear();
           
 
 
@@ -997,7 +992,7 @@ namespace Test_VisualStudio
                         MessageBoxState = true;
                         frm.timer_CommandProgressBar.Enabled = false;
                         frm.timer_TimeoutCommunication.Enabled = false;
-                        MessageBox.Show(frm, "Received incorred data of correct frame!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(frm, "Received incorred data of correct frame." + Environment.NewLine + "Please, check connection with AS4963 controller!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         frm.timer_CommandProgressBar.Enabled = true;
                         MessageBoxState = false;
                     }
@@ -1285,6 +1280,60 @@ namespace Test_VisualStudio
 
 
         }
+
+
+        /**********************************************************************************Diagnostic Terminal and Labels****************************************************************************************/
+
+
+        public static class Diagnostic
+        {
+            public static void Terminal(Form1 frm, string mode, byte[] buffer, byte lenght)
+            {
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                if (mode == "Tx")
+                {
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Bold);
+                }
+                else
+                {
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Regular);
+                }
+
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
+                string text = DateTime.Now.ToString("HH:mm:ss") + "    " + mode + "    " + Convert.ToChar(buffer[0]) + "    " ;
+                for(byte y = 1; y <= lenght-1; y++)
+                {
+                    text = text + buffer[y] + " | ";
+                }
+
+                frm.richTextBox1.SelectedText = text;
+                frm.richTextBox1.AppendText(Environment.NewLine);
+            }
+
+            public static void Terminal(Form1 frm, string mode, char charr)
+            {
+
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                if (mode == "Tx")
+                {
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Bold);
+                }
+                else
+                {
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Regular);
+                }
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
+                string text = DateTime.Now.ToString("HH:mm:ss") + "    "  + mode + "    " + Convert.ToChar(charr) + "    ";
+                frm.richTextBox1.SelectedText = text;
+                frm.richTextBox1.AppendText(Environment.NewLine);
+            }
+
+
+
+        }
+       
 
 
 
