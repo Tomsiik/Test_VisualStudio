@@ -1309,6 +1309,7 @@ namespace Test_VisualStudio
 
                 frm.richTextBox1.SelectedText = text;
                 frm.richTextBox1.AppendText(Environment.NewLine);
+                frm.richTextBox1.ScrollToCaret();
             }
 
             public static void Terminal(Form1 frm, string mode, char charr)
@@ -1328,6 +1329,7 @@ namespace Test_VisualStudio
                 string text = DateTime.Now.ToString("HH:mm:ss") + "    "  + mode + "    " + Convert.ToChar(charr) + "    ";
                 frm.richTextBox1.SelectedText = text;
                 frm.richTextBox1.AppendText(Environment.NewLine);
+                frm.richTextBox1.ScrollToCaret();
             }
 
 
