@@ -571,6 +571,7 @@ namespace Test_VisualStudio
                     timer_CommandProgressBar.Enabled = true;
 
                     ChangeLabel.ClearAll(this);
+                    Diagnostic.Terminal(this, "Rx",'W');
 
                 }
 
@@ -591,6 +592,7 @@ namespace Test_VisualStudio
                     CommandState = false;
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
+                    Diagnostic.Terminal(this, "Rx", Rxbuffer, (byte)RxbytesLen);
 
                 }
 
@@ -620,7 +622,7 @@ namespace Test_VisualStudio
                     timer_CommandProgressBar.Enabled = true;
 
                 }
-                else
+                else //přišli nevalidní data
                 {
                     MessageBoxState = true;
                     timer_CommandProgressBar.Enabled = false;
@@ -637,7 +639,7 @@ namespace Test_VisualStudio
                     timer_CommandProgressBar.Enabled = true;
                     MessageBoxState = false;
 
-                    Diagnostic.Terminal(this,"Rx" ,Rxbuffer, (byte)RxbytesLen);
+                    Diagnostic.TerminalError(this,"Rx" ,Rxbuffer, (byte)RxbytesLen);
                 }
             }
         }
@@ -1289,6 +1291,15 @@ namespace Test_VisualStudio
         {
             public static void Terminal(Form1 frm, string mode, byte[] buffer, byte lenght)
             {
+
+                //maskování bufferu, vždy první 4 bity v celém 16ti bitovém registru
+                //tyto 4 bity AS4963 má neobsazené, a nejsou součástí registru
+                for(byte y = 1; y < lenght; y=(byte)(y+2))
+                {
+                    buffer[y] = (byte)(buffer[y] & (~0xF0));
+                }
+
+
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
 
                 if (mode == "Tx")
@@ -1307,7 +1318,12 @@ namespace Test_VisualStudio
                 else
                     text = text + "     ";
 
-                text = text + Convert.ToChar(buffer[0]) + "         ";
+                text = text + Convert.ToChar(buffer[0]);
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "                 ";
+                else
+                    text = text + "                ";
 
 
                 for (byte y = 1; y <= lenght-1; y++)
@@ -1341,6 +1357,48 @@ namespace Test_VisualStudio
                 frm.richTextBox1.ScrollToCaret();
             }
 
+
+            public static void TerminalError(Form1 frm, string mode, byte[] buffer, byte lenght)
+            {
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+
+                if (mode == "Tx")
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Bold);
+                else
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Regular);
+
+
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
+                string text = DateTime.Now.ToString("HH:mm:ss") + "     " + mode + "     " + lenght;
+
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "       ";
+                else
+                    text = text + "     ";
+
+                text = text + Convert.ToChar(buffer[0]);  ;
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "        ";
+                else
+                    text = text + "       ";
+
+                text = text + "ER" + "     ";
+
+                
+
+                for (byte y = 1; y <= lenght - 1; y++)
+                {
+
+                    text = text + buffer[y] + " | ";
+                }
+
+                frm.richTextBox1.SelectedText = text;
+                frm.richTextBox1.AppendText(Environment.NewLine);
+                frm.richTextBox1.ScrollToCaret();
+            }
 
 
         }
