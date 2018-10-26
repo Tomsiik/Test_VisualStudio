@@ -141,6 +141,19 @@
             this.btn_ReadConfiguration = new System.Windows.Forms.Button();
             this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_Diag_CL = new System.Windows.Forms.Label();
+            this.lbl_Diag_CH = new System.Windows.Forms.Label();
+            this.lbl_Diag_BL = new System.Windows.Forms.Label();
+            this.lbl_Diag_BH = new System.Windows.Forms.Label();
+            this.lbl_Diag_AL = new System.Windows.Forms.Label();
+            this.lbl_Diag_AH = new System.Windows.Forms.Label();
+            this.lbl_Diag_SE = new System.Windows.Forms.Label();
+            this.lbl_Diag_POR = new System.Windows.Forms.Label();
+            this.lbl_Diag_FF = new System.Windows.Forms.Label();
+            this.lbl_Diag_LOS = new System.Windows.Forms.Label();
+            this.lbl_Diag_OT = new System.Windows.Forms.Label();
+            this.lbl_Diag_TW = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btn_ClearDiagTextBox = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.btn_ReadDiag = new System.Windows.Forms.Button();
@@ -159,19 +172,6 @@
             this.lbl_SpeedControl = new System.Windows.Forms.Label();
             this.trcBar_SpeedControl = new System.Windows.Forms.TrackBar();
             this.timing_PwmGenControl = new System.Windows.Forms.Timer(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lbl_Diag_TW = new System.Windows.Forms.Label();
-            this.lbl_Diag_OT = new System.Windows.Forms.Label();
-            this.lbl_Diag_LOS = new System.Windows.Forms.Label();
-            this.lbl_Diag_FF = new System.Windows.Forms.Label();
-            this.lbl_Diag_POR = new System.Windows.Forms.Label();
-            this.lbl_Diag_SE = new System.Windows.Forms.Label();
-            this.lbl_Diag_AH = new System.Windows.Forms.Label();
-            this.lbl_Diag_AL = new System.Windows.Forms.Label();
-            this.lbl_Diag_BH = new System.Windows.Forms.Label();
-            this.lbl_Diag_BL = new System.Windows.Forms.Label();
-            this.lbl_Diag_CH = new System.Windows.Forms.Label();
-            this.lbl_Diag_CL = new System.Windows.Forms.Label();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1417,7 +1417,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1434, 27);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1472,7 +1472,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 609);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(1394, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1434, 22);
             this.statusStrip1.TabIndex = 34;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
@@ -1533,11 +1533,11 @@
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_SetPreset);
-            this.gpBox_ConInteraction.Location = new System.Drawing.Point(845, 425);
+            this.gpBox_ConInteraction.Location = new System.Drawing.Point(870, 425);
             this.gpBox_ConInteraction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpBox_ConInteraction.Name = "gpBox_ConInteraction";
             this.gpBox_ConInteraction.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gpBox_ConInteraction.Size = new System.Drawing.Size(220, 176);
+            this.gpBox_ConInteraction.Size = new System.Drawing.Size(220, 177);
             this.gpBox_ConInteraction.TabIndex = 37;
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
@@ -1597,10 +1597,140 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(404, 253);
+            this.groupBox1.Size = new System.Drawing.Size(446, 253);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
+            // 
+            // lbl_Diag_CL
+            // 
+            this.lbl_Diag_CL.AutoSize = true;
+            this.lbl_Diag_CL.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_CL.Location = new System.Drawing.Point(344, 221);
+            this.lbl_Diag_CL.Name = "lbl_Diag_CL";
+            this.lbl_Diag_CL.Size = new System.Drawing.Size(23, 13);
+            this.lbl_Diag_CL.TabIndex = 49;
+            this.lbl_Diag_CL.Text = "C L";
+            // 
+            // lbl_Diag_CH
+            // 
+            this.lbl_Diag_CH.AutoSize = true;
+            this.lbl_Diag_CH.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_CH.Location = new System.Drawing.Point(320, 221);
+            this.lbl_Diag_CH.Name = "lbl_Diag_CH";
+            this.lbl_Diag_CH.Size = new System.Drawing.Size(25, 13);
+            this.lbl_Diag_CH.TabIndex = 48;
+            this.lbl_Diag_CH.Text = "C H";
+            // 
+            // lbl_Diag_BL
+            // 
+            this.lbl_Diag_BL.AutoSize = true;
+            this.lbl_Diag_BL.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_BL.Location = new System.Drawing.Point(344, 208);
+            this.lbl_Diag_BL.Name = "lbl_Diag_BL";
+            this.lbl_Diag_BL.Size = new System.Drawing.Size(23, 13);
+            this.lbl_Diag_BL.TabIndex = 47;
+            this.lbl_Diag_BL.Text = "B L";
+            // 
+            // lbl_Diag_BH
+            // 
+            this.lbl_Diag_BH.AutoSize = true;
+            this.lbl_Diag_BH.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_BH.Location = new System.Drawing.Point(320, 208);
+            this.lbl_Diag_BH.Name = "lbl_Diag_BH";
+            this.lbl_Diag_BH.Size = new System.Drawing.Size(25, 13);
+            this.lbl_Diag_BH.TabIndex = 46;
+            this.lbl_Diag_BH.Text = "B H";
+            // 
+            // lbl_Diag_AL
+            // 
+            this.lbl_Diag_AL.AutoSize = true;
+            this.lbl_Diag_AL.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_AL.Location = new System.Drawing.Point(344, 195);
+            this.lbl_Diag_AL.Name = "lbl_Diag_AL";
+            this.lbl_Diag_AL.Size = new System.Drawing.Size(23, 13);
+            this.lbl_Diag_AL.TabIndex = 46;
+            this.lbl_Diag_AL.Text = "A L";
+            // 
+            // lbl_Diag_AH
+            // 
+            this.lbl_Diag_AH.AutoSize = true;
+            this.lbl_Diag_AH.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_AH.Location = new System.Drawing.Point(320, 195);
+            this.lbl_Diag_AH.Name = "lbl_Diag_AH";
+            this.lbl_Diag_AH.Size = new System.Drawing.Size(25, 13);
+            this.lbl_Diag_AH.TabIndex = 45;
+            this.lbl_Diag_AH.Text = "A H";
+            // 
+            // lbl_Diag_SE
+            // 
+            this.lbl_Diag_SE.AutoSize = true;
+            this.lbl_Diag_SE.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_SE.Location = new System.Drawing.Point(179, 221);
+            this.lbl_Diag_SE.Name = "lbl_Diag_SE";
+            this.lbl_Diag_SE.Size = new System.Drawing.Size(100, 13);
+            this.lbl_Diag_SE.TabIndex = 44;
+            this.lbl_Diag_SE.Text = "Serial Transfer Error";
+            // 
+            // lbl_Diag_POR
+            // 
+            this.lbl_Diag_POR.AutoSize = true;
+            this.lbl_Diag_POR.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_POR.Location = new System.Drawing.Point(179, 208);
+            this.lbl_Diag_POR.Name = "lbl_Diag_POR";
+            this.lbl_Diag_POR.Size = new System.Drawing.Size(85, 13);
+            this.lbl_Diag_POR.TabIndex = 43;
+            this.lbl_Diag_POR.Text = "Power-On Reset";
+            // 
+            // lbl_Diag_FF
+            // 
+            this.lbl_Diag_FF.AutoSize = true;
+            this.lbl_Diag_FF.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_FF.Location = new System.Drawing.Point(179, 195);
+            this.lbl_Diag_FF.Name = "lbl_Diag_FF";
+            this.lbl_Diag_FF.Size = new System.Drawing.Size(122, 13);
+            this.lbl_Diag_FF.TabIndex = 42;
+            this.lbl_Diag_FF.Text = "Diagnostic Register Flag";
+            // 
+            // lbl_Diag_LOS
+            // 
+            this.lbl_Diag_LOS.AutoSize = true;
+            this.lbl_Diag_LOS.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_LOS.Location = new System.Drawing.Point(28, 194);
+            this.lbl_Diag_LOS.Name = "lbl_Diag_LOS";
+            this.lbl_Diag_LOS.Size = new System.Drawing.Size(131, 13);
+            this.lbl_Diag_LOS.TabIndex = 41;
+            this.lbl_Diag_LOS.Text = "bemf Synchronization Lost";
+            // 
+            // lbl_Diag_OT
+            // 
+            this.lbl_Diag_OT.AutoSize = true;
+            this.lbl_Diag_OT.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_OT.Location = new System.Drawing.Point(28, 207);
+            this.lbl_Diag_OT.Name = "lbl_Diag_OT";
+            this.lbl_Diag_OT.Size = new System.Drawing.Size(137, 13);
+            this.lbl_Diag_OT.TabIndex = 40;
+            this.lbl_Diag_OT.Text = "Overtemperature Shutdown";
+            // 
+            // lbl_Diag_TW
+            // 
+            this.lbl_Diag_TW.AutoSize = true;
+            this.lbl_Diag_TW.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_TW.Location = new System.Drawing.Point(28, 220);
+            this.lbl_Diag_TW.Name = "lbl_Diag_TW";
+            this.lbl_Diag_TW.Size = new System.Drawing.Size(135, 13);
+            this.lbl_Diag_TW.TabIndex = 39;
+            this.lbl_Diag_TW.Text = "High Temperature Warning";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 43);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(435, 146);
+            this.richTextBox1.TabIndex = 38;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.WordWrap = false;
             // 
             // btn_ClearDiagTextBox
             // 
@@ -1622,7 +1752,7 @@
             this.groupBox13.Controls.Add(this.rBtn_SingleMode);
             this.groupBox13.Controls.Add(this.btn_ReadConfig);
             this.groupBox13.Controls.Add(this.btn_WriteConfig);
-            this.groupBox13.Location = new System.Drawing.Point(1082, 425);
+            this.groupBox13.Location = new System.Drawing.Point(1124, 427);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1724,7 +1854,7 @@
             this.groupBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox14.Size = new System.Drawing.Size(388, 109);
+            this.groupBox14.Size = new System.Drawing.Size(446, 109);
             this.groupBox14.TabIndex = 40;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "PWM Generator";
@@ -1817,141 +1947,11 @@
             this.timing_PwmGenControl.Interval = 150;
             this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 43);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(379, 146);
-            this.richTextBox1.TabIndex = 38;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.WordWrap = false;
-            // 
-            // lbl_Diag_TW
-            // 
-            this.lbl_Diag_TW.AutoSize = true;
-            this.lbl_Diag_TW.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_TW.Location = new System.Drawing.Point(28, 220);
-            this.lbl_Diag_TW.Name = "lbl_Diag_TW";
-            this.lbl_Diag_TW.Size = new System.Drawing.Size(135, 13);
-            this.lbl_Diag_TW.TabIndex = 39;
-            this.lbl_Diag_TW.Text = "High Temperature Warning";
-            // 
-            // lbl_Diag_OT
-            // 
-            this.lbl_Diag_OT.AutoSize = true;
-            this.lbl_Diag_OT.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_OT.Location = new System.Drawing.Point(28, 207);
-            this.lbl_Diag_OT.Name = "lbl_Diag_OT";
-            this.lbl_Diag_OT.Size = new System.Drawing.Size(137, 13);
-            this.lbl_Diag_OT.TabIndex = 40;
-            this.lbl_Diag_OT.Text = "Overtemperature Shutdown";
-            // 
-            // lbl_Diag_LOS
-            // 
-            this.lbl_Diag_LOS.AutoSize = true;
-            this.lbl_Diag_LOS.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_LOS.Location = new System.Drawing.Point(28, 194);
-            this.lbl_Diag_LOS.Name = "lbl_Diag_LOS";
-            this.lbl_Diag_LOS.Size = new System.Drawing.Size(131, 13);
-            this.lbl_Diag_LOS.TabIndex = 41;
-            this.lbl_Diag_LOS.Text = "bemf Synchronization Lost";
-            // 
-            // lbl_Diag_FF
-            // 
-            this.lbl_Diag_FF.AutoSize = true;
-            this.lbl_Diag_FF.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_FF.Location = new System.Drawing.Point(179, 195);
-            this.lbl_Diag_FF.Name = "lbl_Diag_FF";
-            this.lbl_Diag_FF.Size = new System.Drawing.Size(122, 13);
-            this.lbl_Diag_FF.TabIndex = 42;
-            this.lbl_Diag_FF.Text = "Diagnostic Register Flag";
-            // 
-            // lbl_Diag_POR
-            // 
-            this.lbl_Diag_POR.AutoSize = true;
-            this.lbl_Diag_POR.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_POR.Location = new System.Drawing.Point(179, 208);
-            this.lbl_Diag_POR.Name = "lbl_Diag_POR";
-            this.lbl_Diag_POR.Size = new System.Drawing.Size(85, 13);
-            this.lbl_Diag_POR.TabIndex = 43;
-            this.lbl_Diag_POR.Text = "Power-On Reset";
-            // 
-            // lbl_Diag_SE
-            // 
-            this.lbl_Diag_SE.AutoSize = true;
-            this.lbl_Diag_SE.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_SE.Location = new System.Drawing.Point(179, 221);
-            this.lbl_Diag_SE.Name = "lbl_Diag_SE";
-            this.lbl_Diag_SE.Size = new System.Drawing.Size(100, 13);
-            this.lbl_Diag_SE.TabIndex = 44;
-            this.lbl_Diag_SE.Text = "Serial Transfer Error";
-            // 
-            // lbl_Diag_AH
-            // 
-            this.lbl_Diag_AH.AutoSize = true;
-            this.lbl_Diag_AH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_AH.Location = new System.Drawing.Point(320, 195);
-            this.lbl_Diag_AH.Name = "lbl_Diag_AH";
-            this.lbl_Diag_AH.Size = new System.Drawing.Size(25, 13);
-            this.lbl_Diag_AH.TabIndex = 45;
-            this.lbl_Diag_AH.Text = "A H";
-            // 
-            // lbl_Diag_AL
-            // 
-            this.lbl_Diag_AL.AutoSize = true;
-            this.lbl_Diag_AL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_AL.Location = new System.Drawing.Point(344, 195);
-            this.lbl_Diag_AL.Name = "lbl_Diag_AL";
-            this.lbl_Diag_AL.Size = new System.Drawing.Size(23, 13);
-            this.lbl_Diag_AL.TabIndex = 46;
-            this.lbl_Diag_AL.Text = "A L";
-            // 
-            // lbl_Diag_BH
-            // 
-            this.lbl_Diag_BH.AutoSize = true;
-            this.lbl_Diag_BH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_BH.Location = new System.Drawing.Point(320, 208);
-            this.lbl_Diag_BH.Name = "lbl_Diag_BH";
-            this.lbl_Diag_BH.Size = new System.Drawing.Size(25, 13);
-            this.lbl_Diag_BH.TabIndex = 46;
-            this.lbl_Diag_BH.Text = "B H";
-            // 
-            // lbl_Diag_BL
-            // 
-            this.lbl_Diag_BL.AutoSize = true;
-            this.lbl_Diag_BL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_BL.Location = new System.Drawing.Point(344, 208);
-            this.lbl_Diag_BL.Name = "lbl_Diag_BL";
-            this.lbl_Diag_BL.Size = new System.Drawing.Size(23, 13);
-            this.lbl_Diag_BL.TabIndex = 47;
-            this.lbl_Diag_BL.Text = "B L";
-            // 
-            // lbl_Diag_CH
-            // 
-            this.lbl_Diag_CH.AutoSize = true;
-            this.lbl_Diag_CH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_CH.Location = new System.Drawing.Point(320, 221);
-            this.lbl_Diag_CH.Name = "lbl_Diag_CH";
-            this.lbl_Diag_CH.Size = new System.Drawing.Size(25, 13);
-            this.lbl_Diag_CH.TabIndex = 48;
-            this.lbl_Diag_CH.Text = "C H";
-            // 
-            // lbl_Diag_CL
-            // 
-            this.lbl_Diag_CL.AutoSize = true;
-            this.lbl_Diag_CL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_CL.Location = new System.Drawing.Point(344, 221);
-            this.lbl_Diag_CL.Name = "lbl_Diag_CL";
-            this.lbl_Diag_CL.Size = new System.Drawing.Size(23, 13);
-            this.lbl_Diag_CL.TabIndex = 49;
-            this.lbl_Diag_CL.Text = "C L";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 631);
+            this.ClientSize = new System.Drawing.Size(1434, 631);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.gpBox_ConInteraction);

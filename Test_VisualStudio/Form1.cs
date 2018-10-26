@@ -1290,20 +1290,29 @@ namespace Test_VisualStudio
             public static void Terminal(Form1 frm, string mode, byte[] buffer, byte lenght)
             {
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+
                 if (mode == "Tx")
-                {
                     frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Bold);
-                }
                 else
-                {
                     frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Regular);
-                }
+
 
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
                 frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
-                string text = DateTime.Now.ToString("HH:mm:ss") + "    " + mode + "    " + Convert.ToChar(buffer[0]) + "    " ;
-                for(byte y = 1; y <= lenght-1; y++)
+                string text = DateTime.Now.ToString("HH:mm:ss") + "     " + mode + "     " + lenght;
+
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "       ";
+                else
+                    text = text + "     ";
+
+                text = text + Convert.ToChar(buffer[0]) + "         ";
+
+
+                for (byte y = 1; y <= lenght-1; y++)
                 {
+
                     text = text + buffer[y] + " | ";
                 }
 
@@ -1326,7 +1335,7 @@ namespace Test_VisualStudio
                 }
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
                 frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
-                string text = DateTime.Now.ToString("HH:mm:ss") + "    "  + mode + "    " + Convert.ToChar(charr) + "    ";
+                string text = DateTime.Now.ToString("HH:mm:ss") + "     "  + mode + "     " + "1" + "       " + Convert.ToChar(charr) + "         ";
                 frm.richTextBox1.SelectedText = text;
                 frm.richTextBox1.AppendText(Environment.NewLine);
                 frm.richTextBox1.ScrollToCaret();
