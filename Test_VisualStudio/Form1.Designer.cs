@@ -1878,9 +1878,9 @@
             this.label35.Location = new System.Drawing.Point(137, 27);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(58, 13);
+            this.label35.Size = new System.Drawing.Size(75, 13);
             this.label35.TabIndex = 21;
-            this.label35.Text = "Duty Cycle";
+            this.label35.Text = "Duty Cycle [%]";
             // 
             // lbl_DutyCycle
             // 
@@ -1913,9 +1913,9 @@
             this.label34.Location = new System.Drawing.Point(6, 27);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(87, 13);
+            this.label34.Size = new System.Drawing.Size(109, 13);
             this.label34.TabIndex = 18;
-            this.label34.Text = "PWM Frequency";
+            this.label34.Text = "PWM Frequency [Hz]";
             // 
             // lbl_SpeedControl
             // 

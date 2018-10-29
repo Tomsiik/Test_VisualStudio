@@ -460,7 +460,7 @@ namespace Test_VisualStudio
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
 
-            Diagnostic.Terminal(this, "Tx", speedcontrol, 4);
+            Diagnostic.TerminalPWM(this, "Tx", speedcontrol, 4);
         }
 
 
@@ -612,14 +612,11 @@ namespace Test_VisualStudio
                 else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
                 {
 
-
-                    
-
-
                     CommandState = false;
                     prgBar_CommandProgress.Value = 100;
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
+                    Diagnostic.Terminal(this, "Rx", 'P');
 
                 }
                 else //přišli nevalidní data
@@ -989,7 +986,7 @@ namespace Test_VisualStudio
                         frm.numUpDown_DeadTime.Value = regC0_DT * 50;
                         ChangeLabel.Config0.Read(frm);
                     }
-                    catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli
+                    catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli ve formě message boxu
                     {
                         MessageBoxState = true;
                         frm.timer_CommandProgressBar.Enabled = false;
@@ -1388,6 +1385,50 @@ namespace Test_VisualStudio
                 text = text + "ER" + "     ";
 
                 
+
+                for (byte y = 1; y <= lenght - 1; y++)
+                {
+
+                    text = text + buffer[y] + " | ";
+                }
+
+                frm.richTextBox1.SelectedText = text;
+                frm.richTextBox1.AppendText(Environment.NewLine);
+                frm.richTextBox1.ScrollToCaret();
+            }
+
+
+            //bez masky
+            public static void TerminalPWM(Form1 frm, string mode, byte[] buffer, byte lenght)
+            {
+                
+
+
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+
+                if (mode == "Tx")
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Bold);
+                else
+                    frm.richTextBox1.SelectionFont = new Font("Calibri", 9f, FontStyle.Regular);
+
+
+                frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
+                frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
+                string text = DateTime.Now.ToString("HH:mm:ss") + "     " + mode + "     " + lenght;
+
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "       ";
+                else
+                    text = text + "     ";
+
+                text = text + Convert.ToChar(buffer[0]);
+
+                if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
+                    text = text + "                 ";
+                else
+                    text = text + "                ";
+
 
                 for (byte y = 1; y <= lenght - 1; y++)
                 {
