@@ -460,7 +460,7 @@ namespace Test_VisualStudio
             CommandState = true;
             timer_TimeoutCommunication.Enabled = true;
 
-            Diagnostic.TerminalPWM(this, "Tx", speedcontrol, 4);
+            Diagnostic.TerminalWithoutMask(this, "Tx", speedcontrol, 4);
         }
 
 
@@ -599,14 +599,14 @@ namespace Test_VisualStudio
                 else if (Rxbuffer[0] == Convert.ToByte('D') && (RxbytesLen == 3))
                 {
 
-
-
-
-
+                   
                     prgBar_CommandProgress.Value = 100;
                     CommandState = false;
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
+                    Diagnostic.ChangeLabels(this, Rxbuffer);
+                    Diagnostic.TerminalWithoutMask(this, "Rx", Rxbuffer, (byte)RxbytesLen);
+
                 }
 
                 else if (Rxbuffer[0] == Convert.ToByte('P') && (RxbytesLen == 1))
@@ -617,6 +617,7 @@ namespace Test_VisualStudio
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
                     Diagnostic.Terminal(this, "Rx", 'P');
+                    
 
                 }
                 else //přišli nevalidní data
@@ -1399,7 +1400,7 @@ namespace Test_VisualStudio
 
 
             //bez masky
-            public static void TerminalPWM(Form1 frm, string mode, byte[] buffer, byte lenght)
+            public static void TerminalWithoutMask(Form1 frm, string mode, byte[] buffer, byte lenght)
             {
                 
 
@@ -1439,6 +1440,57 @@ namespace Test_VisualStudio
                 frm.richTextBox1.SelectedText = text;
                 frm.richTextBox1.AppendText(Environment.NewLine);
                 frm.richTextBox1.ScrollToCaret();
+            }
+
+            public static void ChangeLabels(Form1 frm,byte[] buffer)
+            {
+                ushort diagReg = (ushort)((buffer[1] << 8) | buffer[2]);
+
+
+                frm.lbl_Diag_CL.BackColor = Color.Transparent;
+                frm.lbl_Diag_CH.BackColor = Color.Transparent;
+                frm.lbl_Diag_BL.BackColor = Color.Transparent;
+                frm.lbl_Diag_BH.BackColor = Color.Transparent;
+                frm.lbl_Diag_AL.BackColor = Color.Transparent;
+                frm.lbl_Diag_AH.BackColor = Color.Transparent;
+                frm.lbl_Diag_VS.BackColor = Color.Transparent;
+                frm.lbl_Diag_LOS.BackColor = Color.Transparent;
+                frm.lbl_Diag_OT.BackColor = Color.Transparent;
+                frm.lbl_Diag_TW.BackColor = Color.Transparent;
+                frm.lbl_Diag_SE.BackColor = Color.Transparent;
+                frm.lbl_Diag_POR.BackColor = Color.Transparent;
+                frm.lbl_Diag_FF.BackColor = Color.Transparent;
+
+                if ((diagReg & AS4963.DIAG.CL.Mask) > 0)
+                    frm.lbl_Diag_CL.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.CH.Mask) > 0)
+                    frm.lbl_Diag_CH.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.BL.Mask) > 0)
+                    frm.lbl_Diag_BL.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.BH.Mask) > 0)
+                    frm.lbl_Diag_BH.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.AL.Mask) > 0)
+                    frm.lbl_Diag_AL.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.AH.Mask) > 0)
+                    frm.lbl_Diag_AH.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.VS.Mask) > 0)
+                    frm.lbl_Diag_VS.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.VS.Mask) > 0)
+                    frm.lbl_Diag_VS.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.LOS.Mask) > 0)
+                    frm.lbl_Diag_LOS.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.OT.Mask) > 0)
+                    frm.lbl_Diag_OT.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.TW.Mask) > 0)
+                    frm.lbl_Diag_TW.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.SE.Mask) > 0)
+                    frm.lbl_Diag_SE.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.POR.Mask) > 0)
+                    frm.lbl_Diag_POR.BackColor = Color.LightCoral;
+                if ((diagReg & AS4963.DIAG.FF.Mask) > 0)
+                    frm.lbl_Diag_FF.BackColor = Color.LightCoral;
+
+
             }
 
 

@@ -172,6 +172,7 @@
             this.lbl_SpeedControl = new System.Windows.Forms.Label();
             this.trcBar_SpeedControl = new System.Windows.Forms.TrackBar();
             this.timing_PwmGenControl = new System.Windows.Forms.Timer(this.components);
+            this.lbl_Diag_VS = new System.Windows.Forms.Label();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1578,6 +1579,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.lbl_Diag_VS);
             this.groupBox1.Controls.Add(this.lbl_Diag_CL);
             this.groupBox1.Controls.Add(this.lbl_Diag_CH);
             this.groupBox1.Controls.Add(this.lbl_Diag_BL);
@@ -1947,6 +1949,16 @@
             this.timing_PwmGenControl.Interval = 150;
             this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
             // 
+            // lbl_Diag_VS
+            // 
+            this.lbl_Diag_VS.AutoSize = true;
+            this.lbl_Diag_VS.BackColor = System.Drawing.Color.LightCoral;
+            this.lbl_Diag_VS.Location = new System.Drawing.Point(28, 233);
+            this.lbl_Diag_VS.Name = "lbl_Diag_VS";
+            this.lbl_Diag_VS.Size = new System.Drawing.Size(114, 13);
+            this.lbl_Diag_VS.TabIndex = 41;
+            this.lbl_Diag_VS.Text = "Under Voltage on VBB";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2173,6 +2185,7 @@
         private System.Windows.Forms.Label lbl_Diag_BH;
         private System.Windows.Forms.Label lbl_Diag_AL;
         private System.Windows.Forms.Label lbl_Diag_AH;
+        private System.Windows.Forms.Label lbl_Diag_VS;
     }
 }
 

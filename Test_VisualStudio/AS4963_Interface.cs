@@ -278,6 +278,78 @@ namespace AS4963_Interface
             }
         }
 
+        public static class DIAG
+        {
+            public static class CL
+            {
+                public const ushort Pos = 0;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class CH
+            {
+                public const ushort Pos = 1;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class BL
+            {
+                public const ushort Pos = 2;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class BH
+            {
+                public const ushort Pos = 3;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class AL
+            {
+                public const ushort Pos = 4;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class AH
+            {
+                public const ushort Pos = 5;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class VS
+            {
+                public const ushort Pos = 7;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class LOS
+            {
+                public const ushort Pos = 9;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class OT
+            {
+                public const ushort Pos = 10;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class TW
+            {
+                public const ushort Pos = 11;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class SE
+            {
+                public const ushort Pos = 13;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class POR
+            {
+                public const ushort Pos = 14;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+            public static class FF
+            {
+                public const ushort Pos = 15;
+                public static ushort Mask = Convert.ToUInt16(0x01 << Pos);
+            }
+        }
+
+
+
+
 
         public static class ModifyReg
         {
@@ -352,17 +424,6 @@ namespace AS4963_Interface
                 Run |= Convert.ToUInt16((Run & (~RUN.RRUN.Mask)) | Convert.ToUInt16(run << RUN.RRUN.Pos));
                 return Run;
             }
-
-            /*public static ushort MaskReg4(ushort tw, ushort ot, ushort los, ushort vs)
-            {
-                ushort Reg5 = 0;
-                Reg5 |= Convert.ToUInt16((Reg5 & (~C5.SI.Mask)) | Convert.ToUInt16(si << C5.SI.Pos));
-                Reg5 |= Convert.ToUInt16((Reg5 & (~C5.SPO.Mask)) | Convert.ToUInt16(spo << C5.SPO.Pos));
-                Reg5 |= Convert.ToUInt16((Reg5 & (~C5.SMX.Mask)) | Convert.ToUInt16(smx << C5.SMX.Pos));
-                Reg5 |= Convert.ToUInt16((Reg5 & (~C5.PA.Mask)) | Convert.ToUInt16(pa << C5.PA.Pos));
-                return Reg5;
-            }
-            */
 
 
         }
