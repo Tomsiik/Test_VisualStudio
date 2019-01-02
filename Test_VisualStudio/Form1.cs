@@ -471,30 +471,38 @@ namespace Test_VisualStudio
          */
         private void toolStrip_OpenPort_Click(object sender, EventArgs e)
         {
-            if (!serialPort1.IsOpen)
+            try
             {
-                serialPort1.PortName = toolStrip_MenuPorts.Text;
-                serialPort1.BaudRate = 115200;
-                serialPort1.Open();
-                toolStrip_ClosePort.Enabled = true;
-                toolStrip_OpenPort.Enabled = false;
+                if (!serialPort1.IsOpen)
+                {
+                    serialPort1.PortName = toolStrip_MenuPorts.Text;
+                    serialPort1.BaudRate = 115200;
+                    serialPort1.Open();
+                    toolStrip_ClosePort.Enabled = true;
+                    toolStrip_OpenPort.Enabled = false;
 
-                btn_WriteConfig.Enabled = true;
-                btn_ReadConfig.Enabled = true;
-                btn_ReadDiag.Enabled = true;
-                rBtn_SingleMode.Enabled = true;
-                rBtn_AutoWriteMode.Enabled = true;
-                trcBar_DutyCycle.Enabled = true;
-                trcBar_SpeedControl.Enabled = true;
-                chBox_PWMGenerationOn.Enabled = true;
-                toolStripStatusLabel1.Text = "Port Connected";
+                    btn_WriteConfig.Enabled = true;
+                    btn_ReadConfig.Enabled = true;
+                    btn_ReadDiag.Enabled = true;
+                    rBtn_SingleMode.Enabled = true;
+                    rBtn_AutoWriteMode.Enabled = true;
+                    trcBar_DutyCycle.Enabled = true;
+                    trcBar_SpeedControl.Enabled = true;
+                    chBox_PWMGenerationOn.Enabled = true;
+                    toolStripStatusLabel1.Text = "Port Connected";
 
+                }
+                else
+                {
+                    toolStrip_ClosePort.Enabled = false;
+                    toolStrip_OpenPort.Enabled = true;
+                    toolStripStatusLabel1.Text = "Port Disconnected";
+                }
             }
-            else
+            catch
             {
-                toolStrip_ClosePort.Enabled = false;
-                toolStrip_OpenPort.Enabled = true;
-                toolStripStatusLabel1.Text = "Port Disconnected";
+                MessageBox.Show(this, "Connecting to selected COM Port invoked error. " + Environment.NewLine + Environment.NewLine + "Please, check correctness of selected COM Port." + Environment.NewLine + "Use Refresh Button and select Port from list box."
+                    , "COM Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
