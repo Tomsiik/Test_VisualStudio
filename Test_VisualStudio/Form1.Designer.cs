@@ -1750,7 +1750,7 @@
             // btn_ClearDiagTextBox
             // 
             this.btn_ClearDiagTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(359, 14);
+            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(496, 16);
             this.btn_ClearDiagTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ClearDiagTextBox.Name = "btn_ClearDiagTextBox";
             this.btn_ClearDiagTextBox.Size = new System.Drawing.Size(29, 20);
@@ -1773,7 +1773,7 @@
             this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox13.Size = new System.Drawing.Size(352, 175);
+            this.groupBox13.Size = new System.Drawing.Size(399, 175);
             this.groupBox13.TabIndex = 39;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
@@ -1871,7 +1871,7 @@
             this.groupBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox14.Size = new System.Drawing.Size(352, 109);
+            this.groupBox14.Size = new System.Drawing.Size(399, 109);
             this.groupBox14.TabIndex = 40;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "PWM Generator";
@@ -1880,7 +1880,7 @@
             // 
             this.chBox_PWMGenerationOn.AutoSize = true;
             this.chBox_PWMGenerationOn.Enabled = false;
-            this.chBox_PWMGenerationOn.Location = new System.Drawing.Point(266, 50);
+            this.chBox_PWMGenerationOn.Location = new System.Drawing.Point(336, 23);
             this.chBox_PWMGenerationOn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chBox_PWMGenerationOn.Name = "chBox_PWMGenerationOn";
             this.chBox_PWMGenerationOn.Size = new System.Drawing.Size(59, 17);
@@ -1892,7 +1892,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(137, 27);
+            this.label35.Location = new System.Drawing.Point(182, 27);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(75, 13);
@@ -1902,7 +1902,7 @@
             // lbl_DutyCycle
             // 
             this.lbl_DutyCycle.AutoSize = true;
-            this.lbl_DutyCycle.Location = new System.Drawing.Point(182, 80);
+            this.lbl_DutyCycle.Location = new System.Drawing.Point(244, 80);
             this.lbl_DutyCycle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_DutyCycle.Name = "lbl_DutyCycle";
             this.lbl_DutyCycle.Size = new System.Drawing.Size(13, 13);
@@ -1913,11 +1913,11 @@
             // 
             this.trcBar_DutyCycle.Enabled = false;
             this.trcBar_DutyCycle.LargeChange = 0;
-            this.trcBar_DutyCycle.Location = new System.Drawing.Point(137, 50);
+            this.trcBar_DutyCycle.Location = new System.Drawing.Point(182, 50);
             this.trcBar_DutyCycle.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.trcBar_DutyCycle.Maximum = 100;
             this.trcBar_DutyCycle.Name = "trcBar_DutyCycle";
-            this.trcBar_DutyCycle.Size = new System.Drawing.Size(98, 45);
+            this.trcBar_DutyCycle.Size = new System.Drawing.Size(148, 45);
             this.trcBar_DutyCycle.TabIndex = 19;
             this.trcBar_DutyCycle.TabStop = false;
             this.trcBar_DutyCycle.Scroll += new System.EventHandler(this.trcBar_DutyCycle_Scroll);
@@ -1937,7 +1937,7 @@
             // lbl_SpeedControl
             // 
             this.lbl_SpeedControl.AutoSize = true;
-            this.lbl_SpeedControl.Location = new System.Drawing.Point(44, 82);
+            this.lbl_SpeedControl.Location = new System.Drawing.Point(83, 80);
             this.lbl_SpeedControl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_SpeedControl.Name = "lbl_SpeedControl";
             this.lbl_SpeedControl.Size = new System.Drawing.Size(13, 13);
@@ -1952,7 +1952,7 @@
             this.trcBar_SpeedControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.trcBar_SpeedControl.Maximum = 200;
             this.trcBar_SpeedControl.Name = "trcBar_SpeedControl";
-            this.trcBar_SpeedControl.Size = new System.Drawing.Size(98, 45);
+            this.trcBar_SpeedControl.Size = new System.Drawing.Size(162, 45);
             this.trcBar_SpeedControl.TabIndex = 0;
             this.trcBar_SpeedControl.TabStop = false;
             this.trcBar_SpeedControl.Scroll += new System.EventHandler(this.trcBar_SpeedControl_Scroll);
@@ -1966,26 +1966,26 @@
             // 
             // btn_ResetMCU
             // 
-            this.btn_ResetMCU.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ResetMCU.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_ResetMCU.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ResetMCU.Enabled = false;
             this.btn_ResetMCU.Location = new System.Drawing.Point(265, 22);
             this.btn_ResetMCU.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ResetMCU.Name = "btn_ResetMCU";
-            this.btn_ResetMCU.Size = new System.Drawing.Size(82, 57);
+            this.btn_ResetMCU.Size = new System.Drawing.Size(113, 57);
             this.btn_ResetMCU.TabIndex = 43;
             this.btn_ResetMCU.Text = "Reset MCU";
             this.btn_ResetMCU.UseVisualStyleBackColor = false;
             // 
             // btn_ResetDriver
             // 
-            this.btn_ResetDriver.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ResetDriver.BackColor = System.Drawing.Color.DarkSalmon;
             this.btn_ResetDriver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ResetDriver.Enabled = false;
-            this.btn_ResetDriver.Location = new System.Drawing.Point(266, 101);
+            this.btn_ResetDriver.Location = new System.Drawing.Point(265, 101);
             this.btn_ResetDriver.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ResetDriver.Name = "btn_ResetDriver";
-            this.btn_ResetDriver.Size = new System.Drawing.Size(82, 57);
+            this.btn_ResetDriver.Size = new System.Drawing.Size(113, 57);
             this.btn_ResetDriver.TabIndex = 46;
             this.btn_ResetDriver.Text = "Reset Driver";
             this.btn_ResetDriver.UseVisualStyleBackColor = false;
