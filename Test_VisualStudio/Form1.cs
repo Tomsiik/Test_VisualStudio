@@ -454,13 +454,15 @@ namespace Test_VisualStudio
             speedcontrol[2] = Convert.ToByte(trcBar_DutyCycle.Value);
             speedcontrol[3] = Convert.ToByte(chBox_PWMGenerationOn.Checked);
 
-            serialPort1.Write(speedcontrol, 0, 4);
 
-            prgBar_CommandProgress.Value = 50;
-            CommandState = true;
-            timer_TimeoutCommunication.Enabled = true;
+            if (CustomSerial.Write(this, speedcontrol, 0, 4)){
 
-            Diagnostic.TerminalWithoutMask(this, "Tx", speedcontrol, 4);
+                prgBar_CommandProgress.Value = 50;
+                CommandState = true;
+                timer_TimeoutCommunication.Enabled = true;
+
+                Diagnostic.TerminalWithoutMask(this, "Tx", speedcontrol, 4);
+            }
         }
 
 
@@ -508,29 +510,20 @@ namespace Test_VisualStudio
 
         private void toolStrip_ClosePort_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen)
-            {
+            serialPort1.Close();
+            toolStrip_ClosePort.Enabled = false;
+            toolStrip_OpenPort.Enabled = true;
 
-                serialPort1.Close();
-                toolStrip_ClosePort.Enabled = false;
-                toolStrip_OpenPort.Enabled = true;
+            btn_WriteConfig.Enabled = false;
+            btn_ReadConfig.Enabled = false;
+            btn_ReadDiag.Enabled = false;
+            rBtn_SingleMode.Enabled = false;
+            rBtn_AutoWriteMode.Enabled = false;
+            trcBar_DutyCycle.Enabled = false;
+            trcBar_SpeedControl.Enabled = false;
+            chBox_PWMGenerationOn.Enabled = false;
+            toolStripStatusLabel1.Text = "Port Disconnected";
 
-                btn_WriteConfig.Enabled = false;
-                btn_ReadConfig.Enabled = false;
-                btn_ReadDiag.Enabled = false;
-                rBtn_SingleMode.Enabled = false;
-                rBtn_AutoWriteMode.Enabled = false;
-                trcBar_DutyCycle.Enabled = false;
-                trcBar_SpeedControl.Enabled = false;
-                chBox_PWMGenerationOn.Enabled = false;
-                toolStripStatusLabel1.Text = "Port Disconnected";
-            }
-            else
-            {
-                toolStrip_ClosePort.Enabled = true;
-                toolStrip_OpenPort.Enabled = false;
-                toolStripStatusLabel1.Text = "Port Connected";
-            }
         }
 
         private void toolStrip_RefreshPorts_Click(object sender, EventArgs e)
@@ -700,12 +693,14 @@ namespace Test_VisualStudio
             regs[14] = (byte)run;
             regs[13] = (byte)(run >> 8);
 
-            serialPort1.Write(regs, 0, 15);
-            prgBar_CommandProgress.Value = 50;
-            CommandState = true;
-            timer_TimeoutCommunication.Enabled = true;
 
-            Diagnostic.Terminal(this,"Tx", regs, 15);
+            if (CustomSerial.Write(this, regs, 0, 15))
+            {
+                prgBar_CommandProgress.Value = 50;
+                CommandState = true;
+                timer_TimeoutCommunication.Enabled = true;
+                Diagnostic.Terminal(this, "Tx", regs, 15);
+            }
           
         }
 
@@ -713,13 +708,15 @@ namespace Test_VisualStudio
         private void btn_ReadConfig_Click(object sender, EventArgs e)
         {
 
-            serialPort1.Write("R");
-            prgBar_CommandProgress.Value = 50;
-            CommandState = true;
-            timer_TimeoutCommunication.Enabled = true;
+            if (CustomSerial.Write(this, "R"))
+            {
+                //serialPort1.Write("R");
+                prgBar_CommandProgress.Value = 50;
+                CommandState = true;
+                timer_TimeoutCommunication.Enabled = true;
 
-            Diagnostic.Terminal(this,"Tx", 'R');
-
+                Diagnostic.Terminal(this, "Tx", 'R');
+            }
 
         }
 
@@ -728,12 +725,13 @@ namespace Test_VisualStudio
         {
             // byte[] command = new byte[1];
             //command[0] = Convert.ToByte('D');
-
-            serialPort1.Write("D");
-            prgBar_CommandProgress.Value = 50;
-            CommandState = true;
-            timer_TimeoutCommunication.Enabled = true;
-            Diagnostic.Terminal(this, "Tx", 'D');
+            if (CustomSerial.Write(this, "W"))
+            {
+                prgBar_CommandProgress.Value = 50;
+                CommandState = true;
+                timer_TimeoutCommunication.Enabled = true;
+                Diagnostic.Terminal(this, "Tx", 'D');
+            }
         }
 
         /*třída State nese proměnné pro komunikaci s nadřazenými třídami, které ovládají komunikaci
@@ -1503,11 +1501,47 @@ namespace Test_VisualStudio
 
 
         }
-       
 
+        /**********************************************************************************Custom Serial Operations****************************************************************************************/
 
+        public static class CustomSerial
+        {
+            public static bool Write(Form1 frm, byte[] buffer, int offset, int count)
+            {
+                try
+                {
+                    frm.serialPort1.Write(buffer, offset, count);
+                    return true;
+                }
 
+                catch
+                {
+                    MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
 
+                public static bool Write(Form1 frm, string buffer)
+                {
+                    try
+                    {   
+                        frm.serialPort1.Write(buffer);
+                        return true;
+                    }
 
+                    catch
+                    {
+                        MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+               }
+
+     
+        }
+
+            private void btn_ResetConfiguration_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
