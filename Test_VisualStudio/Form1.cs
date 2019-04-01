@@ -1543,5 +1543,28 @@ namespace Test_VisualStudio
         {
 
         }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer_RegTextBox_Update_Tick(object sender, EventArgs e)
+        {
+            txt_C0_W.Text = "0x" + UserControls.PullData.Config0(this).ToString("X");
+            txt_C1_W.Text = "0x" + UserControls.PullData.Config1(this).ToString("X");
+            txt_C2_W.Text = "0x" + UserControls.PullData.Config2(this).ToString("X");
+            txt_C3_W.Text = "0x" + UserControls.PullData.Config3(this).ToString("X");
+            txt_C4_W.Text = "0x" + UserControls.PullData.Config4(this).ToString("X");
+            txt_C5_W.Text = "0x" + UserControls.PullData.Config5(this).ToString("X");
+            txt_RUN_W.Text = "0x" + UserControls.PullData.Run(this).ToString("X");
+
+
+        }
+
+        private void txt_C0_W_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

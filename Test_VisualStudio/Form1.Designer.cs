@@ -131,15 +131,14 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.prgBar_CommandProgress = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label33 = new System.Windows.Forms.Label();
             this.timer_TimeoutCommunication = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
             this.btn_ResetConfiguration = new System.Windows.Forms.Button();
             this.btn_ReadConfiguration = new System.Windows.Forms.Button();
-            this.btn_SetPreset = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_Diag_VS = new System.Windows.Forms.Label();
             this.lbl_Diag_CL = new System.Windows.Forms.Label();
@@ -157,6 +156,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btn_ClearDiagTextBox = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.btn_ResetDriver = new System.Windows.Forms.Button();
+            this.btn_ResetMCU = new System.Windows.Forms.Button();
             this.btn_ReadDiag = new System.Windows.Forms.Button();
             this.rBtn_AutoWriteMode = new System.Windows.Forms.RadioButton();
             this.rBtn_SingleMode = new System.Windows.Forms.RadioButton();
@@ -173,8 +174,24 @@
             this.lbl_SpeedControl = new System.Windows.Forms.Label();
             this.trcBar_SpeedControl = new System.Windows.Forms.TrackBar();
             this.timing_PwmGenControl = new System.Windows.Forms.Timer(this.components);
-            this.btn_ResetMCU = new System.Windows.Forms.Button();
-            this.btn_ResetDriver = new System.Windows.Forms.Button();
+            this.txt_C0_W = new System.Windows.Forms.TextBox();
+            this.timer_RegTextBox_Update = new System.Windows.Forms.Timer(this.components);
+            this.txt_C0_R = new System.Windows.Forms.TextBox();
+            this.txt_C1_W = new System.Windows.Forms.TextBox();
+            this.txt_C2_W = new System.Windows.Forms.TextBox();
+            this.txt_C3_W = new System.Windows.Forms.TextBox();
+            this.txt_C4_W = new System.Windows.Forms.TextBox();
+            this.txt_C5_W = new System.Windows.Forms.TextBox();
+            this.txt_RUN_W = new System.Windows.Forms.TextBox();
+            this.txt_C1_R = new System.Windows.Forms.TextBox();
+            this.txt_C2_R = new System.Windows.Forms.TextBox();
+            this.txt_C3_R = new System.Windows.Forms.TextBox();
+            this.txt_C4_R = new System.Windows.Forms.TextBox();
+            this.txt_C5_R = new System.Windows.Forms.TextBox();
+            this.txt_RUN_R = new System.Windows.Forms.TextBox();
+            this.lbl_Compare = new System.Windows.Forms.Label();
+            this.lbl_Write = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1493,13 +1510,6 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(22, 17);
             this.toolStripStatusLabel3.Text = "---";
             // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Margin = new System.Windows.Forms.Padding(750, 3, 0, 2);
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(92, 17);
-            this.toolStripStatusLabel4.Text = "Preset Is Not Set";
-            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(750, 3, 0, 2);
@@ -1514,6 +1524,13 @@
             this.prgBar_CommandProgress.Name = "prgBar_CommandProgress";
             this.prgBar_CommandProgress.Size = new System.Drawing.Size(100, 16);
             this.prgBar_CommandProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Margin = new System.Windows.Forms.Padding(750, 3, 0, 2);
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(92, 15);
+            this.toolStripStatusLabel4.Text = "Preset Is Not Set";
             // 
             // label33
             // 
@@ -1535,12 +1552,11 @@
             this.gpBox_ConInteraction.BackColor = System.Drawing.SystemColors.Control;
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
-            this.gpBox_ConInteraction.Controls.Add(this.btn_SetPreset);
-            this.gpBox_ConInteraction.Location = new System.Drawing.Point(865, 451);
+            this.gpBox_ConInteraction.Location = new System.Drawing.Point(859, 451);
             this.gpBox_ConInteraction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpBox_ConInteraction.Name = "gpBox_ConInteraction";
             this.gpBox_ConInteraction.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gpBox_ConInteraction.Size = new System.Drawing.Size(156, 134);
+            this.gpBox_ConInteraction.Size = new System.Drawing.Size(189, 134);
             this.gpBox_ConInteraction.TabIndex = 37;
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
@@ -1551,7 +1567,7 @@
             this.btn_ResetConfiguration.Location = new System.Drawing.Point(8, 88);
             this.btn_ResetConfiguration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ResetConfiguration.Name = "btn_ResetConfiguration";
-            this.btn_ResetConfiguration.Size = new System.Drawing.Size(136, 25);
+            this.btn_ResetConfiguration.Size = new System.Drawing.Size(169, 25);
             this.btn_ResetConfiguration.TabIndex = 40;
             this.btn_ResetConfiguration.Text = "Reset ";
             this.btn_ResetConfiguration.UseVisualStyleBackColor = true;
@@ -1560,24 +1576,13 @@
             // btn_ReadConfiguration
             // 
             this.btn_ReadConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 54);
+            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 29);
             this.btn_ReadConfiguration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
-            this.btn_ReadConfiguration.Size = new System.Drawing.Size(136, 25);
+            this.btn_ReadConfiguration.Size = new System.Drawing.Size(169, 25);
             this.btn_ReadConfiguration.TabIndex = 39;
-            this.btn_ReadConfiguration.Text = "Read Configuration to Preset";
+            this.btn_ReadConfiguration.Text = "Readed Config to Controls";
             this.btn_ReadConfiguration.UseVisualStyleBackColor = true;
-            // 
-            // btn_SetPreset
-            // 
-            this.btn_SetPreset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SetPreset.Location = new System.Drawing.Point(8, 22);
-            this.btn_SetPreset.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_SetPreset.Name = "btn_SetPreset";
-            this.btn_SetPreset.Size = new System.Drawing.Size(136, 25);
-            this.btn_SetPreset.TabIndex = 38;
-            this.btn_SetPreset.Text = "Set Preset / Reset Preset";
-            this.btn_SetPreset.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1602,7 +1607,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(541, 310);
+            this.groupBox1.Size = new System.Drawing.Size(518, 310);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
@@ -1742,7 +1747,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(6, 43);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(519, 190);
+            this.richTextBox1.Size = new System.Drawing.Size(509, 190);
             this.richTextBox1.TabIndex = 38;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
@@ -1750,7 +1755,7 @@
             // btn_ClearDiagTextBox
             // 
             this.btn_ClearDiagTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(496, 16);
+            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(477, 16);
             this.btn_ClearDiagTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ClearDiagTextBox.Name = "btn_ClearDiagTextBox";
             this.btn_ClearDiagTextBox.Size = new System.Drawing.Size(29, 20);
@@ -1769,7 +1774,7 @@
             this.groupBox13.Controls.Add(this.rBtn_SingleMode);
             this.groupBox13.Controls.Add(this.btn_ReadConfig);
             this.groupBox13.Controls.Add(this.btn_WriteConfig);
-            this.groupBox13.Location = new System.Drawing.Point(643, 741);
+            this.groupBox13.Location = new System.Drawing.Point(649, 741);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1777,6 +1782,32 @@
             this.groupBox13.TabIndex = 39;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
+            // 
+            // btn_ResetDriver
+            // 
+            this.btn_ResetDriver.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_ResetDriver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ResetDriver.Enabled = false;
+            this.btn_ResetDriver.Location = new System.Drawing.Point(265, 101);
+            this.btn_ResetDriver.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_ResetDriver.Name = "btn_ResetDriver";
+            this.btn_ResetDriver.Size = new System.Drawing.Size(113, 57);
+            this.btn_ResetDriver.TabIndex = 46;
+            this.btn_ResetDriver.Text = "Reset Driver";
+            this.btn_ResetDriver.UseVisualStyleBackColor = false;
+            // 
+            // btn_ResetMCU
+            // 
+            this.btn_ResetMCU.BackColor = System.Drawing.Color.DarkSalmon;
+            this.btn_ResetMCU.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ResetMCU.Enabled = false;
+            this.btn_ResetMCU.Location = new System.Drawing.Point(265, 22);
+            this.btn_ResetMCU.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_ResetMCU.Name = "btn_ResetMCU";
+            this.btn_ResetMCU.Size = new System.Drawing.Size(113, 57);
+            this.btn_ResetMCU.TabIndex = 43;
+            this.btn_ResetMCU.Text = "Reset MCU";
+            this.btn_ResetMCU.UseVisualStyleBackColor = false;
             // 
             // btn_ReadDiag
             // 
@@ -1867,7 +1898,7 @@
             this.groupBox14.Controls.Add(this.label34);
             this.groupBox14.Controls.Add(this.lbl_SpeedControl);
             this.groupBox14.Controls.Add(this.trcBar_SpeedControl);
-            this.groupBox14.Location = new System.Drawing.Point(643, 626);
+            this.groupBox14.Location = new System.Drawing.Point(649, 626);
             this.groupBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1964,37 +1995,194 @@
             this.timing_PwmGenControl.Interval = 150;
             this.timing_PwmGenControl.Tick += new System.EventHandler(this.timing_PwmGenControl_Tick);
             // 
-            // btn_ResetMCU
+            // txt_C0_W
             // 
-            this.btn_ResetMCU.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_ResetMCU.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ResetMCU.Enabled = false;
-            this.btn_ResetMCU.Location = new System.Drawing.Point(265, 22);
-            this.btn_ResetMCU.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_ResetMCU.Name = "btn_ResetMCU";
-            this.btn_ResetMCU.Size = new System.Drawing.Size(113, 57);
-            this.btn_ResetMCU.TabIndex = 43;
-            this.btn_ResetMCU.Text = "Reset MCU";
-            this.btn_ResetMCU.UseVisualStyleBackColor = false;
+            this.txt_C0_W.AllowDrop = true;
+            this.txt_C0_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C0_W.Location = new System.Drawing.Point(561, 743);
+            this.txt_C0_W.Name = "txt_C0_W";
+            this.txt_C0_W.ReadOnly = true;
+            this.txt_C0_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C0_W.TabIndex = 42;
+            this.txt_C0_W.TextChanged += new System.EventHandler(this.txt_C0_W_TextChanged);
             // 
-            // btn_ResetDriver
+            // timer_RegTextBox_Update
             // 
-            this.btn_ResetDriver.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_ResetDriver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ResetDriver.Enabled = false;
-            this.btn_ResetDriver.Location = new System.Drawing.Point(265, 101);
-            this.btn_ResetDriver.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_ResetDriver.Name = "btn_ResetDriver";
-            this.btn_ResetDriver.Size = new System.Drawing.Size(113, 57);
-            this.btn_ResetDriver.TabIndex = 46;
-            this.btn_ResetDriver.Text = "Reset Driver";
-            this.btn_ResetDriver.UseVisualStyleBackColor = false;
+            this.timer_RegTextBox_Update.Enabled = true;
+            this.timer_RegTextBox_Update.Tick += new System.EventHandler(this.timer_RegTextBox_Update_Tick);
+            // 
+            // txt_C0_R
+            // 
+            this.txt_C0_R.AllowDrop = true;
+            this.txt_C0_R.Location = new System.Drawing.Point(605, 743);
+            this.txt_C0_R.Name = "txt_C0_R";
+            this.txt_C0_R.ReadOnly = true;
+            this.txt_C0_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C0_R.TabIndex = 43;
+            // 
+            // txt_C1_W
+            // 
+            this.txt_C1_W.AllowDrop = true;
+            this.txt_C1_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C1_W.Location = new System.Drawing.Point(561, 769);
+            this.txt_C1_W.Name = "txt_C1_W";
+            this.txt_C1_W.ReadOnly = true;
+            this.txt_C1_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C1_W.TabIndex = 44;
+            // 
+            // txt_C2_W
+            // 
+            this.txt_C2_W.AllowDrop = true;
+            this.txt_C2_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C2_W.Location = new System.Drawing.Point(561, 795);
+            this.txt_C2_W.Name = "txt_C2_W";
+            this.txt_C2_W.ReadOnly = true;
+            this.txt_C2_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C2_W.TabIndex = 45;
+            // 
+            // txt_C3_W
+            // 
+            this.txt_C3_W.AllowDrop = true;
+            this.txt_C3_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C3_W.Location = new System.Drawing.Point(561, 821);
+            this.txt_C3_W.Name = "txt_C3_W";
+            this.txt_C3_W.ReadOnly = true;
+            this.txt_C3_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C3_W.TabIndex = 46;
+            // 
+            // txt_C4_W
+            // 
+            this.txt_C4_W.AllowDrop = true;
+            this.txt_C4_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C4_W.Location = new System.Drawing.Point(561, 847);
+            this.txt_C4_W.Name = "txt_C4_W";
+            this.txt_C4_W.ReadOnly = true;
+            this.txt_C4_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C4_W.TabIndex = 47;
+            // 
+            // txt_C5_W
+            // 
+            this.txt_C5_W.AllowDrop = true;
+            this.txt_C5_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_C5_W.Location = new System.Drawing.Point(561, 873);
+            this.txt_C5_W.Name = "txt_C5_W";
+            this.txt_C5_W.ReadOnly = true;
+            this.txt_C5_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_C5_W.TabIndex = 48;
+            // 
+            // txt_RUN_W
+            // 
+            this.txt_RUN_W.AllowDrop = true;
+            this.txt_RUN_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txt_RUN_W.Location = new System.Drawing.Point(561, 899);
+            this.txt_RUN_W.Name = "txt_RUN_W";
+            this.txt_RUN_W.ReadOnly = true;
+            this.txt_RUN_W.Size = new System.Drawing.Size(39, 20);
+            this.txt_RUN_W.TabIndex = 49;
+            // 
+            // txt_C1_R
+            // 
+            this.txt_C1_R.AllowDrop = true;
+            this.txt_C1_R.Location = new System.Drawing.Point(605, 769);
+            this.txt_C1_R.Name = "txt_C1_R";
+            this.txt_C1_R.ReadOnly = true;
+            this.txt_C1_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C1_R.TabIndex = 50;
+            // 
+            // txt_C2_R
+            // 
+            this.txt_C2_R.AllowDrop = true;
+            this.txt_C2_R.Location = new System.Drawing.Point(605, 795);
+            this.txt_C2_R.Name = "txt_C2_R";
+            this.txt_C2_R.ReadOnly = true;
+            this.txt_C2_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C2_R.TabIndex = 51;
+            // 
+            // txt_C3_R
+            // 
+            this.txt_C3_R.AllowDrop = true;
+            this.txt_C3_R.Location = new System.Drawing.Point(605, 821);
+            this.txt_C3_R.Name = "txt_C3_R";
+            this.txt_C3_R.ReadOnly = true;
+            this.txt_C3_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C3_R.TabIndex = 52;
+            // 
+            // txt_C4_R
+            // 
+            this.txt_C4_R.AllowDrop = true;
+            this.txt_C4_R.Location = new System.Drawing.Point(605, 847);
+            this.txt_C4_R.Name = "txt_C4_R";
+            this.txt_C4_R.ReadOnly = true;
+            this.txt_C4_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C4_R.TabIndex = 53;
+            // 
+            // txt_C5_R
+            // 
+            this.txt_C5_R.AllowDrop = true;
+            this.txt_C5_R.Location = new System.Drawing.Point(605, 873);
+            this.txt_C5_R.Name = "txt_C5_R";
+            this.txt_C5_R.ReadOnly = true;
+            this.txt_C5_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_C5_R.TabIndex = 54;
+            // 
+            // txt_RUN_R
+            // 
+            this.txt_RUN_R.AllowDrop = true;
+            this.txt_RUN_R.Location = new System.Drawing.Point(605, 899);
+            this.txt_RUN_R.Name = "txt_RUN_R";
+            this.txt_RUN_R.ReadOnly = true;
+            this.txt_RUN_R.Size = new System.Drawing.Size(39, 20);
+            this.txt_RUN_R.TabIndex = 55;
+            // 
+            // lbl_Compare
+            // 
+            this.lbl_Compare.AutoSize = true;
+            this.lbl_Compare.Location = new System.Drawing.Point(576, 708);
+            this.lbl_Compare.Name = "lbl_Compare";
+            this.lbl_Compare.Size = new System.Drawing.Size(52, 13);
+            this.lbl_Compare.TabIndex = 56;
+            this.lbl_Compare.Text = "Compare ";
+            // 
+            // lbl_Write
+            // 
+            this.lbl_Write.AutoSize = true;
+            this.lbl_Write.Location = new System.Drawing.Point(553, 724);
+            this.lbl_Write.Name = "lbl_Write";
+            this.lbl_Write.Size = new System.Drawing.Size(48, 13);
+            this.lbl_Write.TabIndex = 57;
+            this.lbl_Write.Text = "To Write";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(602, 724);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(45, 13);
+            this.label36.TabIndex = 58;
+            this.label36.Text = "Readed";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 961);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.lbl_Write);
+            this.Controls.Add(this.lbl_Compare);
+            this.Controls.Add(this.txt_RUN_R);
+            this.Controls.Add(this.txt_C5_R);
+            this.Controls.Add(this.txt_C4_R);
+            this.Controls.Add(this.txt_C3_R);
+            this.Controls.Add(this.txt_C2_R);
+            this.Controls.Add(this.txt_C1_R);
+            this.Controls.Add(this.txt_RUN_W);
+            this.Controls.Add(this.txt_C5_W);
+            this.Controls.Add(this.txt_C4_W);
+            this.Controls.Add(this.txt_C3_W);
+            this.Controls.Add(this.txt_C2_W);
+            this.Controls.Add(this.txt_C1_W);
+            this.Controls.Add(this.txt_C0_R);
+            this.Controls.Add(this.txt_C0_W);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.gpBox_ConInteraction);
@@ -2167,7 +2355,6 @@
         private System.Windows.Forms.GroupBox gpBox_ConInteraction;
         private System.Windows.Forms.Button btn_ResetConfiguration;
         private System.Windows.Forms.Button btn_ReadConfiguration;
-        private System.Windows.Forms.Button btn_SetPreset;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button btn_ReadDiag;
@@ -2219,6 +2406,24 @@
         private System.Windows.Forms.Label lbl_Diag_VS;
         private System.Windows.Forms.Button btn_ResetDriver;
         private System.Windows.Forms.Button btn_ResetMCU;
+        private System.Windows.Forms.TextBox txt_C0_W;
+        private System.Windows.Forms.Timer timer_RegTextBox_Update;
+        private System.Windows.Forms.TextBox txt_C0_R;
+        private System.Windows.Forms.TextBox txt_C1_W;
+        private System.Windows.Forms.TextBox txt_C2_W;
+        private System.Windows.Forms.TextBox txt_C3_W;
+        private System.Windows.Forms.TextBox txt_C4_W;
+        private System.Windows.Forms.TextBox txt_C5_W;
+        private System.Windows.Forms.TextBox txt_RUN_W;
+        private System.Windows.Forms.TextBox txt_C1_R;
+        private System.Windows.Forms.TextBox txt_C2_R;
+        private System.Windows.Forms.TextBox txt_C3_R;
+        private System.Windows.Forms.TextBox txt_C4_R;
+        private System.Windows.Forms.TextBox txt_C5_R;
+        private System.Windows.Forms.TextBox txt_RUN_R;
+        private System.Windows.Forms.Label lbl_Compare;
+        private System.Windows.Forms.Label lbl_Write;
+        private System.Windows.Forms.Label label36;
     }
 }
 
