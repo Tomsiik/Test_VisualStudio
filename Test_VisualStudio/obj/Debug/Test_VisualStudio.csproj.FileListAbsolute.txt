@@ -58,3 +58,13 @@ d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_Visu
 d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
 d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
 d:\ZAT\Moje\VisualStudio\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe.config
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.exe
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\bin\Debug\Test_VisualStudio.pdb
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csprojAssemblyReference.cache
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Form1.resources
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.Properties.Resources.resources
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.GenerateResource.cache
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.csproj.CoreCompileInputs.cache
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.exe
+C:\Users\matej\Desktop\VS workspace\Test_VisualStudio\Test_VisualStudio\obj\Debug\Test_VisualStudio.pdb

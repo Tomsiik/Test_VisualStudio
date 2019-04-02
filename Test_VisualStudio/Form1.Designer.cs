@@ -133,7 +133,6 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.prgBar_CommandProgress = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label33 = new System.Windows.Forms.Label();
             this.timer_TimeoutCommunication = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
@@ -189,9 +188,9 @@
             this.txt_C4_R = new System.Windows.Forms.TextBox();
             this.txt_C5_R = new System.Windows.Forms.TextBox();
             this.txt_RUN_R = new System.Windows.Forms.TextBox();
-            this.lbl_Compare = new System.Windows.Forms.Label();
             this.lbl_Write = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -227,6 +226,7 @@
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcBar_DutyCycle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcBar_SpeedControl)).BeginInit();
+            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // rBtn_RcModeAuto
@@ -279,7 +279,7 @@
             this.groupBoxC0.Controls.Add(this.label3);
             this.groupBoxC0.Controls.Add(this.groupBox10);
             this.groupBoxC0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBoxC0.Location = new System.Drawing.Point(30, 37);
+            this.groupBoxC0.Location = new System.Drawing.Point(8, 37);
             this.groupBoxC0.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBoxC0.Name = "groupBoxC0";
             this.groupBoxC0.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -534,7 +534,7 @@
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.numUpDown_CurrSenseThr);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(30, 224);
+            this.groupBox3.Location = new System.Drawing.Point(8, 196);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -570,7 +570,7 @@
             this.groupBox4.Controls.Add(this.numUpDown_PropGainPosCon);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox4.Location = new System.Drawing.Point(30, 407);
+            this.groupBox4.Location = new System.Drawing.Point(8, 354);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -765,12 +765,12 @@
             this.groupBox6.Controls.Add(this.numUpDown_PWMDutyHold);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox6.Location = new System.Drawing.Point(409, 37);
+            this.groupBox6.Location = new System.Drawing.Point(374, 37);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox6.Size = new System.Drawing.Size(413, 178);
+            this.groupBox6.Size = new System.Drawing.Size(335, 178);
             this.groupBox6.TabIndex = 28;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Config 3 (Hold)";
@@ -779,7 +779,7 @@
             // 
             this.lbl_Config3.AutoSize = true;
             this.lbl_Config3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config3.Location = new System.Drawing.Point(398, 165);
+            this.lbl_Config3.Location = new System.Drawing.Point(322, 165);
             this.lbl_Config3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config3.Name = "lbl_Config3";
             this.lbl_Config3.Size = new System.Drawing.Size(15, 13);
@@ -904,12 +904,12 @@
             this.groupBox7.Controls.Add(this.numUpDown_PWMDutyCycleStartup);
             this.groupBox7.Controls.Add(this.label23);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox7.Location = new System.Drawing.Point(409, 233);
+            this.groupBox7.Location = new System.Drawing.Point(374, 220);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox7.Size = new System.Drawing.Size(413, 178);
+            this.groupBox7.Size = new System.Drawing.Size(335, 178);
             this.groupBox7.TabIndex = 29;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Config 4 (Start)";
@@ -918,7 +918,7 @@
             // 
             this.lbl_Config4.AutoSize = true;
             this.lbl_Config4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config4.Location = new System.Drawing.Point(399, 165);
+            this.lbl_Config4.Location = new System.Drawing.Point(322, 165);
             this.lbl_Config4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config4.Name = "lbl_Config4";
             this.lbl_Config4.Size = new System.Drawing.Size(15, 13);
@@ -1054,12 +1054,12 @@
             this.groupBox8.Controls.Add(this.numUpDown_MaxSpeedHz);
             this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox8.Location = new System.Drawing.Point(409, 425);
+            this.groupBox8.Location = new System.Drawing.Point(374, 402);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox8.Size = new System.Drawing.Size(414, 177);
+            this.groupBox8.Size = new System.Drawing.Size(398, 177);
             this.groupBox8.TabIndex = 30;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Config 5";
@@ -1068,7 +1068,7 @@
             // 
             this.lbl_Config5.AutoSize = true;
             this.lbl_Config5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config5.Location = new System.Drawing.Point(398, 164);
+            this.lbl_Config5.Location = new System.Drawing.Point(386, 163);
             this.lbl_Config5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config5.Name = "lbl_Config5";
             this.lbl_Config5.Size = new System.Drawing.Size(15, 13);
@@ -1241,11 +1241,11 @@
             this.groupBox11.Controls.Add(this.chBox_EnableStopFail);
             this.groupBox11.Controls.Add(this.groupBox12);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox11.Location = new System.Drawing.Point(846, 37);
+            this.groupBox11.Location = new System.Drawing.Point(713, 37);
             this.groupBox11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox11.Size = new System.Drawing.Size(196, 374);
+            this.groupBox11.Size = new System.Drawing.Size(196, 361);
             this.groupBox11.TabIndex = 31;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Run";
@@ -1254,7 +1254,7 @@
             // 
             this.lbl_ConfigRun.AutoSize = true;
             this.lbl_ConfigRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_ConfigRun.Location = new System.Drawing.Point(181, 361);
+            this.lbl_ConfigRun.Location = new System.Drawing.Point(182, 347);
             this.lbl_ConfigRun.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ConfigRun.Name = "lbl_ConfigRun";
             this.lbl_ConfigRun.Size = new System.Drawing.Size(15, 13);
@@ -1427,6 +1427,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
@@ -1437,7 +1438,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1074, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1412, 27);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1483,16 +1484,16 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel1,
-            this.prgBar_CommandProgress,
-            this.toolStripStatusLabel4});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 939);
+            this.prgBar_CommandProgress});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 709);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(1074, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1412, 22);
             this.statusStrip1.TabIndex = 34;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
@@ -1512,7 +1513,8 @@
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(750, 3, 0, 2);
+            this.toolStripStatusLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(1100, 3, 0, 2);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(104, 17);
             this.toolStripStatusLabel1.Text = "Port Disconnected";
@@ -1520,17 +1522,12 @@
             // prgBar_CommandProgress
             // 
             this.prgBar_CommandProgress.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.prgBar_CommandProgress.AutoToolTip = true;
+            this.prgBar_CommandProgress.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.prgBar_CommandProgress.MarqueeAnimationSpeed = 10;
             this.prgBar_CommandProgress.Name = "prgBar_CommandProgress";
             this.prgBar_CommandProgress.Size = new System.Drawing.Size(100, 16);
             this.prgBar_CommandProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Margin = new System.Windows.Forms.Padding(750, 3, 0, 2);
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(92, 15);
-            this.toolStripStatusLabel4.Text = "Preset Is Not Set";
             // 
             // label33
             // 
@@ -1552,7 +1549,7 @@
             this.gpBox_ConInteraction.BackColor = System.Drawing.SystemColors.Control;
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
-            this.gpBox_ConInteraction.Location = new System.Drawing.Point(859, 451);
+            this.gpBox_ConInteraction.Location = new System.Drawing.Point(786, 415);
             this.gpBox_ConInteraction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpBox_ConInteraction.Name = "gpBox_ConInteraction";
             this.gpBox_ConInteraction.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1583,6 +1580,7 @@
             this.btn_ReadConfiguration.TabIndex = 39;
             this.btn_ReadConfiguration.Text = "Readed Config to Controls";
             this.btn_ReadConfiguration.UseVisualStyleBackColor = true;
+            this.btn_ReadConfiguration.Click += new System.EventHandler(this.btn_ReadConfiguration_Click);
             // 
             // groupBox1
             // 
@@ -1603,11 +1601,11 @@
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Controls.Add(this.btn_ClearDiagTextBox);
             this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Location = new System.Drawing.Point(30, 626);
+            this.groupBox1.Location = new System.Drawing.Point(921, 37);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(518, 310);
+            this.groupBox1.Size = new System.Drawing.Size(485, 310);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
@@ -1747,7 +1745,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(6, 43);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(509, 190);
+            this.richTextBox1.Size = new System.Drawing.Size(469, 190);
             this.richTextBox1.TabIndex = 38;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
@@ -1755,7 +1753,7 @@
             // btn_ClearDiagTextBox
             // 
             this.btn_ClearDiagTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(477, 16);
+            this.btn_ClearDiagTextBox.Location = new System.Drawing.Point(445, 16);
             this.btn_ClearDiagTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ClearDiagTextBox.Name = "btn_ClearDiagTextBox";
             this.btn_ClearDiagTextBox.Size = new System.Drawing.Size(29, 20);
@@ -1774,7 +1772,7 @@
             this.groupBox13.Controls.Add(this.rBtn_SingleMode);
             this.groupBox13.Controls.Add(this.btn_ReadConfig);
             this.groupBox13.Controls.Add(this.btn_WriteConfig);
-            this.groupBox13.Location = new System.Drawing.Point(649, 741);
+            this.groupBox13.Location = new System.Drawing.Point(988, 415);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1898,7 +1896,7 @@
             this.groupBox14.Controls.Add(this.label34);
             this.groupBox14.Controls.Add(this.lbl_SpeedControl);
             this.groupBox14.Controls.Add(this.trcBar_SpeedControl);
-            this.groupBox14.Location = new System.Drawing.Point(649, 626);
+            this.groupBox14.Location = new System.Drawing.Point(110, 588);
             this.groupBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1999,7 +1997,7 @@
             // 
             this.txt_C0_W.AllowDrop = true;
             this.txt_C0_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C0_W.Location = new System.Drawing.Point(561, 743);
+            this.txt_C0_W.Location = new System.Drawing.Point(74, 22);
             this.txt_C0_W.Name = "txt_C0_W";
             this.txt_C0_W.ReadOnly = true;
             this.txt_C0_W.Size = new System.Drawing.Size(39, 20);
@@ -2014,7 +2012,8 @@
             // txt_C0_R
             // 
             this.txt_C0_R.AllowDrop = true;
-            this.txt_C0_R.Location = new System.Drawing.Point(605, 743);
+            this.txt_C0_R.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_C0_R.Location = new System.Drawing.Point(74, 54);
             this.txt_C0_R.Name = "txt_C0_R";
             this.txt_C0_R.ReadOnly = true;
             this.txt_C0_R.Size = new System.Drawing.Size(39, 20);
@@ -2024,7 +2023,7 @@
             // 
             this.txt_C1_W.AllowDrop = true;
             this.txt_C1_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C1_W.Location = new System.Drawing.Point(561, 769);
+            this.txt_C1_W.Location = new System.Drawing.Point(142, 22);
             this.txt_C1_W.Name = "txt_C1_W";
             this.txt_C1_W.ReadOnly = true;
             this.txt_C1_W.Size = new System.Drawing.Size(39, 20);
@@ -2034,7 +2033,7 @@
             // 
             this.txt_C2_W.AllowDrop = true;
             this.txt_C2_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C2_W.Location = new System.Drawing.Point(561, 795);
+            this.txt_C2_W.Location = new System.Drawing.Point(217, 22);
             this.txt_C2_W.Name = "txt_C2_W";
             this.txt_C2_W.ReadOnly = true;
             this.txt_C2_W.Size = new System.Drawing.Size(39, 20);
@@ -2044,7 +2043,7 @@
             // 
             this.txt_C3_W.AllowDrop = true;
             this.txt_C3_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C3_W.Location = new System.Drawing.Point(561, 821);
+            this.txt_C3_W.Location = new System.Drawing.Point(292, 22);
             this.txt_C3_W.Name = "txt_C3_W";
             this.txt_C3_W.ReadOnly = true;
             this.txt_C3_W.Size = new System.Drawing.Size(39, 20);
@@ -2054,7 +2053,7 @@
             // 
             this.txt_C4_W.AllowDrop = true;
             this.txt_C4_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C4_W.Location = new System.Drawing.Point(561, 847);
+            this.txt_C4_W.Location = new System.Drawing.Point(367, 22);
             this.txt_C4_W.Name = "txt_C4_W";
             this.txt_C4_W.ReadOnly = true;
             this.txt_C4_W.Size = new System.Drawing.Size(39, 20);
@@ -2064,7 +2063,7 @@
             // 
             this.txt_C5_W.AllowDrop = true;
             this.txt_C5_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_C5_W.Location = new System.Drawing.Point(561, 873);
+            this.txt_C5_W.Location = new System.Drawing.Point(442, 22);
             this.txt_C5_W.Name = "txt_C5_W";
             this.txt_C5_W.ReadOnly = true;
             this.txt_C5_W.Size = new System.Drawing.Size(39, 20);
@@ -2074,7 +2073,7 @@
             // 
             this.txt_RUN_W.AllowDrop = true;
             this.txt_RUN_W.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_RUN_W.Location = new System.Drawing.Point(561, 899);
+            this.txt_RUN_W.Location = new System.Drawing.Point(517, 22);
             this.txt_RUN_W.Name = "txt_RUN_W";
             this.txt_RUN_W.ReadOnly = true;
             this.txt_RUN_W.Size = new System.Drawing.Size(39, 20);
@@ -2083,7 +2082,7 @@
             // txt_C1_R
             // 
             this.txt_C1_R.AllowDrop = true;
-            this.txt_C1_R.Location = new System.Drawing.Point(605, 769);
+            this.txt_C1_R.Location = new System.Drawing.Point(142, 54);
             this.txt_C1_R.Name = "txt_C1_R";
             this.txt_C1_R.ReadOnly = true;
             this.txt_C1_R.Size = new System.Drawing.Size(39, 20);
@@ -2092,7 +2091,7 @@
             // txt_C2_R
             // 
             this.txt_C2_R.AllowDrop = true;
-            this.txt_C2_R.Location = new System.Drawing.Point(605, 795);
+            this.txt_C2_R.Location = new System.Drawing.Point(218, 54);
             this.txt_C2_R.Name = "txt_C2_R";
             this.txt_C2_R.ReadOnly = true;
             this.txt_C2_R.Size = new System.Drawing.Size(39, 20);
@@ -2101,7 +2100,7 @@
             // txt_C3_R
             // 
             this.txt_C3_R.AllowDrop = true;
-            this.txt_C3_R.Location = new System.Drawing.Point(605, 821);
+            this.txt_C3_R.Location = new System.Drawing.Point(292, 54);
             this.txt_C3_R.Name = "txt_C3_R";
             this.txt_C3_R.ReadOnly = true;
             this.txt_C3_R.Size = new System.Drawing.Size(39, 20);
@@ -2110,7 +2109,7 @@
             // txt_C4_R
             // 
             this.txt_C4_R.AllowDrop = true;
-            this.txt_C4_R.Location = new System.Drawing.Point(605, 847);
+            this.txt_C4_R.Location = new System.Drawing.Point(367, 54);
             this.txt_C4_R.Name = "txt_C4_R";
             this.txt_C4_R.ReadOnly = true;
             this.txt_C4_R.Size = new System.Drawing.Size(39, 20);
@@ -2119,7 +2118,7 @@
             // txt_C5_R
             // 
             this.txt_C5_R.AllowDrop = true;
-            this.txt_C5_R.Location = new System.Drawing.Point(605, 873);
+            this.txt_C5_R.Location = new System.Drawing.Point(442, 54);
             this.txt_C5_R.Name = "txt_C5_R";
             this.txt_C5_R.ReadOnly = true;
             this.txt_C5_R.Size = new System.Drawing.Size(39, 20);
@@ -2128,25 +2127,16 @@
             // txt_RUN_R
             // 
             this.txt_RUN_R.AllowDrop = true;
-            this.txt_RUN_R.Location = new System.Drawing.Point(605, 899);
+            this.txt_RUN_R.Location = new System.Drawing.Point(517, 54);
             this.txt_RUN_R.Name = "txt_RUN_R";
             this.txt_RUN_R.ReadOnly = true;
             this.txt_RUN_R.Size = new System.Drawing.Size(39, 20);
             this.txt_RUN_R.TabIndex = 55;
             // 
-            // lbl_Compare
-            // 
-            this.lbl_Compare.AutoSize = true;
-            this.lbl_Compare.Location = new System.Drawing.Point(576, 708);
-            this.lbl_Compare.Name = "lbl_Compare";
-            this.lbl_Compare.Size = new System.Drawing.Size(52, 13);
-            this.lbl_Compare.TabIndex = 56;
-            this.lbl_Compare.Text = "Compare ";
-            // 
             // lbl_Write
             // 
             this.lbl_Write.AutoSize = true;
-            this.lbl_Write.Location = new System.Drawing.Point(553, 724);
+            this.lbl_Write.Location = new System.Drawing.Point(14, 22);
             this.lbl_Write.Name = "lbl_Write";
             this.lbl_Write.Size = new System.Drawing.Size(48, 13);
             this.lbl_Write.TabIndex = 57;
@@ -2155,34 +2145,47 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(602, 724);
+            this.label36.Location = new System.Drawing.Point(14, 58);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(45, 13);
             this.label36.TabIndex = 58;
             this.label36.Text = "Readed";
             // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.label36);
+            this.groupBox15.Controls.Add(this.lbl_Write);
+            this.groupBox15.Controls.Add(this.txt_RUN_R);
+            this.groupBox15.Controls.Add(this.txt_C5_R);
+            this.groupBox15.Controls.Add(this.txt_C4_R);
+            this.groupBox15.Controls.Add(this.txt_C3_R);
+            this.groupBox15.Controls.Add(this.txt_C2_R);
+            this.groupBox15.Controls.Add(this.txt_C1_R);
+            this.groupBox15.Controls.Add(this.txt_RUN_W);
+            this.groupBox15.Controls.Add(this.txt_C5_W);
+            this.groupBox15.Controls.Add(this.txt_C4_W);
+            this.groupBox15.Controls.Add(this.txt_C3_W);
+            this.groupBox15.Controls.Add(this.txt_C2_W);
+            this.groupBox15.Controls.Add(this.txt_C1_W);
+            this.groupBox15.Controls.Add(this.txt_C0_R);
+            this.groupBox15.Controls.Add(this.txt_C0_W);
+            this.groupBox15.Location = new System.Drawing.Point(610, 596);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox15.Size = new System.Drawing.Size(573, 102);
+            this.groupBox15.TabIndex = 59;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Compare Registers";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 961);
-            this.Controls.Add(this.label36);
-            this.Controls.Add(this.lbl_Write);
-            this.Controls.Add(this.lbl_Compare);
-            this.Controls.Add(this.txt_RUN_R);
-            this.Controls.Add(this.txt_C5_R);
-            this.Controls.Add(this.txt_C4_R);
-            this.Controls.Add(this.txt_C3_R);
-            this.Controls.Add(this.txt_C2_R);
-            this.Controls.Add(this.txt_C1_R);
-            this.Controls.Add(this.txt_RUN_W);
-            this.Controls.Add(this.txt_C5_W);
-            this.Controls.Add(this.txt_C4_W);
-            this.Controls.Add(this.txt_C3_W);
-            this.Controls.Add(this.txt_C2_W);
-            this.Controls.Add(this.txt_C1_W);
-            this.Controls.Add(this.txt_C0_R);
-            this.Controls.Add(this.txt_C0_W);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1412, 731);
+            this.Controls.Add(this.groupBox15);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.gpBox_ConInteraction);
@@ -2195,12 +2198,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBoxC0);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS4963 BLDC Motor Controller - Configurator";
@@ -2256,6 +2257,8 @@
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcBar_DutyCycle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcBar_SpeedControl)).EndInit();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2380,7 +2383,6 @@
         private System.Windows.Forms.Button btn_ClearDiagTextBox;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.RadioButton rBtn_RcModeHigh;
         private System.Windows.Forms.RadioButton rBtn_RcModeAuto;
         private System.Windows.Forms.Label lbl_Config0;
@@ -2421,9 +2423,9 @@
         private System.Windows.Forms.TextBox txt_C4_R;
         private System.Windows.Forms.TextBox txt_C5_R;
         private System.Windows.Forms.TextBox txt_RUN_R;
-        private System.Windows.Forms.Label lbl_Compare;
         private System.Windows.Forms.Label lbl_Write;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.GroupBox groupBox15;
     }
 }
 

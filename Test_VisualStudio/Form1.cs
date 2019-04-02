@@ -19,6 +19,8 @@ namespace Test_VisualStudio
 
         public static byte[] Rxbuffer = new byte[20];
 
+        public static byte[] RxBufferLatch = new byte[20];
+
         public static bool MessageBoxState = false;
 
         public static bool CommandState = false;
@@ -581,14 +583,15 @@ namespace Test_VisualStudio
                     prgBar_CommandProgress.Value = 100;
 
 
-                    UserControls.Modify.Config0(this, Rxbuffer);
-                    UserControls.Modify.Config1(this, Rxbuffer);
-                    UserControls.Modify.Config2(this, Rxbuffer);
-                    UserControls.Modify.Config3(this, Rxbuffer);
-                    UserControls.Modify.Config4(this, Rxbuffer);
-                    UserControls.Modify.Config5(this, Rxbuffer);
-                    UserControls.Modify.Run(this, Rxbuffer);
+                    RxBufferLatch = Rxbuffer;
 
+                    txt_C0_R.Text = "0x" + ((ushort)(((Rxbuffer[1] & 0xF) << 8) | Rxbuffer[2])).ToString("X");
+                    txt_C1_R.Text = "0x" + ((ushort)(((Rxbuffer[3] & 0xF) << 8) | Rxbuffer[4])).ToString("X");
+                    txt_C2_R.Text = "0x" + ((ushort)(((Rxbuffer[5] & 0xF) << 8) | Rxbuffer[6])).ToString("X");
+                    txt_C3_R.Text = "0x" + ((ushort)(((Rxbuffer[7] & 0xF) << 8) | Rxbuffer[8])).ToString("X");
+                    txt_C4_R.Text = "0x" + ((ushort)(((Rxbuffer[9] & 0xF) << 8) | Rxbuffer[10])).ToString("X");
+                    txt_C5_R.Text = "0x" + ((ushort)(((Rxbuffer[11] & 0xF) << 8) | Rxbuffer[12])).ToString("X");
+                    txt_RUN_R.Text = "0x" + ((ushort)(((Rxbuffer[13] & 0xF) << 8) | Rxbuffer[14])).ToString("X");
 
                     CommandState = false;
                     timer_TimeoutCommunication.Enabled = false;
@@ -725,7 +728,7 @@ namespace Test_VisualStudio
         {
             // byte[] command = new byte[1];
             //command[0] = Convert.ToByte('D');
-            if (CustomSerial.Write(this, "W"))
+            if (CustomSerial.Write(this, "D"))
             {
                 prgBar_CommandProgress.Value = 50;
                 CommandState = true;
@@ -1559,12 +1562,88 @@ namespace Test_VisualStudio
             txt_C5_W.Text = "0x" + UserControls.PullData.Config5(this).ToString("X");
             txt_RUN_W.Text = "0x" + UserControls.PullData.Run(this).ToString("X");
 
+            if(txt_C0_W.Text == txt_C0_R.Text)
+            {
+                txt_C0_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C0_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_C1_W.Text == txt_C1_R.Text)
+            {
+                txt_C1_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C1_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_C2_W.Text == txt_C2_R.Text)
+            {
+                txt_C2_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C2_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_C3_W.Text == txt_C3_R.Text)
+            {
+                txt_C3_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C3_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_C4_W.Text == txt_C4_R.Text)
+            {
+                txt_C4_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C4_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_C5_W.Text == txt_C5_R.Text)
+            {
+                txt_C5_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_C5_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
+            if (txt_RUN_W.Text == txt_RUN_R.Text)
+            {
+                txt_RUN_R.BackColor = Color.FromArgb(128, 255, 128);
+            }
+            else
+            {
+                txt_RUN_R.BackColor = Color.FromArgb(255, 128, 128);
+            }
+
 
         }
 
         private void txt_C0_W_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_ReadConfiguration_Click(object sender, EventArgs e)
+        {
+            
+                   UserControls.Modify.Config0(this, RxBufferLatch);
+                   UserControls.Modify.Config1(this, RxBufferLatch);
+                   UserControls.Modify.Config2(this, RxBufferLatch);
+                   UserControls.Modify.Config3(this, RxBufferLatch);
+                   UserControls.Modify.Config4(this, RxBufferLatch);
+                   UserControls.Modify.Config5(this, RxBufferLatch);
+                   UserControls.Modify.Run(this, RxBufferLatch);
+                   
         }
     }
 }
