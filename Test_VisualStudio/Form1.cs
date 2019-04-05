@@ -488,8 +488,6 @@ namespace Test_VisualStudio
                     btn_WriteConfig.Enabled = true;
                     btn_ReadConfig.Enabled = true;
                     btn_ReadDiag.Enabled = true;
-                    rBtn_SingleMode.Enabled = true;
-                    rBtn_AutoWriteMode.Enabled = true;
                     trcBar_DutyCycle.Enabled = true;
                     trcBar_SpeedControl.Enabled = true;
                     chBox_PWMGenerationOn.Enabled = true;
@@ -519,8 +517,6 @@ namespace Test_VisualStudio
             btn_WriteConfig.Enabled = false;
             btn_ReadConfig.Enabled = false;
             btn_ReadDiag.Enabled = false;
-            rBtn_SingleMode.Enabled = false;
-            rBtn_AutoWriteMode.Enabled = false;
             trcBar_DutyCycle.Enabled = false;
             trcBar_SpeedControl.Enabled = false;
             chBox_PWMGenerationOn.Enabled = false;
@@ -994,14 +990,14 @@ namespace Test_VisualStudio
                         frm.numUpDown_BlankTime.Value = regC0_BT * 400;
 
                         frm.numUpDown_DeadTime.Value = regC0_DT * 50;
-                        ChangeLabel.Config0.Read(frm);
+                       
                     }
                     catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli ve formě message boxu
                     {
                         MessageBoxState = true;
                         frm.timer_CommandProgressBar.Enabled = false;
                         frm.timer_TimeoutCommunication.Enabled = false;
-                        MessageBox.Show(frm, "Received incorred data of correct frame." + Environment.NewLine + "Please, check connection with AS4963 controller!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(frm, "Received incorrect data." + Environment.NewLine + "Condition: Dead Time > 100ns" + Environment.NewLine + "Please, check connection with A4963 HW Driver!", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         frm.timer_CommandProgressBar.Enabled = true;
                         MessageBoxState = false;
                     }
@@ -1030,7 +1026,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_CurrSenseThr.Value = regC1_VIL;
                     frm.numUpDown_VdsThr.Value = regC1_VT * 50;
                     frm.lbl_Config1.Visible = true;
-                    ChangeLabel.Config1.Read(frm);
+                    
                 }
 
                 public static void Config2(Form1 frm, byte[] buffer)
@@ -1056,7 +1052,7 @@ namespace Test_VisualStudio
 
                     frm.chBox_DegComp.Checked = Convert.ToBoolean(regC2_DGC);
                     frm.numUpDown_OffTime.Value = regC2_PW;
-                    ChangeLabel.Config2.Read(frm);
+                    
 
                 }
 
@@ -1071,7 +1067,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_InGainPosCon.Value = regC3_CI;
                     frm.numUpDown_PWMDutyHold.Value = regC3_HD;
                     frm.numUpDown_HoldTime.Value = regC3_HT;
-                    ChangeLabel.Config3.Read(frm);
+                   
                 }
 
 
@@ -1085,7 +1081,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_PropGainSpeed.Value = regC4_SP;
                     frm.numUpDown_PWMDutyCycleStartup.Value = regC4_SD;
                     frm.numUpDown_StartSpeed.Value = regC4_SS;
-                    ChangeLabel.Config4.Read(frm);
+                    
 
                 }
 
@@ -1105,7 +1101,7 @@ namespace Test_VisualStudio
                         frm.rBtn_SpeedOutSelCommuFreq.Checked = true;
                     frm.numUpDown_MaxSpeedHz.Value = regC5_SMX;
                     frm.numUpDown_PhaseAdvance.Value = regC5_PA;
-                    ChangeLabel.Config5.Read(frm);
+                    
 
                 }
 
@@ -1136,7 +1132,7 @@ namespace Test_VisualStudio
                     frm.chBox_Brake.Checked = Convert.ToBoolean(regRUN_BRK);
                     frm.chBox_DirectionRotation.Checked = Convert.ToBoolean(regRUN_DIR);
                     frm.chBox_RunEnable.Checked = Convert.ToBoolean(regRUN_RUN);
-                    ChangeLabel.ConfigRun.Read(frm);
+                    
 
                 }
 
@@ -1165,6 +1161,19 @@ namespace Test_VisualStudio
                     frm.lbl_Config0.Text = "W";
                     frm.lbl_Config0.BackColor =  Color.FromArgb(255, 192, 128);
                 }
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config0.Visible = true;
+                    frm.lbl_Config0.Text = "0";
+                    frm.lbl_Config0.BackColor = Color.FromArgb(255, 255, 255);
+                }
+
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config0.Visible = true;
+                    frm.lbl_Config0.Text = "D";
+                    frm.lbl_Config0.BackColor = Color.FromArgb(192, 192, 255);
+                }
 
             }
 
@@ -1183,7 +1192,18 @@ namespace Test_VisualStudio
                     frm.lbl_Config1.Text = "W";
                     frm.lbl_Config1.BackColor = Color.FromArgb(255, 192, 128);
                 }
-
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config1.Visible = true;
+                    frm.lbl_Config1.Text = "0";
+                    frm.lbl_Config1.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config1.Visible = true;
+                    frm.lbl_Config1.Text = "D";
+                    frm.lbl_Config1.BackColor = Color.FromArgb(192, 192, 255);
+                }
             }
 
             public static class Config2
@@ -1201,7 +1221,18 @@ namespace Test_VisualStudio
                     frm.lbl_Config2.Text = "W";
                     frm.lbl_Config2.BackColor = Color.FromArgb(255, 192, 128);
                 }
-
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config2.Visible = true;
+                    frm.lbl_Config2.Text = "0";
+                    frm.lbl_Config2.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config2.Visible = true;
+                    frm.lbl_Config2.Text = "D";
+                    frm.lbl_Config2.BackColor = Color.FromArgb(192, 192, 255);
+                }
             }
 
             public static class Config3
@@ -1219,7 +1250,18 @@ namespace Test_VisualStudio
                     frm.lbl_Config3.Text = "W";
                     frm.lbl_Config3.BackColor = Color.FromArgb(255, 192, 128);
                 }
-
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config3.Visible = true;
+                    frm.lbl_Config3.Text = "0";
+                    frm.lbl_Config3.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config3.Visible = true;
+                    frm.lbl_Config3.Text = "D";
+                    frm.lbl_Config3.BackColor = Color.FromArgb(192, 192, 255);
+                }
             }
 
             public static class Config4
@@ -1237,7 +1279,18 @@ namespace Test_VisualStudio
                     frm.lbl_Config4.Text = "W";
                     frm.lbl_Config4.BackColor = Color.FromArgb(255, 192, 128);
                 }
-
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config4.Visible = true;
+                    frm.lbl_Config4.Text = "0";
+                    frm.lbl_Config4.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config4.Visible = true;
+                    frm.lbl_Config4.Text = "D";
+                    frm.lbl_Config4.BackColor = Color.FromArgb(192, 192, 255);
+                }
             }
 
             public static class Config5
@@ -1254,6 +1307,18 @@ namespace Test_VisualStudio
                     frm.lbl_Config5.Visible = true;
                     frm.lbl_Config5.Text = "W";
                     frm.lbl_Config5.BackColor = Color.FromArgb(255, 192, 128);
+                }
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_Config5.Visible = true;
+                    frm.lbl_Config5.Text = "0";
+                    frm.lbl_Config5.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_Config5.Visible = true;
+                    frm.lbl_Config5.Text = "D";
+                    frm.lbl_Config5.BackColor = Color.FromArgb(192, 192, 255);
                 }
 
             }
@@ -1272,6 +1337,18 @@ namespace Test_VisualStudio
                     frm.lbl_ConfigRun.Visible = true;
                     frm.lbl_ConfigRun.Text = "W";
                     frm.lbl_ConfigRun.BackColor = Color.FromArgb(255, 192, 128);
+                }
+                public static void Reset(Form1 frm)
+                {
+                    frm.lbl_ConfigRun.Visible = true;
+                    frm.lbl_ConfigRun.Text = "0";
+                    frm.lbl_ConfigRun.BackColor = Color.FromArgb(255, 255, 255);
+                }
+                public static void Default(Form1 frm)
+                {
+                    frm.lbl_ConfigRun.Visible = true;
+                    frm.lbl_ConfigRun.Text = "D";
+                    frm.lbl_ConfigRun.BackColor = Color.FromArgb(192, 192, 255);
                 }
 
             }
@@ -1542,16 +1619,9 @@ namespace Test_VisualStudio
      
         }
 
-            private void btn_ResetConfiguration_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label36_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        /**********************************************************************************Compare Registers****************************************************************************************/
         private void timer_RegTextBox_Update_Tick(object sender, EventArgs e)
         {
             txt_C0_W.Text = "0x" + UserControls.PullData.Config0(this).ToString("X");
@@ -1632,18 +1702,69 @@ namespace Test_VisualStudio
         {
 
         }
+        /**********************************************************************************Control Interaction****************************************************************************************/
+
+        private void btn_ResetConfiguration_Click(object sender, EventArgs e)
+        {
+            byte[] dummy = { 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            UserControls.Modify.Config0(this, dummy);
+            UserControls.Modify.Config1(this, dummy);
+            UserControls.Modify.Config2(this, dummy);
+            UserControls.Modify.Config3(this, dummy);
+            UserControls.Modify.Config4(this, dummy);
+            UserControls.Modify.Config5(this, dummy);
+            UserControls.Modify.Run(this, dummy);
+
+            ChangeLabel.Config0.Reset(this);
+            ChangeLabel.Config1.Reset(this);
+            ChangeLabel.Config2.Reset(this);
+            ChangeLabel.Config3.Reset(this);
+            ChangeLabel.Config4.Reset(this);
+            ChangeLabel.Config5.Reset(this);
+            ChangeLabel.ConfigRun.Reset(this);
+
+        }
 
         private void btn_ReadConfiguration_Click(object sender, EventArgs e)
         {
-            
-                   UserControls.Modify.Config0(this, RxBufferLatch);
-                   UserControls.Modify.Config1(this, RxBufferLatch);
-                   UserControls.Modify.Config2(this, RxBufferLatch);
-                   UserControls.Modify.Config3(this, RxBufferLatch);
-                   UserControls.Modify.Config4(this, RxBufferLatch);
-                   UserControls.Modify.Config5(this, RxBufferLatch);
-                   UserControls.Modify.Run(this, RxBufferLatch);
-                   
+
+            UserControls.Modify.Config0(this, RxBufferLatch);
+            UserControls.Modify.Config1(this, RxBufferLatch);
+            UserControls.Modify.Config2(this, RxBufferLatch);
+            UserControls.Modify.Config3(this, RxBufferLatch);
+            UserControls.Modify.Config4(this, RxBufferLatch);
+            UserControls.Modify.Config5(this, RxBufferLatch);
+            UserControls.Modify.Run(this, RxBufferLatch);
+
+            ChangeLabel.Config0.Read(this);
+            ChangeLabel.Config1.Read(this);
+            ChangeLabel.Config2.Read(this);
+            ChangeLabel.Config3.Read(this);
+            ChangeLabel.Config4.Read(this);
+            ChangeLabel.Config5.Read(this);
+            ChangeLabel.ConfigRun.Read(this);
+
+
+        }
+
+        private void btn_DefaultToControls_Click(object sender, EventArgs e)
+        {
+            byte[] dummy = { 0, 2, 20, 3, 223, 7, 147, 7, 82, 7, 115, 7, 120, 0, 9, 0, 0, 0, 0, 0 };
+            UserControls.Modify.Config0(this, dummy);
+            UserControls.Modify.Config1(this, dummy);
+            UserControls.Modify.Config2(this, dummy);
+            UserControls.Modify.Config3(this, dummy);
+            UserControls.Modify.Config4(this, dummy);
+            UserControls.Modify.Config5(this, dummy);
+            UserControls.Modify.Run(this, dummy);
+
+            ChangeLabel.Config0.Default(this);
+            ChangeLabel.Config1.Default(this);
+            ChangeLabel.Config2.Default(this);
+            ChangeLabel.Config3.Default(this);
+            ChangeLabel.Config4.Default(this);
+            ChangeLabel.Config5.Default(this);
+            ChangeLabel.ConfigRun.Default(this);
         }
     }
 }

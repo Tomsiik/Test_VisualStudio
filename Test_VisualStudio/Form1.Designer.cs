@@ -155,11 +155,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btn_ClearDiagTextBox = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.btn_ResetDriver = new System.Windows.Forms.Button();
-            this.btn_ResetMCU = new System.Windows.Forms.Button();
             this.btn_ReadDiag = new System.Windows.Forms.Button();
-            this.rBtn_AutoWriteMode = new System.Windows.Forms.RadioButton();
-            this.rBtn_SingleMode = new System.Windows.Forms.RadioButton();
             this.btn_ReadConfig = new System.Windows.Forms.Button();
             this.btn_WriteConfig = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
@@ -191,6 +187,7 @@
             this.lbl_Write = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.btn_DefaultToControls = new System.Windows.Forms.Button();
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -779,7 +776,7 @@
             // 
             this.lbl_Config3.AutoSize = true;
             this.lbl_Config3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config3.Location = new System.Drawing.Point(322, 165);
+            this.lbl_Config3.Location = new System.Drawing.Point(320, 165);
             this.lbl_Config3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config3.Name = "lbl_Config3";
             this.lbl_Config3.Size = new System.Drawing.Size(15, 13);
@@ -918,7 +915,7 @@
             // 
             this.lbl_Config4.AutoSize = true;
             this.lbl_Config4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config4.Location = new System.Drawing.Point(322, 165);
+            this.lbl_Config4.Location = new System.Drawing.Point(320, 165);
             this.lbl_Config4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config4.Name = "lbl_Config4";
             this.lbl_Config4.Size = new System.Drawing.Size(15, 13);
@@ -1068,7 +1065,7 @@
             // 
             this.lbl_Config5.AutoSize = true;
             this.lbl_Config5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lbl_Config5.Location = new System.Drawing.Point(386, 163);
+            this.lbl_Config5.Location = new System.Drawing.Point(383, 164);
             this.lbl_Config5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Config5.Name = "lbl_Config5";
             this.lbl_Config5.Size = new System.Drawing.Size(15, 13);
@@ -1547,13 +1544,14 @@
             // gpBox_ConInteraction
             // 
             this.gpBox_ConInteraction.BackColor = System.Drawing.SystemColors.Control;
+            this.gpBox_ConInteraction.Controls.Add(this.btn_DefaultToControls);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ResetConfiguration);
             this.gpBox_ConInteraction.Controls.Add(this.btn_ReadConfiguration);
             this.gpBox_ConInteraction.Location = new System.Drawing.Point(786, 415);
             this.gpBox_ConInteraction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpBox_ConInteraction.Name = "gpBox_ConInteraction";
             this.gpBox_ConInteraction.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gpBox_ConInteraction.Size = new System.Drawing.Size(189, 134);
+            this.gpBox_ConInteraction.Size = new System.Drawing.Size(189, 164);
             this.gpBox_ConInteraction.TabIndex = 37;
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
@@ -1561,7 +1559,7 @@
             // btn_ResetConfiguration
             // 
             this.btn_ResetConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ResetConfiguration.Location = new System.Drawing.Point(8, 88);
+            this.btn_ResetConfiguration.Location = new System.Drawing.Point(8, 121);
             this.btn_ResetConfiguration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ResetConfiguration.Name = "btn_ResetConfiguration";
             this.btn_ResetConfiguration.Size = new System.Drawing.Size(169, 25);
@@ -1573,7 +1571,7 @@
             // btn_ReadConfiguration
             // 
             this.btn_ReadConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 29);
+            this.btn_ReadConfiguration.Location = new System.Drawing.Point(8, 30);
             this.btn_ReadConfiguration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ReadConfiguration.Name = "btn_ReadConfiguration";
             this.btn_ReadConfiguration.Size = new System.Drawing.Size(169, 25);
@@ -1605,7 +1603,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(485, 310);
+            this.groupBox1.Size = new System.Drawing.Size(485, 361);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diagnostic";
@@ -1614,7 +1612,7 @@
             // 
             this.lbl_Diag_VS.AutoSize = true;
             this.lbl_Diag_VS.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_VS.Location = new System.Drawing.Point(8, 290);
+            this.lbl_Diag_VS.Location = new System.Drawing.Point(6, 336);
             this.lbl_Diag_VS.Name = "lbl_Diag_VS";
             this.lbl_Diag_VS.Size = new System.Drawing.Size(114, 13);
             this.lbl_Diag_VS.TabIndex = 41;
@@ -1624,7 +1622,7 @@
             // 
             this.lbl_Diag_CL.AutoSize = true;
             this.lbl_Diag_CL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_CL.Location = new System.Drawing.Point(324, 278);
+            this.lbl_Diag_CL.Location = new System.Drawing.Point(322, 324);
             this.lbl_Diag_CL.Name = "lbl_Diag_CL";
             this.lbl_Diag_CL.Size = new System.Drawing.Size(23, 13);
             this.lbl_Diag_CL.TabIndex = 49;
@@ -1634,7 +1632,7 @@
             // 
             this.lbl_Diag_CH.AutoSize = true;
             this.lbl_Diag_CH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_CH.Location = new System.Drawing.Point(300, 278);
+            this.lbl_Diag_CH.Location = new System.Drawing.Point(298, 324);
             this.lbl_Diag_CH.Name = "lbl_Diag_CH";
             this.lbl_Diag_CH.Size = new System.Drawing.Size(25, 13);
             this.lbl_Diag_CH.TabIndex = 48;
@@ -1644,7 +1642,7 @@
             // 
             this.lbl_Diag_BL.AutoSize = true;
             this.lbl_Diag_BL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_BL.Location = new System.Drawing.Point(324, 265);
+            this.lbl_Diag_BL.Location = new System.Drawing.Point(322, 311);
             this.lbl_Diag_BL.Name = "lbl_Diag_BL";
             this.lbl_Diag_BL.Size = new System.Drawing.Size(23, 13);
             this.lbl_Diag_BL.TabIndex = 47;
@@ -1654,7 +1652,7 @@
             // 
             this.lbl_Diag_BH.AutoSize = true;
             this.lbl_Diag_BH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_BH.Location = new System.Drawing.Point(300, 265);
+            this.lbl_Diag_BH.Location = new System.Drawing.Point(298, 311);
             this.lbl_Diag_BH.Name = "lbl_Diag_BH";
             this.lbl_Diag_BH.Size = new System.Drawing.Size(25, 13);
             this.lbl_Diag_BH.TabIndex = 46;
@@ -1664,7 +1662,7 @@
             // 
             this.lbl_Diag_AL.AutoSize = true;
             this.lbl_Diag_AL.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_AL.Location = new System.Drawing.Point(324, 252);
+            this.lbl_Diag_AL.Location = new System.Drawing.Point(322, 298);
             this.lbl_Diag_AL.Name = "lbl_Diag_AL";
             this.lbl_Diag_AL.Size = new System.Drawing.Size(23, 13);
             this.lbl_Diag_AL.TabIndex = 46;
@@ -1674,7 +1672,7 @@
             // 
             this.lbl_Diag_AH.AutoSize = true;
             this.lbl_Diag_AH.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_AH.Location = new System.Drawing.Point(300, 252);
+            this.lbl_Diag_AH.Location = new System.Drawing.Point(298, 298);
             this.lbl_Diag_AH.Name = "lbl_Diag_AH";
             this.lbl_Diag_AH.Size = new System.Drawing.Size(25, 13);
             this.lbl_Diag_AH.TabIndex = 45;
@@ -1684,7 +1682,7 @@
             // 
             this.lbl_Diag_SE.AutoSize = true;
             this.lbl_Diag_SE.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_SE.Location = new System.Drawing.Point(159, 278);
+            this.lbl_Diag_SE.Location = new System.Drawing.Point(157, 324);
             this.lbl_Diag_SE.Name = "lbl_Diag_SE";
             this.lbl_Diag_SE.Size = new System.Drawing.Size(100, 13);
             this.lbl_Diag_SE.TabIndex = 44;
@@ -1694,7 +1692,7 @@
             // 
             this.lbl_Diag_POR.AutoSize = true;
             this.lbl_Diag_POR.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_POR.Location = new System.Drawing.Point(159, 265);
+            this.lbl_Diag_POR.Location = new System.Drawing.Point(157, 311);
             this.lbl_Diag_POR.Name = "lbl_Diag_POR";
             this.lbl_Diag_POR.Size = new System.Drawing.Size(85, 13);
             this.lbl_Diag_POR.TabIndex = 43;
@@ -1704,7 +1702,7 @@
             // 
             this.lbl_Diag_FF.AutoSize = true;
             this.lbl_Diag_FF.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_FF.Location = new System.Drawing.Point(159, 252);
+            this.lbl_Diag_FF.Location = new System.Drawing.Point(157, 298);
             this.lbl_Diag_FF.Name = "lbl_Diag_FF";
             this.lbl_Diag_FF.Size = new System.Drawing.Size(122, 13);
             this.lbl_Diag_FF.TabIndex = 42;
@@ -1714,7 +1712,7 @@
             // 
             this.lbl_Diag_LOS.AutoSize = true;
             this.lbl_Diag_LOS.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_LOS.Location = new System.Drawing.Point(8, 251);
+            this.lbl_Diag_LOS.Location = new System.Drawing.Point(6, 297);
             this.lbl_Diag_LOS.Name = "lbl_Diag_LOS";
             this.lbl_Diag_LOS.Size = new System.Drawing.Size(131, 13);
             this.lbl_Diag_LOS.TabIndex = 41;
@@ -1724,7 +1722,7 @@
             // 
             this.lbl_Diag_OT.AutoSize = true;
             this.lbl_Diag_OT.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_OT.Location = new System.Drawing.Point(8, 264);
+            this.lbl_Diag_OT.Location = new System.Drawing.Point(6, 310);
             this.lbl_Diag_OT.Name = "lbl_Diag_OT";
             this.lbl_Diag_OT.Size = new System.Drawing.Size(137, 13);
             this.lbl_Diag_OT.TabIndex = 40;
@@ -1734,7 +1732,7 @@
             // 
             this.lbl_Diag_TW.AutoSize = true;
             this.lbl_Diag_TW.BackColor = System.Drawing.Color.LightCoral;
-            this.lbl_Diag_TW.Location = new System.Drawing.Point(8, 277);
+            this.lbl_Diag_TW.Location = new System.Drawing.Point(6, 323);
             this.lbl_Diag_TW.Name = "lbl_Diag_TW";
             this.lbl_Diag_TW.Size = new System.Drawing.Size(135, 13);
             this.lbl_Diag_TW.TabIndex = 39;
@@ -1745,7 +1743,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(6, 43);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(469, 190);
+            this.richTextBox1.Size = new System.Drawing.Size(469, 237);
             this.richTextBox1.TabIndex = 38;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
@@ -1765,54 +1763,24 @@
             // groupBox13
             // 
             this.groupBox13.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox13.Controls.Add(this.btn_ResetDriver);
-            this.groupBox13.Controls.Add(this.btn_ResetMCU);
             this.groupBox13.Controls.Add(this.btn_ReadDiag);
-            this.groupBox13.Controls.Add(this.rBtn_AutoWriteMode);
-            this.groupBox13.Controls.Add(this.rBtn_SingleMode);
             this.groupBox13.Controls.Add(this.btn_ReadConfig);
             this.groupBox13.Controls.Add(this.btn_WriteConfig);
             this.groupBox13.Location = new System.Drawing.Point(988, 415);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox13.Size = new System.Drawing.Size(399, 175);
+            this.groupBox13.Size = new System.Drawing.Size(399, 164);
             this.groupBox13.TabIndex = 39;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Commands";
-            // 
-            // btn_ResetDriver
-            // 
-            this.btn_ResetDriver.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_ResetDriver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ResetDriver.Enabled = false;
-            this.btn_ResetDriver.Location = new System.Drawing.Point(265, 101);
-            this.btn_ResetDriver.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_ResetDriver.Name = "btn_ResetDriver";
-            this.btn_ResetDriver.Size = new System.Drawing.Size(113, 57);
-            this.btn_ResetDriver.TabIndex = 46;
-            this.btn_ResetDriver.Text = "Reset Driver";
-            this.btn_ResetDriver.UseVisualStyleBackColor = false;
-            // 
-            // btn_ResetMCU
-            // 
-            this.btn_ResetMCU.BackColor = System.Drawing.Color.DarkSalmon;
-            this.btn_ResetMCU.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ResetMCU.Enabled = false;
-            this.btn_ResetMCU.Location = new System.Drawing.Point(265, 22);
-            this.btn_ResetMCU.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_ResetMCU.Name = "btn_ResetMCU";
-            this.btn_ResetMCU.Size = new System.Drawing.Size(113, 57);
-            this.btn_ResetMCU.TabIndex = 43;
-            this.btn_ResetMCU.Text = "Reset MCU";
-            this.btn_ResetMCU.UseVisualStyleBackColor = false;
             // 
             // btn_ReadDiag
             // 
             this.btn_ReadDiag.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_ReadDiag.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ReadDiag.Enabled = false;
-            this.btn_ReadDiag.Location = new System.Drawing.Point(138, 101);
+            this.btn_ReadDiag.Location = new System.Drawing.Point(268, 60);
             this.btn_ReadDiag.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ReadDiag.Name = "btn_ReadDiag";
             this.btn_ReadDiag.Size = new System.Drawing.Size(113, 56);
@@ -1821,38 +1789,12 @@
             this.btn_ReadDiag.UseVisualStyleBackColor = false;
             this.btn_ReadDiag.Click += new System.EventHandler(this.btn_ReadDiag_Click);
             // 
-            // rBtn_AutoWriteMode
-            // 
-            this.rBtn_AutoWriteMode.AutoSize = true;
-            this.rBtn_AutoWriteMode.Enabled = false;
-            this.rBtn_AutoWriteMode.Location = new System.Drawing.Point(20, 134);
-            this.rBtn_AutoWriteMode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.rBtn_AutoWriteMode.Name = "rBtn_AutoWriteMode";
-            this.rBtn_AutoWriteMode.Size = new System.Drawing.Size(105, 17);
-            this.rBtn_AutoWriteMode.TabIndex = 44;
-            this.rBtn_AutoWriteMode.Text = "Auto Write Mode";
-            this.rBtn_AutoWriteMode.UseVisualStyleBackColor = true;
-            // 
-            // rBtn_SingleMode
-            // 
-            this.rBtn_SingleMode.AutoSize = true;
-            this.rBtn_SingleMode.Checked = true;
-            this.rBtn_SingleMode.Enabled = false;
-            this.rBtn_SingleMode.Location = new System.Drawing.Point(20, 101);
-            this.rBtn_SingleMode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.rBtn_SingleMode.Name = "rBtn_SingleMode";
-            this.rBtn_SingleMode.Size = new System.Drawing.Size(84, 17);
-            this.rBtn_SingleMode.TabIndex = 43;
-            this.rBtn_SingleMode.TabStop = true;
-            this.rBtn_SingleMode.Text = "Single Mode";
-            this.rBtn_SingleMode.UseVisualStyleBackColor = true;
-            // 
             // btn_ReadConfig
             // 
             this.btn_ReadConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_ReadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ReadConfig.Enabled = false;
-            this.btn_ReadConfig.Location = new System.Drawing.Point(138, 22);
+            this.btn_ReadConfig.Location = new System.Drawing.Point(138, 60);
             this.btn_ReadConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_ReadConfig.Name = "btn_ReadConfig";
             this.btn_ReadConfig.Size = new System.Drawing.Size(113, 57);
@@ -1866,7 +1808,7 @@
             this.btn_WriteConfig.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_WriteConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_WriteConfig.Enabled = false;
-            this.btn_WriteConfig.Location = new System.Drawing.Point(8, 22);
+            this.btn_WriteConfig.Location = new System.Drawing.Point(8, 60);
             this.btn_WriteConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_WriteConfig.Name = "btn_WriteConfig";
             this.btn_WriteConfig.Size = new System.Drawing.Size(117, 57);
@@ -1896,7 +1838,7 @@
             this.groupBox14.Controls.Add(this.label34);
             this.groupBox14.Controls.Add(this.lbl_SpeedControl);
             this.groupBox14.Controls.Add(this.trcBar_SpeedControl);
-            this.groupBox14.Location = new System.Drawing.Point(110, 588);
+            this.groupBox14.Location = new System.Drawing.Point(374, 588);
             this.groupBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -2169,14 +2111,26 @@
             this.groupBox15.Controls.Add(this.txt_C1_W);
             this.groupBox15.Controls.Add(this.txt_C0_R);
             this.groupBox15.Controls.Add(this.txt_C0_W);
-            this.groupBox15.Location = new System.Drawing.Point(610, 596);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox15.Location = new System.Drawing.Point(786, 588);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox15.Size = new System.Drawing.Size(573, 102);
             this.groupBox15.TabIndex = 59;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Compare Registers";
+            // 
+            // btn_DefaultToControls
+            // 
+            this.btn_DefaultToControls.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DefaultToControls.Location = new System.Drawing.Point(8, 75);
+            this.btn_DefaultToControls.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_DefaultToControls.Name = "btn_DefaultToControls";
+            this.btn_DefaultToControls.Size = new System.Drawing.Size(169, 25);
+            this.btn_DefaultToControls.TabIndex = 41;
+            this.btn_DefaultToControls.Text = "Default to Controls";
+            this.btn_DefaultToControls.UseVisualStyleBackColor = true;
+            this.btn_DefaultToControls.Click += new System.EventHandler(this.btn_DefaultToControls_Click);
             // 
             // Form1
             // 
@@ -2204,7 +2158,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS4963 BLDC Motor Controller - Configurator";
+            this.Text = "A4963 BLDC Motor Controller - Configurator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxC0.ResumeLayout(false);
             this.groupBoxC0.PerformLayout();
@@ -2252,7 +2206,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcBar_DutyCycle)).EndInit();
@@ -2361,8 +2314,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button btn_ReadDiag;
-        private System.Windows.Forms.RadioButton rBtn_AutoWriteMode;
-        private System.Windows.Forms.RadioButton rBtn_SingleMode;
         private System.Windows.Forms.Button btn_ReadConfig;
         private System.Windows.Forms.Button btn_WriteConfig;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_OpenPort;
@@ -2406,8 +2357,6 @@
         private System.Windows.Forms.Label lbl_Diag_AL;
         private System.Windows.Forms.Label lbl_Diag_AH;
         private System.Windows.Forms.Label lbl_Diag_VS;
-        private System.Windows.Forms.Button btn_ResetDriver;
-        private System.Windows.Forms.Button btn_ResetMCU;
         private System.Windows.Forms.TextBox txt_C0_W;
         private System.Windows.Forms.Timer timer_RegTextBox_Update;
         private System.Windows.Forms.TextBox txt_C0_R;
@@ -2426,6 +2375,7 @@
         private System.Windows.Forms.Label lbl_Write;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Button btn_DefaultToControls;
     }
 }
 
