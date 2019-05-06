@@ -136,6 +136,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.timer_TimeoutCommunication = new System.Windows.Forms.Timer(this.components);
             this.gpBox_ConInteraction = new System.Windows.Forms.GroupBox();
+            this.btn_DefaultToControls = new System.Windows.Forms.Button();
             this.btn_ResetConfiguration = new System.Windows.Forms.Button();
             this.btn_ReadConfiguration = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -187,7 +188,7 @@
             this.lbl_Write = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.btn_DefaultToControls = new System.Windows.Forms.Button();
+            this.timer_RxTimeout = new System.Windows.Forms.Timer(this.components);
             this.groupBoxC0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_BlankTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_DeadTime)).BeginInit();
@@ -1556,6 +1557,18 @@
             this.gpBox_ConInteraction.TabStop = false;
             this.gpBox_ConInteraction.Text = "Control Interaction";
             // 
+            // btn_DefaultToControls
+            // 
+            this.btn_DefaultToControls.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DefaultToControls.Location = new System.Drawing.Point(8, 75);
+            this.btn_DefaultToControls.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_DefaultToControls.Name = "btn_DefaultToControls";
+            this.btn_DefaultToControls.Size = new System.Drawing.Size(169, 25);
+            this.btn_DefaultToControls.TabIndex = 41;
+            this.btn_DefaultToControls.Text = "Default to Controls";
+            this.btn_DefaultToControls.UseVisualStyleBackColor = true;
+            this.btn_DefaultToControls.Click += new System.EventHandler(this.btn_DefaultToControls_Click);
+            // 
             // btn_ResetConfiguration
             // 
             this.btn_ResetConfiguration.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1820,8 +1833,7 @@
             // serialPort1
             // 
             this.serialPort1.BaudRate = 115200;
-            this.serialPort1.ReadTimeout = 100;
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            this.serialPort1.ReadTimeout = 500;
             // 
             // timer_CommandProgressBar
             // 
@@ -2120,17 +2132,10 @@
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Compare Registers";
             // 
-            // btn_DefaultToControls
+            // timer_RxTimeout
             // 
-            this.btn_DefaultToControls.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DefaultToControls.Location = new System.Drawing.Point(8, 75);
-            this.btn_DefaultToControls.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_DefaultToControls.Name = "btn_DefaultToControls";
-            this.btn_DefaultToControls.Size = new System.Drawing.Size(169, 25);
-            this.btn_DefaultToControls.TabIndex = 41;
-            this.btn_DefaultToControls.Text = "Default to Controls";
-            this.btn_DefaultToControls.UseVisualStyleBackColor = true;
-            this.btn_DefaultToControls.Click += new System.EventHandler(this.btn_DefaultToControls_Click);
+            this.timer_RxTimeout.Interval = 700;
+            this.timer_RxTimeout.Tick += new System.EventHandler(this.timer_RxTimeout_Tick);
             // 
             // Form1
             // 
@@ -2376,6 +2381,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.Button btn_DefaultToControls;
+        private System.Windows.Forms.Timer timer_RxTimeout;
     }
 }
 

@@ -49,7 +49,7 @@ namespace Test_VisualStudio
         private void rBtn_RcModeAuto_CheckedChanged(object sender, EventArgs e)
         {
             ChangeLabel.Config0.Write(this);
-        
+
 
         }
 
@@ -447,6 +447,11 @@ namespace Test_VisualStudio
 
         private void timing_PwmGenControl_Tick(object sender, EventArgs e)
         {
+            chBox_PWMGenerationOn.Enabled = false;
+            trcBar_DutyCycle.Enabled = false;
+            trcBar_SpeedControl.Enabled = false;
+     
+            timer_RxTimeout.Enabled = true;
 
             timing_PwmGenControl.Enabled = false;
 
@@ -457,7 +462,8 @@ namespace Test_VisualStudio
             speedcontrol[3] = Convert.ToByte(chBox_PWMGenerationOn.Checked);
 
 
-            if (CustomSerial.Write(this, speedcontrol, 0, 4)){
+            if (CustomSerial.Write(this, speedcontrol, 0, 4))
+            {
 
                 prgBar_CommandProgress.Value = 50;
                 CommandState = true;
@@ -539,20 +545,21 @@ namespace Test_VisualStudio
          */
 
         /*event pro příjem dat seriového portu*/
+        /*
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
 
+
+            RxbytesLen = serialPort1.BytesToRead;
+            if (RxbytesLen < 21)
             {
-                RxbytesLen = serialPort1.BytesToRead;
-                if (RxbytesLen < 21)
-                {
-                    serialPort1.Read(Rxbuffer, 0, RxbytesLen);
-                }
-                this.Invoke(new EventHandler(ReadData));
+                serialPort1.Read(Rxbuffer, 0, RxbytesLen);
             }
+            Invoke(new EventHandler(ReadData));
+
 
         }
-
+        */
 
         private void ReadData(object sender, EventArgs e)
         {
@@ -570,7 +577,7 @@ namespace Test_VisualStudio
                     timer_CommandProgressBar.Enabled = true;
 
                     ChangeLabel.ClearAll(this);
-                    Diagnostic.Terminal(this, "Rx",'W');
+                    Diagnostic.Terminal(this, "Rx", 'W');
 
                 }
 
@@ -599,7 +606,7 @@ namespace Test_VisualStudio
                 else if (Rxbuffer[0] == Convert.ToByte('D') && (RxbytesLen == 3))
                 {
 
-                   
+
                     prgBar_CommandProgress.Value = 100;
                     CommandState = false;
                     timer_TimeoutCommunication.Enabled = false;
@@ -617,7 +624,7 @@ namespace Test_VisualStudio
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
                     Diagnostic.Terminal(this, "Rx", 'P');
-                    
+
 
                 }
                 else //přišli nevalidní data
@@ -637,7 +644,7 @@ namespace Test_VisualStudio
                     timer_CommandProgressBar.Enabled = true;
                     MessageBoxState = false;
 
-                    Diagnostic.TerminalError(this,"Rx" ,Rxbuffer, (byte)RxbytesLen);
+                    Diagnostic.TerminalError(this, "Rx", Rxbuffer, (byte)RxbytesLen);
                 }
             }
         }
@@ -655,7 +662,8 @@ namespace Test_VisualStudio
 
         private void btn_WriteConfig_Click(object sender, EventArgs e)
         {
-
+            btn_WriteConfig.Enabled = false;
+            timer_RxTimeout.Enabled = true;
 
             ushort reg0 = UserControls.PullData.Config0(this);
             ushort reg1 = UserControls.PullData.Config1(this);
@@ -700,12 +708,15 @@ namespace Test_VisualStudio
                 timer_TimeoutCommunication.Enabled = true;
                 Diagnostic.Terminal(this, "Tx", regs, 15);
             }
-          
+
         }
 
 
         private void btn_ReadConfig_Click(object sender, EventArgs e)
         {
+
+            btn_ReadConfig.Enabled = false;
+            timer_RxTimeout.Enabled = true;
 
             if (CustomSerial.Write(this, "R"))
             {
@@ -724,6 +735,10 @@ namespace Test_VisualStudio
         {
             // byte[] command = new byte[1];
             //command[0] = Convert.ToByte('D');
+
+            btn_ReadDiag.Enabled = false;
+            timer_RxTimeout.Enabled = true;
+
             if (CustomSerial.Write(this, "D"))
             {
                 prgBar_CommandProgress.Value = 50;
@@ -767,14 +782,33 @@ namespace Test_VisualStudio
         }
 
 
+        private void timer_RxTimeout_Tick(object sender, EventArgs e)
+        {
+            RxbytesLen = Convert.ToByte(serialPort1.BytesToRead);
+            serialPort1.Read(Rxbuffer, 0, RxbytesLen);
+           
+            timer_RxTimeout.Enabled = false;
+
+            if(RxbytesLen < 21)
+            {
+                Invoke(new EventHandler(ReadData));
+            }
+
+            btn_ReadConfig.Enabled = true;
+            btn_WriteConfig.Enabled = true;
+            btn_ReadDiag.Enabled = true;
+            chBox_PWMGenerationOn.Enabled = true;
+            trcBar_DutyCycle.Enabled = true;
+            trcBar_SpeedControl.Enabled = true;
+            //  btn_SendData.Enabled = true;
+            RxbytesLen = 0;
+        }
+
         /*************************************************************************Diagnostic Terminal****************************************************************************************/
         private void btn_ClearDiagTextBox_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-          
 
-
-          
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -990,7 +1024,7 @@ namespace Test_VisualStudio
                         frm.numUpDown_BlankTime.Value = regC0_BT * 400;
 
                         frm.numUpDown_DeadTime.Value = regC0_DT * 50;
-                       
+
                     }
                     catch  //DeadTime hodnota nesmí být nula, proto je zde ošetření že nula přišla, oznámění uživateli ve formě message boxu
                     {
@@ -1026,7 +1060,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_CurrSenseThr.Value = regC1_VIL;
                     frm.numUpDown_VdsThr.Value = regC1_VT * 50;
                     frm.lbl_Config1.Visible = true;
-                    
+
                 }
 
                 public static void Config2(Form1 frm, byte[] buffer)
@@ -1052,7 +1086,7 @@ namespace Test_VisualStudio
 
                     frm.chBox_DegComp.Checked = Convert.ToBoolean(regC2_DGC);
                     frm.numUpDown_OffTime.Value = regC2_PW;
-                    
+
 
                 }
 
@@ -1067,7 +1101,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_InGainPosCon.Value = regC3_CI;
                     frm.numUpDown_PWMDutyHold.Value = regC3_HD;
                     frm.numUpDown_HoldTime.Value = regC3_HT;
-                   
+
                 }
 
 
@@ -1081,7 +1115,7 @@ namespace Test_VisualStudio
                     frm.numUpDown_PropGainSpeed.Value = regC4_SP;
                     frm.numUpDown_PWMDutyCycleStartup.Value = regC4_SD;
                     frm.numUpDown_StartSpeed.Value = regC4_SS;
-                    
+
 
                 }
 
@@ -1101,7 +1135,7 @@ namespace Test_VisualStudio
                         frm.rBtn_SpeedOutSelCommuFreq.Checked = true;
                     frm.numUpDown_MaxSpeedHz.Value = regC5_SMX;
                     frm.numUpDown_PhaseAdvance.Value = regC5_PA;
-                    
+
 
                 }
 
@@ -1132,7 +1166,7 @@ namespace Test_VisualStudio
                     frm.chBox_Brake.Checked = Convert.ToBoolean(regRUN_BRK);
                     frm.chBox_DirectionRotation.Checked = Convert.ToBoolean(regRUN_DIR);
                     frm.chBox_RunEnable.Checked = Convert.ToBoolean(regRUN_RUN);
-                    
+
 
                 }
 
@@ -1153,13 +1187,13 @@ namespace Test_VisualStudio
                     frm.lbl_Config0.Visible = true;
                     frm.lbl_Config0.Text = "R";
                     frm.lbl_Config0.BackColor = Color.FromArgb(128, 255, 128);
-                 
+
                 }
                 public static void Write(Form1 frm)
                 {
                     frm.lbl_Config0.Visible = true;
                     frm.lbl_Config0.Text = "W";
-                    frm.lbl_Config0.BackColor =  Color.FromArgb(255, 192, 128);
+                    frm.lbl_Config0.BackColor = Color.FromArgb(255, 192, 128);
                 }
                 public static void Reset(Form1 frm)
                 {
@@ -1378,7 +1412,7 @@ namespace Test_VisualStudio
 
                 //maskování bufferu, vždy první 4 bity v celém 16ti bitovém registru
                 //tyto 4 bity AS4963 má neobsazené, a nejsou součástí registru
-                for(byte y = 1; y < lenght; y=(byte)(y+2))
+                for (byte y = 1; y < lenght; y = (byte)(y + 2))
                 {
                     buffer[y] = (byte)(buffer[y] & (~0xF0));
                 }
@@ -1410,10 +1444,10 @@ namespace Test_VisualStudio
                     text = text + "                ";
 
 
-                for (byte y = 1; y <= lenght-1; y++)
+                for (byte y = 1; y <= lenght - 1; y++)
                 {
 
-                    text = text + buffer[y] + " | ";
+                    text = text + buffer[y].ToString("X") + " | ";
                 }
 
                 frm.richTextBox1.SelectedText = text;
@@ -1435,7 +1469,7 @@ namespace Test_VisualStudio
                 }
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
                 frm.richTextBox1.SelectionStart = frm.richTextBox1.TextLength;
-                string text = DateTime.Now.ToString("HH:mm:ss") + "     "  + mode + "     " + "1" + "       " + Convert.ToChar(charr) + "         ";
+                string text = DateTime.Now.ToString("HH:mm:ss") + "     " + mode + "     " + "1" + "       " + Convert.ToChar(charr) + "         ";
                 frm.richTextBox1.SelectedText = text;
                 frm.richTextBox1.AppendText(Environment.NewLine);
                 frm.richTextBox1.ScrollToCaret();
@@ -1462,7 +1496,7 @@ namespace Test_VisualStudio
                 else
                     text = text + "     ";
 
-                text = text + Convert.ToChar(buffer[0]);  ;
+                text = text + Convert.ToChar(buffer[0]); ;
 
                 if (lenght < 10) //dorovnání mezery na základě délka čísla "počet dat"
                     text = text + "        ";
@@ -1471,12 +1505,12 @@ namespace Test_VisualStudio
 
                 text = text + "ER" + "     ";
 
-                
+
 
                 for (byte y = 1; y <= lenght - 1; y++)
                 {
 
-                    text = text + buffer[y] + " | ";
+                    text = text + buffer[y].ToString("X") + " | ";
                 }
 
                 frm.richTextBox1.SelectedText = text;
@@ -1488,7 +1522,7 @@ namespace Test_VisualStudio
             //bez masky
             public static void TerminalWithoutMask(Form1 frm, string mode, byte[] buffer, byte lenght)
             {
-                
+
 
 
                 frm.richTextBox1.Select(frm.richTextBox1.TextLength, frm.richTextBox1.TextLength + 1);
@@ -1520,7 +1554,7 @@ namespace Test_VisualStudio
                 for (byte y = 1; y <= lenght - 1; y++)
                 {
 
-                    text = text + buffer[y] + " | ";
+                    text = text + buffer[y].ToString("X") + " | ";
                 }
 
                 frm.richTextBox1.SelectedText = text;
@@ -1528,7 +1562,7 @@ namespace Test_VisualStudio
                 frm.richTextBox1.ScrollToCaret();
             }
 
-            public static void ChangeLabels(Form1 frm,byte[] buffer)
+            public static void ChangeLabels(Form1 frm, byte[] buffer)
             {
                 ushort diagReg = (ushort)((buffer[1] << 8) | buffer[2]);
 
@@ -1601,26 +1635,26 @@ namespace Test_VisualStudio
                 }
             }
 
-                public static bool Write(Form1 frm, string buffer)
+            public static bool Write(Form1 frm, string buffer)
+            {
+                try
                 {
-                    try
-                    {   
-                        frm.serialPort1.Write(buffer);
-                        return true;
-                    }
+                    frm.serialPort1.Write(buffer);
+                    return true;
+                }
 
-                    catch
-                    {
-                        MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-               }
+                catch
+                {
+                    MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
 
-     
+
         }
 
 
-        
+
         /**********************************************************************************Compare Registers****************************************************************************************/
         private void timer_RegTextBox_Update_Tick(object sender, EventArgs e)
         {
@@ -1632,7 +1666,7 @@ namespace Test_VisualStudio
             txt_C5_W.Text = "0x" + UserControls.PullData.Config5(this).ToString("X");
             txt_RUN_W.Text = "0x" + UserControls.PullData.Run(this).ToString("X");
 
-            if(txt_C0_W.Text == txt_C0_R.Text)
+            if (txt_C0_W.Text == txt_C0_R.Text)
             {
                 txt_C0_R.BackColor = Color.FromArgb(128, 255, 128);
             }
@@ -1766,5 +1800,7 @@ namespace Test_VisualStudio
             ChangeLabel.Config5.Default(this);
             ChangeLabel.ConfigRun.Default(this);
         }
+
+        
     }
 }
