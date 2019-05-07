@@ -15,7 +15,7 @@ namespace Test_VisualStudio
     public partial class Form1 : Form
     {
 
-        public static int RxbytesLen;
+        public static byte RxbytesLen;
 
         public static byte[] Rxbuffer = new byte[20];
 
@@ -24,6 +24,8 @@ namespace Test_VisualStudio
         public static bool MessageBoxState = false;
 
         public static bool CommandState = false;
+
+        public static bool WriteOK = false;
 
         public Form1()
         {
@@ -45,7 +47,7 @@ namespace Test_VisualStudio
         /***********************************************************************Config 0********************************************************************************************/
         /* Eventy ovládacích prvků konfiguračního registr 0
          */
-
+         
         private void rBtn_RcModeAuto_CheckedChanged(object sender, EventArgs e)
         {
             ChangeLabel.Config0.Write(this);
@@ -464,13 +466,13 @@ namespace Test_VisualStudio
 
             if (CustomSerial.Write(this, speedcontrol, 0, 4))
             {
-
                 prgBar_CommandProgress.Value = 50;
                 CommandState = true;
                 timer_TimeoutCommunication.Enabled = true;
 
                 Diagnostic.TerminalWithoutMask(this, "Tx", speedcontrol, 4);
             }
+
         }
 
 
@@ -568,7 +570,7 @@ namespace Test_VisualStudio
                 if (Rxbuffer[0] == Convert.ToByte('W') && RxbytesLen == 1)   //handlery pro příjem odpovědí od HW driveru na základě zvoleného příkazu nebo handler asynchronních zpráv (FAULT, SPD-RPM)
                 {
 
-                    prgBar_CommandProgress.Value = 100;
+                    
 
                     //byte[] WRdiag = Encoding.ASCII.GetBytes(message);
 
@@ -607,7 +609,7 @@ namespace Test_VisualStudio
                 {
 
 
-                    prgBar_CommandProgress.Value = 100;
+                    
                     CommandState = false;
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
@@ -620,7 +622,7 @@ namespace Test_VisualStudio
                 {
 
                     CommandState = false;
-                    prgBar_CommandProgress.Value = 100;
+                    
                     timer_TimeoutCommunication.Enabled = false;
                     timer_CommandProgressBar.Enabled = true;
                     Diagnostic.Terminal(this, "Rx", 'P');
@@ -709,6 +711,7 @@ namespace Test_VisualStudio
                 Diagnostic.Terminal(this, "Tx", regs, 15);
             }
 
+
         }
 
 
@@ -720,6 +723,7 @@ namespace Test_VisualStudio
 
             if (CustomSerial.Write(this, "R"))
             {
+
                 //serialPort1.Write("R");
                 prgBar_CommandProgress.Value = 50;
                 CommandState = true;
@@ -727,6 +731,8 @@ namespace Test_VisualStudio
 
                 Diagnostic.Terminal(this, "Tx", 'R');
             }
+
+
 
         }
 
@@ -741,6 +747,7 @@ namespace Test_VisualStudio
 
             if (CustomSerial.Write(this, "D"))
             {
+                
                 prgBar_CommandProgress.Value = 50;
                 CommandState = true;
                 timer_TimeoutCommunication.Enabled = true;
@@ -784,24 +791,34 @@ namespace Test_VisualStudio
 
         private void timer_RxTimeout_Tick(object sender, EventArgs e)
         {
-            RxbytesLen = Convert.ToByte(serialPort1.BytesToRead);
-            serialPort1.Read(Rxbuffer, 0, RxbytesLen);
-           
             timer_RxTimeout.Enabled = false;
-
-            if(RxbytesLen < 21)
+            // RxbytesLen = Convert.ToByte(serialPort1.BytesToRead);
+            if (WriteOK == true)
             {
-                Invoke(new EventHandler(ReadData));
-            }
+                RxbytesLen = CustomSerial.GetReadBytes(this);
 
-            btn_ReadConfig.Enabled = true;
-            btn_WriteConfig.Enabled = true;
-            btn_ReadDiag.Enabled = true;
-            chBox_PWMGenerationOn.Enabled = true;
-            trcBar_DutyCycle.Enabled = true;
-            trcBar_SpeedControl.Enabled = true;
-            //  btn_SendData.Enabled = true;
-            RxbytesLen = 0;
+                if (RxbytesLen > 0)
+                {
+                    serialPort1.Read(Rxbuffer, 0, RxbytesLen);
+                }
+
+
+                prgBar_CommandProgress.Value = 100;
+
+                if (RxbytesLen < 21)
+                {
+                    Invoke(new EventHandler(ReadData));
+                }
+            }
+                btn_ReadConfig.Enabled = true;
+                btn_WriteConfig.Enabled = true;
+                btn_ReadDiag.Enabled = true;
+                chBox_PWMGenerationOn.Enabled = true;
+                trcBar_DutyCycle.Enabled = true;
+                trcBar_SpeedControl.Enabled = true;
+                //  btn_SendData.Enabled = true;
+                RxbytesLen = 0;
+            
         }
 
         /*************************************************************************Diagnostic Terminal****************************************************************************************/
@@ -1624,12 +1641,15 @@ namespace Test_VisualStudio
             {
                 try
                 {
+                    
                     frm.serialPort1.Write(buffer, offset, count);
+                    WriteOK= true;
                     return true;
                 }
 
                 catch
                 {
+                    WriteOK = false;
                     MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
@@ -1639,14 +1659,33 @@ namespace Test_VisualStudio
             {
                 try
                 {
+                    
                     frm.serialPort1.Write(buffer);
+                    WriteOK = true;
                     return true;
                 }
 
                 catch
                 {
+                    WriteOK = false;
                     MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
+                }
+            }
+
+            public static byte GetReadBytes(Form1 frm)
+            {
+                try
+                {
+                    WriteOK = true;
+                    return Convert.ToByte(frm.serialPort1.BytesToRead);
+                }
+
+                catch
+                {
+                    WriteOK = false;
+                    MessageBox.Show(frm, "Please, refresh Ports and Reconnect it!", "Serial Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
                 }
             }
 
@@ -1799,6 +1838,7 @@ namespace Test_VisualStudio
             ChangeLabel.Config4.Default(this);
             ChangeLabel.Config5.Default(this);
             ChangeLabel.ConfigRun.Default(this);
+            
         }
 
         
